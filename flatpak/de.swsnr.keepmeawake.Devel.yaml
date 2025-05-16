@@ -51,4 +51,5 @@ modules:
       build-args:
         - --share=network
     build-commands:
+      - npm ci
       - just APPID=de.swsnr.keepmeawake.Devel install-flatpak

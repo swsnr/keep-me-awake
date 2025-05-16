@@ -4,9 +4,6 @@ VERSION := `git describe --always`
 default:
     just --list
 
-_npm-ci:
-    npm ci
-
 # Run the typescript compiler.
 compile-tsc:
     npx tsc --build
@@ -24,7 +21,7 @@ compile-blueprint:
 build: compile-tsc compile-blueprint
 
 # Build for flatpak.
-build-flatpak: _npm-ci build
+build-flatpak: build
     install -Dm0644 entrypoint.js build/entrypoint.js
     sed -i -e 's_@PREFIX@_/app/_' -e 's_@GJS@_/usr/bin/gjs_' -e 's/@APPID@/{{APPID}}/' build/entrypoint.js
 
@@ -57,4 +54,5 @@ lint:
     npx prettier --check .
     blueprint-compiler format ui/**/*.blp
 
-test-all: _npm-ci build lint
+test-all: && build lint
+    npm ci
