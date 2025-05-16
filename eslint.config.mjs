@@ -20,6 +20,14 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ["build/"],
+    ignores: [
+      ".flatpak-builddir/",
+      ".flatpak-builder/",
+      ".flatpak-repo/",
+      "build/",
+      "run.js",
+      "entrypoint.js",
+      "node_modules/",
+    ],
   },
 );

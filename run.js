@@ -8,13 +8,5 @@
  * Entrypoint for running in development.
  */
 
-// @ts-check
-
-import { setConsoleLogDomain } from "console";
-
-import { G_LOG_DOMAIN } from "./config.js";
-import { main } from "./main.js";
-
-setConsoleLogDomain(G_LOG_DOMAIN);
-console.info("Running from source");
+import { main } from "./build/js/main.js";
 main(["run.js"].concat(ARGV));

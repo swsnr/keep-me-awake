@@ -4,3 +4,7 @@
 /build/
 
 /.vscode/
+
+/.flatpak-repo/
+/.flatpak-builddir/
+/.flatpak-builder/
