@@ -39,6 +39,13 @@ flatpak-devel-install:
         --install-deps-from=flathub --repo=.flatpak-repo \
         .flatpak-builddir flatpak/de.swsnr.keepmeawake.Devel.yaml
 
+# Build (but not install) regular flatpak
+flatpak-build:
+    flatpak run org.flatpak.Builder --force-clean --sandbox \
+        --install-deps-from=flathub --ccache --user \
+        --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=.flatpak-repo \
+        .flatpak-builddir flatpak/de.swsnr.keepmeawake.yaml
+
 install-flatpak: build-flatpak
     mkdir -p '/app/share/{{APPID}}'
     cp -rT build/js '/app/share/{{APPID}}/js'
@@ -49,10 +56,21 @@ format:
     npx prettier --write .
     blueprint-compiler format ui/**/*.blp --fix
 
-lint:
+lint-flatpak:
+    flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml
+
+lint: && lint-flatpak
     npx eslint .
     npx prettier --check .
     blueprint-compiler format ui/**/*.blp
 
 test-all: && build lint
     npm ci
+
+# Update NPM sources for flatpak.
+flatpak-update-npm-sources:
+    @# flatpak-node-generator says we should remove node_modules, see https://github.com/flatpak/flatpak-builder-tools/blob/master/node/README.md#usage-1
+    rm -rf node_modules
+    flatpak run --command=flatpak-node-generator org.flatpak.Builder \
+        npm package-lock.json \
+        -o flatpak/de.swsnr.keepmeawake.npm-sources.json

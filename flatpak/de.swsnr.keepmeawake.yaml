@@ -1,0 +1,57 @@
+id: de.swsnr.keepmeawake
+runtime: org.gnome.Platform
+runtime-version: "48"
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node22
+command: de.swsnr.keepmeawake
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+build-options:
+  append-path: /usr/lib/sdk/node22/bin
+modules:
+  # Install just and blueprint for compilation
+  - name: just
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/casey/just/releases/download/1.40.0/just-1.40.0-aarch64-unknown-linux-musl.tar.gz
+        sha256: d065d0df1a1f99529869fba8a5b3e0a25c1795b9007099b00dfabe29c7c1f7b6
+        strip-components: 0
+        only-arches:
+          - aarch64
+      - type: archive
+        url: https://github.com/casey/just/releases/download/1.40.0/just-1.40.0-x86_64-unknown-linux-musl.tar.gz
+        sha256: 181b91d0ceebe8a57723fb648ed2ce1a44d849438ce2e658339df4f8db5f1263
+        strip-components: 0
+        only-arches:
+          - x86_64
+    build-commands:
+      - install -D -m755 just /app/bin/just
+    cleanup:
+      - /bin/just
+  - name: blueprint
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
+        tag: "v0.16.0"
+        commit: "04ef0944db56ab01307a29aaa7303df6067cb3c0"
+    cleanup:
+      - "*"
+  - name: keepmeawake
+    buildsystem: simple
+    build-options:
+      env:
+        npm_config_cache: flatpak-node/npm-cache
+    sources:
+      - type: git
+        url: https://codeberg.org/swsnr/keep-me-awake.git
+        commit: "05ff0312f1bbffb60255ce0a88fbd6c518dd1750"
+      - de.swsnr.keepmeawake.npm-sources.json
+    build-commands:
+      - npm ci --offline
+      - just APPID=de.swsnr.keepmeawake install-flatpak
