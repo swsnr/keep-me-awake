@@ -1,17 +1,17 @@
 {
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "target": "ES2022",
     "module": "NodeNext",
     "lib": ["ES2022"],
     "removeComments": false,
-    "outDir": "build",
+    "outDir": "build/js",
+    "rootDir": "src",
     // Do not include any node_modules types in compilation for GNOME Shell code.
     // Any of these types is for the node.js environment, and as such likely
     // inappropriate for compilation in a gjs environment.
     "types": []
   },
-  "files": ["eslint.config.mjs"],
   "include": ["src/**/*.ts"]
 }

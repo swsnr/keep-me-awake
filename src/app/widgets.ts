@@ -4,6 +4,4 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import "@girs/gjs/ambient";
-import "@girs/gjs/dom";
-import "@girs/adw-1";
+export { KMAApplicationWindow } from "./widgets/application-window.js";

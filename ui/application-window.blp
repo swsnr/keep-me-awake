@@ -1,0 +1,22 @@
+// Copyright Sebastian Wiesner <sebastian@swsnr.de>
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+using Gtk 4.0;
+using Adw 1;
+
+template $KMAApplicationWindow: Adw.ApplicationWindow {
+  title: _("Keep Me Awake");
+
+  content: Adw.ToolbarView {
+    top-bar-style: raised;
+
+    [top]
+    Adw.HeaderBar {}
+
+    Adw.StatusPage {
+      vexpand: true;
+      description: _("Hello there");
+    }
+  };
+}
