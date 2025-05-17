@@ -1,8 +1,27 @@
 APPID := "de.swsnr.keepmeawake"
 VERSION := `git describe --always`
 
+xgettext_opts := '--package-name=' + APPID + \
+    ' --foreign-user --copyright-holder "Sebastian Wiesner <sebastian@swsnr.de>"' + \
+    ' --sort-by-file --from-code=UTF-8 --add-comments'
+
 default:
     just --list
+
+# Extract messages from all source files.
+pot:
+    find src -name '*.ts' > po/POTFILES.ts
+    find resources/ -name '*.blp' > po/POTFILES.blp
+    xgettext {{xgettext_opts}} --language=Javascript --keyword=_ --keyword=C_:1c,2 --files-from=po/POTFILES.ts --output=po/de.swsnr.keepmeawake.ts.pot
+    xgettext {{xgettext_opts}} --language=C --keyword=_ --keyword=C_:1c,2 --files-from=po/POTFILES.blp --output=po/de.swsnr.keepmeawake.blp.pot
+    xgettext {{xgettext_opts}} --output=po/de.swsnr.keepmeawake.pot \
+        po/de.swsnr.keepmeawake.ts.pot po/de.swsnr.keepmeawake.blp.pot \
+        de.swsnr.keepmeawake.metainfo.xml de.swsnr.keepmeawake.desktop
+    rm -f po/POTFILES* po/de.swsnr.keepmeawake.ts.pot po/de.swsnr.keepmeawake.blp.pot
+    @# We strip the POT-Creation-Date from the resulting POT because xgettext bumps
+    @# it everytime regardless if anything else changed, and this just generates
+    @# needless diffs.
+    sed -i /POT-Creation-Date/d po/de.swsnr.keepmeawake.pot
 
 # Run the typescript compiler.
 compile-tsc:
@@ -17,8 +36,8 @@ compile-blueprint:
 # Compile translated desktop file.
 compile-desktop-file:
     mkdir -p build
-    @# TODO: msgfmt instead
-    install -m0644 -t build/ de.swsnr.keepmeawake.desktop
+    msgfmt --desktop --template de.swsnr.keepmeawake.desktop -d po \
+        --output build/de.swsnr.keepmeawake.desktop
     @# Patch app ID
     sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
         build/de.swsnr.keepmeawake.desktop
@@ -27,7 +46,8 @@ compile-desktop-file:
 compile-metainfo:
     mkdir -p build/resources-src
     @# TODO: msgfmt instead
-    install -m0644 -t build/ de.swsnr.keepmeawake.metainfo.xml
+    msgfmt --xml --template de.swsnr.keepmeawake.metainfo.xml -d po \
+        --output build/de.swsnr.keepmeawake.metainfo.xml
     @# Patch app ID
     sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
         build/de.swsnr.keepmeawake.metainfo.xml
