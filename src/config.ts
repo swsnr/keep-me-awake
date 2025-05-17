@@ -47,7 +47,7 @@ export const loadAndRegisterResources = () => {
     .get_parent()
     ?.get_parent()
     ?.get_child("resources");
-  for (const resourceName of ["resources.ui.gresource"]) {
+  for (const resourceName of ["resources.generated.gresource"]) {
     const resourceFile = resourcesDirectory?.get_child(resourceName).get_path();
     console.debug("Loading and registering resource", resourceFile);
     if (resourceFile) {

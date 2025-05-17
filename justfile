@@ -11,14 +11,37 @@ compile-tsc:
 
 # Compile blueprint resources
 compile-blueprint:
-    mkdir -p build/ui build/resources
-    blueprint-compiler batch-compile build/ui ui ui/*.blp
-    glib-compile-resources --sourcedir=build/ui \
-        --target build/resources/resources.ui.gresource \
-        ui/resources.ui.gresource.xml
+    mkdir -p build/resources-src/ui build/resources
+    blueprint-compiler batch-compile build/resources-src/ui resources/ui resources/ui/*.blp
+
+# Compile translated desktop file.
+compile-desktop-file:
+    mkdir -p build
+    @# TODO: msgfmt instead
+    install -m0644 -t build/ de.swsnr.keepmeawake.desktop
+    @# Patch app ID
+    sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
+        build/de.swsnr.keepmeawake.desktop
+
+# Compile translated metainfo file.
+compile-metainfo:
+    mkdir -p build/resources-src
+    @# TODO: msgfmt instead
+    install -m0644 -t build/ de.swsnr.keepmeawake.metainfo.xml
+    @# Patch app ID
+    sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
+        build/de.swsnr.keepmeawake.metainfo.xml
+    @# Copy metainfo to resource directory
+    cp -t build/resources-src build/de.swsnr.keepmeawake.metainfo.xml
+
+# Compile binary resource files.
+compile-resources: compile-blueprint compile-metainfo
+    glib-compile-resources --sourcedir=build/resources-src \
+        --target build/resources/resources.generated.gresource \
+        resources/resources.generated.gresource.xml
 
 # Build the application.
-build: compile-tsc compile-blueprint
+build: compile-tsc compile-resources compile-desktop-file
 
 # Build for flatpak.
 build-flatpak: build
@@ -29,7 +52,7 @@ build-flatpak: build
 clean:
     rm -rf build .flatpak-repo .flatpak-builddir
 
-# Run the application
+# Run the application.
 run: build
     gjs -m run.js
 
@@ -47,10 +70,15 @@ flatpak-build:
         .flatpak-builddir flatpak/de.swsnr.keepmeawake.yaml
 
 install-flatpak: build-flatpak
-    mkdir -p '/app/share/{{APPID}}'
-    cp -rT build/js '/app/share/{{APPID}}/js'
-    install -Dm0644 -t '/app/share/{{APPID}}/resources' build/resources/*.gresource
+    @# Install translated appstream metadata and desktop file
+    install -Dm0644 build/de.swsnr.keepmeawake.metainfo.xml '/app/share/metainfo/{{APPID}}.metainfo.xml'
+    install -Dm0644 build/de.swsnr.keepmeawake.desktop '/app/share/applications/{{APPID}}.desktop'
+    @# Install configured entrypoint
     install -Dm0755 build/entrypoint.js '/app/bin/{{APPID}}'
+    @# Install binary resource bundles
+    install -Dm0644 -t '/app/share/{{APPID}}/resources' build/resources/*.gresource
+    @# Copy compiled javascript files
+    cp -rT build/js '/app/share/{{APPID}}/js'
 
 format:
     npx prettier --write .
@@ -58,8 +86,12 @@ format:
 
 lint-flatpak:
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml
+    flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream de.swsnr.keepmeawake.metainfo.xml
 
-lint: && lint-flatpak
+lint-data:
+    appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml
+
+lint: && lint-data lint-flatpak
     npx eslint .
     npx prettier --check .
     blueprint-compiler format ui/**/*.blp

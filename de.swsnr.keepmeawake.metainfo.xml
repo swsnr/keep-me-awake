@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop-application">
+    <id>de.swsnr.keepmeawake</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <name>Keep Me Awake</name>
+    <summary>Keep your desktop awake</summary>
+    <description>
+        <p>Inhibit lock screen and suspend of your desktop system, via the main user interface or via global shortcuts.</p>
+    </description>
+    <categories>
+        <category>Utility</category>
+    </categories>
+    <keywords>
+        <keyword>Suspend</keyword>
+        <keyword>Inhibit</keyword>
+        <keyword>Idle</keyword>
+    </keywords>
+    <url type="homepage">https://codeberg.org/swsnr/keep-me-awake</url>
+    <url type="bugtracker">https://codeberg.org/swsnr/keep-me-awake/issues</url>
+    <!-- TODO: translate link -->
+    <url type="contact">https://swsnr.de/</url>
+    <url type="vcs-browser">https://codeberg.org/swsnr/keep-me-awake</url>
+    <launchable type="desktop-id">de.swsnr.keepmeawake.desktop</launchable>
+    <releases>
+        <!-- TODO: Release information -->
+    </releases>
+    <project_license>MPL-2.0</project_license>
+    <developer id="de.swsnr">
+        <name translate="no">Sebastian Wiesner</name>
+    </developer>
+    <!-- TOOD: screenshots -->
+    <translation type="gettext">de.swsnr.keepmeawake</translation>
+    <content_rating type="oars-1.1" />
+    <!-- TODO: Brand colors in branding -->
+    <!-- TODO: Check display sizes -->
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
+    <recommends>
+        <display_length compare="ge">480</display_length>
+    </recommends>
+    <supports>
+        <control>keyboard</control>
+        <control>pointing</control>
+        <control>touch</control>
+    </supports>
+</component>

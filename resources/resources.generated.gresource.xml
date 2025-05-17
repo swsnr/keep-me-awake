@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <!-- Resource definitions for generated resource files -->
+    <gresource prefix="/de/swsnr/keepmeawake">
+        <!-- UI files compiled with blueprint -->
+        <file compressed="true" preprocess="xml-stripblanks">ui/application-window.ui</file>
+    </gresource>
+</gresources>
