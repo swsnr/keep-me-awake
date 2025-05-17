@@ -39,6 +39,9 @@ compile-resources: compile-blueprint compile-metainfo
     glib-compile-resources --sourcedir=build/resources-src \
         --target build/resources/resources.generated.gresource \
         resources/resources.generated.gresource.xml
+    glib-compile-resources --sourcedir=resources \
+        --target build/resources/resources.data.gresource \
+        resources/resources.data.gresource.xml
 
 # Build the application.
 build: compile-tsc compile-resources compile-desktop-file

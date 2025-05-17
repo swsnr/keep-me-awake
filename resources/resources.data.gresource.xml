@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <!-- Resource definitions for static resources. -->
+    <gresource prefix="/de/swsnr/keepmeawake/">
+        <!-- Icons -->
+        <file preprocess="xml-stripblanks">icons/scalable/actions/menu-large-symbolic.svg</file>
+        <!-- Other app icons for about dialog -->
+        <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.turnon.svg</file>
+        <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.pictureoftheday.svg</file>
+    </gresource>
+</gresources>

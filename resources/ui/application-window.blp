@@ -12,11 +12,27 @@ template $KMAApplicationWindow: Adw.ApplicationWindow {
     top-bar-style: raised;
 
     [top]
-    Adw.HeaderBar {}
+    Adw.HeaderBar {
+      [end]
+      MenuButton button_menu {
+        menu-model: main_menu;
+        icon-name: 'menu-large-symbolic';
+        primary: true;
+      }
+    }
 
     Adw.StatusPage {
       vexpand: true;
       description: _("Hello there");
     }
   };
+}
+
+menu main_menu {
+  section {
+    item {
+      label: C_("application-window.menu.label", "_About Turn On");
+      action: "app.about";
+    }
+  }
 }

@@ -8,6 +8,8 @@ import GObject from "gi://GObject?version=2.0";
 import Gtk from "gi://Gtk?version=4.0";
 import Adw from "gi://Adw?version=1";
 
+import { gettext as _, pgettext as C_ } from "gettext";
+
 import * as config from "./config.js";
 
 export const KMAApplication = GObject.registerClass(
@@ -15,6 +17,13 @@ export const KMAApplication = GObject.registerClass(
     GTypeName: "KMAApplication",
   },
   class extends Adw.Application {
+    constructor() {
+      super({
+        application_id: config.APPID,
+        resource_base_path: "/de/swsnr/keepmeawake",
+      });
+    }
+
     override vfunc_startup(): void {
       super.vfunc_startup();
       console.info(
@@ -25,6 +34,69 @@ export const KMAApplication = GObject.registerClass(
       );
 
       Gtk.Window.set_default_icon_name(config.APPID);
+
+      this.#setupActions();
+    }
+
+    #setupActions(): void {
+      this.add_action_entries([
+        {
+          name: "quit",
+          activate: () => {
+            this.quit();
+          },
+        },
+        {
+          name: "about",
+          activate: () => {
+            this.#showAboutDialog();
+          },
+        },
+      ]);
+
+      this.set_accels_for_action("app.quit", ["<Control>q"]);
+    }
+
+    #showAboutDialog(): void {
+      const dialog = Adw.AboutDialog.new_from_appdata(
+        "/de/swsnr/keepmeawake/de.swsnr.keepmeawake.metainfo.xml",
+        config.VERSION,
+      );
+      dialog.set_version(config.VERSION);
+
+      // TODO: Translations link
+
+      dialog.set_developers(["Sebastian Wiesner https://swsnr.de"]);
+      dialog.set_designers(["Sebastian Wiesner https://swsnr.de"]);
+      // Credits for the translator to the current language.
+      // Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
+      // Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
+      dialog.set_translator_credits(_("translator-credits"));
+      dialog.add_acknowledgement_section(
+        C_("about-dialog.acknowledgment-section", "Helpful services"),
+        [
+          "Codeberg https://codeberg.org",
+          "Flathub https://flathub.org/",
+          "Open Build Service https://build.opensuse.org/",
+        ],
+      );
+
+      dialog.add_other_app(
+        "de.swsnr.pictureoftheday",
+        // Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
+        C_("about-dialog.other-app.name", "Picture Of The Day"),
+        // Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
+        C_("about-dialog.other-app.summary", "Your daily wallpaper"),
+      );
+      dialog.add_other_app(
+        "de.swsnr.turnon",
+        // Translators: Use app name from https://codeberg.org/swsnr/turnon
+        C_("about-dialog.other-app.name", "Turn On"),
+        // Translators: Use summary from https://codeberg.org/swsnr/turnon
+        C_("about-dialog.other-app.summary", "Turn on devices in your network"),
+      );
+
+      dialog.present(this.get_active_window());
     }
 
     async #createMainWindow(): Promise<Adw.ApplicationWindow> {
