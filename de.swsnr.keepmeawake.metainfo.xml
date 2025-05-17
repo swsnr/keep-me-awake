@@ -17,7 +17,7 @@
     </keywords>
     <url type="homepage">https://codeberg.org/swsnr/keep-me-awake</url>
     <url type="bugtracker">https://codeberg.org/swsnr/keep-me-awake/issues</url>
-    <!-- TODO: translate link -->
+    <url type="translate">https://translate.codeberg.org/engage/de-swsnr-keepmeawake/</url>
     <url type="contact">https://swsnr.de/</url>
     <url type="vcs-browser">https://codeberg.org/swsnr/keep-me-awake</url>
     <launchable type="desktop-id">de.swsnr.keepmeawake.desktop</launchable>

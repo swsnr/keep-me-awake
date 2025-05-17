@@ -64,7 +64,10 @@ export const KMAApplication = GObject.registerClass(
       );
       dialog.set_version(config.VERSION);
 
-      // TODO: Translations link
+      dialog.add_link(
+        C_("about-dialog.link.label", "Translations"),
+        "https://translate.codeberg.org/engage/de-swsnr-keepmeawake/",
+      );
 
       dialog.set_developers(["Sebastian Wiesner https://swsnr.de"]);
       dialog.set_designers(["Sebastian Wiesner https://swsnr.de"]);
