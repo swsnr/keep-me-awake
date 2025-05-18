@@ -74,9 +74,12 @@ build-flatpak: build
 clean:
     rm -rf build .flatpak-repo .flatpak-builddir
 
-# Run the application.
-run: build
+# Run the application without building it before.
+run-fast:
     gjs -m run.js
+
+# Run the application.
+run: build && run-fast
 
 # Build and install development flatpak without sandboxing
 flatpak-devel-install:
