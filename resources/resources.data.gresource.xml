@@ -4,6 +4,10 @@
     <gresource prefix="/de/swsnr/keepmeawake/">
         <!-- Icons -->
         <file preprocess="xml-stripblanks">icons/scalable/actions/menu-large-symbolic.svg</file>
+        <!-- App icons -->
+        <file preprocess="xml-stripblanks">icons/symbolic/apps/de.swsnr.keepmeawake-symbolic.svg</file>
+        <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.keepmeawake.Devel.svg</file>
+        <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.keepmeawake.svg</file>
         <!-- Other app icons for about dialog -->
         <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.turnon.svg</file>
         <file preprocess="xml-stripblanks">icons/scalable/apps/de.swsnr.pictureoftheday.svg</file>

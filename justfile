@@ -102,6 +102,10 @@ install-flatpak: build-flatpak
     install -Dm0644 -t '/app/share/{{APPID}}/resources' build/resources/*.gresource
     @# Copy compiled javascript files
     cp -rT build/js '/app/share/{{APPID}}/js'
+    @# Static files (icons, etc.)
+    install -Dm0644 -t '/app/share/icons/hicolor/scalable/apps/' 'resources/icons/scalable/apps/{{APPID}}.svg'
+    install -Dm0644 resources/icons/symbolic/apps/de.swsnr.keepmeawake-symbolic.svg \
+        '/app/share/icons/hicolor/symbolic/apps/{{APPID}}-symbolic.svg'
 
 format:
     npx prettier --write .
