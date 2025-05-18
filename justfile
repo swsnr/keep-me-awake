@@ -45,7 +45,6 @@ compile-desktop-file:
 # Compile translated metainfo file.
 compile-metainfo:
     mkdir -p build/resources-src
-    @# TODO: msgfmt instead
     msgfmt --xml --template de.swsnr.keepmeawake.metainfo.xml -d po \
         --output build/de.swsnr.keepmeawake.metainfo.xml
     @# Patch app ID
