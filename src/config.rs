@@ -5,6 +5,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 use glib::{GStr, gstr};
+use gtk::gio::{self, resources_register};
 
 pub const APP_ID: &GStr =
     // SAFETY: We explicitly append a nul byte
@@ -39,8 +40,6 @@ pub fn locale_directory() -> &'static GStr {
 #[cfg(debug_assertions)]
 pub fn register_resources() {
     // In a debug build load resources from a file
-
-    use gtk::gio::{self, resources_register};
     let files = [
         concat!(
             env!("CARGO_MANIFEST_DIR"),
