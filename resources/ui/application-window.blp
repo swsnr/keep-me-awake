@@ -5,7 +5,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template $KMAApplicationWindow: Adw.ApplicationWindow {
+template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
   title: _("Keep Me Awake");
 
   content: Adw.ToolbarView {
@@ -24,7 +24,33 @@ template $KMAApplicationWindow: Adw.ApplicationWindow {
     Adw.StatusPage {
       vexpand: true;
       icon-name: "de.swsnr.keepmeawake";
-      description: _("Keep Me Awake");
+
+      child: Adw.Clamp {
+        Adw.ToggleGroup {
+          orientation: vertical;
+          homogeneous: true;
+
+          styles [
+            "flat",
+            "round",
+          ]
+
+          Adw.Toggle {
+            name: "no-inhibitors";
+            label: _("Do not inhibit screen lock and suspend");
+          }
+
+          Adw.Toggle {
+            name: "inhibit-suspend";
+            label: _("Inhibit suspend");
+          }
+
+          Adw.Toggle {
+            name: "inhibit-idle-and-suspend";
+            label: _("Inhibit screen lock and suspend");
+          }
+        }
+      };
     }
   };
 }

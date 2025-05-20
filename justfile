@@ -10,23 +10,18 @@ default:
 
 # Extract messages from all source files.
 pot:
-    find src -name '*.ts' > po/POTFILES.ts
+    find src -name '*.rs' > po/POTFILES.rs
     find resources/ -name '*.blp' > po/POTFILES.blp
-    xgettext {{xgettext_opts}} --language=Javascript --keyword=_ --keyword=C_:1c,2 --files-from=po/POTFILES.ts --output=po/de.swsnr.keepmeawake.ts.pot
+    xgettext {{xgettext_opts}} --language=C --keyword=dpgettext2:2c,3 --files-from=po/POTFILES.rs --output=po/de.swsnr.keepmeawake.rs.pot
     xgettext {{xgettext_opts}} --language=C --keyword=_ --keyword=C_:1c,2 --files-from=po/POTFILES.blp --output=po/de.swsnr.keepmeawake.blp.pot
     xgettext {{xgettext_opts}} --output=po/de.swsnr.keepmeawake.pot \
-        po/de.swsnr.keepmeawake.ts.pot po/de.swsnr.keepmeawake.blp.pot \
+        po/de.swsnr.keepmeawake.rs.pot po/de.swsnr.keepmeawake.blp.pot \
         de.swsnr.keepmeawake.metainfo.xml de.swsnr.keepmeawake.desktop
-    rm -f po/POTFILES* po/de.swsnr.keepmeawake.ts.pot po/de.swsnr.keepmeawake.blp.pot
+    rm -f po/POTFILES* po/de.swsnr.keepmeawake.rs.pot po/de.swsnr.keepmeawake.blp.pot
     @# We strip the POT-Creation-Date from the resulting POT because xgettext bumps
     @# it everytime regardless if anything else changed, and this just generates
     @# needless diffs.
     sed -i /POT-Creation-Date/d po/de.swsnr.keepmeawake.pot
-
-# Run the typescript compiler.
-compile-tsc:
-    npx tsc --build
-    sed -i -e 's/@APPID@/{{APPID}}/' -e 's/@VERSION@/{{VERSION}}/' build/js/config.js
 
 # Compile blueprint resources
 compile-blueprint:
@@ -63,23 +58,11 @@ compile-resources: compile-blueprint compile-metainfo
         resources/resources.data.gresource.xml
 
 # Build the application.
-build: compile-tsc compile-resources compile-desktop-file
-
-# Build for flatpak.
-build-flatpak: build
-    install -Dm0644 entrypoint.js build/entrypoint.js
-    sed -i -e 's_@PREFIX@_/app/_' -e 's_@GJS@_/usr/bin/gjs_' -e 's/@APPID@/{{APPID}}/' build/entrypoint.js
+compile: compile-resources compile-desktop-file
 
 # Clean build artifacts
 clean:
     rm -rf build .flatpak-repo .flatpak-builddir
-
-# Run the application without building it before.
-run-fast:
-    gjs -m run.js
-
-# Run the application.
-run: build && run-fast
 
 # Build and install development flatpak without sandboxing
 flatpak-devel-install:
@@ -94,44 +77,52 @@ flatpak-build:
         --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=.flatpak-repo \
         .flatpak-builddir flatpak/de.swsnr.keepmeawake.yaml
 
-install-flatpak: build-flatpak
+# Install the app for flatpak packaging.
+install-flatpak:
     @# Install translated appstream metadata and desktop file
     install -Dm0644 build/de.swsnr.keepmeawake.metainfo.xml '/app/share/metainfo/{{APPID}}.metainfo.xml'
     install -Dm0644 build/de.swsnr.keepmeawake.desktop '/app/share/applications/{{APPID}}.desktop'
-    @# Install configured entrypoint
-    install -Dm0755 build/entrypoint.js '/app/bin/{{APPID}}'
-    @# Install binary resource bundles
-    install -Dm0644 -t '/app/share/{{APPID}}/resources' build/resources/*.gresource
-    @# Copy compiled javascript files
-    cp -rT build/js '/app/share/{{APPID}}/js'
+    install -Dm0755 target/release/keep-me-awake '/app/bin/{{APPID}}'
     @# Static files (icons, etc.)
     install -Dm0644 -t '/app/share/icons/hicolor/scalable/apps/' 'resources/icons/scalable/apps/{{APPID}}.svg'
     install -Dm0644 resources/icons/symbolic/apps/de.swsnr.keepmeawake-symbolic.svg \
         '/app/share/icons/hicolor/symbolic/apps/{{APPID}}-symbolic.svg'
 
-format:
-    npx prettier --write .
-    blueprint-compiler format ui/**/*.blp --fix
+# Lint blueprint UI definitions.
+lint-blueprint:
+    blueprint-compiler format resources/**/*.blp
 
+# Lint flatpak manifest.
 lint-flatpak:
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream de.swsnr.keepmeawake.metainfo.xml
 
+# Lint appstream data.
 lint-data:
     appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml
 
-lint: && lint-data lint-flatpak
-    npx eslint .
-    npx prettier --check .
-    blueprint-compiler format ui/**/*.blp
+# Lint Rust code.
+lint-rust:
+    cargo +stable deny --all-features --locked check
+    cargo +stable fmt -- --check
+    cargo +stable clippy --all-targets
 
-test-all: && build lint
-    npm ci
+# Lint everything.
+lint-all: lint-rust lint-blueprint lint-data lint-flatpak
 
-# Update NPM sources for flatpak.
-flatpak-update-npm-sources:
-    @# flatpak-node-generator says we should remove node_modules, see https://github.com/flatpak/flatpak-builder-tools/blob/master/node/README.md#usage-1
-    rm -rf node_modules
-    flatpak run --command=flatpak-node-generator org.flatpak.Builder \
-        npm package-lock.json \
-        -o flatpak/de.swsnr.keepmeawake.npm-sources.json
+# Vet the Rust supply chain.
+vet *ARGS:
+    cargo vet {{ARGS}}
+
+# Test rust.
+test-rust:
+    cargo +stable build
+    cargo +stable test
+
+# Test everything.
+test-all: (vet "--locked") lint-all compile test-rust
+
+# Update Cargo sources for flatpak.
+flatpak-update-cargo-sources:
+    flatpak run --command=flatpak-cargo-generator org.flatpak.Builder \
+        <(git --no-pager show '{{VERSION}}:Cargo.lock') -o flatpak/de.swsnr.keepmeawake.cargo-sources.json

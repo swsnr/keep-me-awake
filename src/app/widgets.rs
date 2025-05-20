@@ -4,9 +4,6 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-/**
- * Entrypoint for running in development.
- */
+mod application_window;
 
-import { main } from "./build/js/main.js";
-main(["run.js"].concat(ARGV));
+pub use application_window::KeepMeAwakeApplicationWindow;

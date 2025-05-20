@@ -1,6 +1,5 @@
-/node_modules/
+/target/
 
-/resources/ui/**/*.ui
 /build/
 
 /.vscode/
