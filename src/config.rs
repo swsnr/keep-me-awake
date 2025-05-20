@@ -6,7 +6,11 @@
 
 use glib::{GStr, gstr};
 
-pub const APP_ID: &GStr = gstr!("de.swsnr.keepmeawake");
+pub const APP_ID: &GStr =
+    // SAFETY: We explicitly append a nul byte
+    unsafe {
+        GStr::from_str_with_nul_unchecked(concat!(include_str!("../build/app-id"), "\0"))
+    };
 
 pub const G_LOG_DOMAIN: &str = "KeepMeAwake";
 

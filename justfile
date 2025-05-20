@@ -23,14 +23,21 @@ pot:
     @# needless diffs.
     sed -i /POT-Creation-Date/d po/de.swsnr.keepmeawake.pot
 
+# Write APP ID to file for build
+configure-app-id:
+    @rm -f build/app-id
+    @mkdir -p build
+    @# Do not add a newline; that'd break the app ID in include_str!
+    echo -n '{{APPID}}' > build/app-id
+
 # Compile blueprint resources
 compile-blueprint:
-    mkdir -p build/resources-src/ui build/resources
+    @mkdir -p build/resources-src/ui build/resources
     blueprint-compiler batch-compile build/resources-src/ui resources/ui resources/ui/*.blp
 
 # Compile translated desktop file.
 compile-desktop-file:
-    mkdir -p build
+    @mkdir -p build
     msgfmt --desktop --template de.swsnr.keepmeawake.desktop -d po \
         --output build/de.swsnr.keepmeawake.desktop
     @# Patch app ID
@@ -39,7 +46,7 @@ compile-desktop-file:
 
 # Compile translated metainfo file.
 compile-metainfo:
-    mkdir -p build/resources-src
+    @mkdir -p build/resources-src
     msgfmt --xml --template de.swsnr.keepmeawake.metainfo.xml -d po \
         --output build/de.swsnr.keepmeawake.metainfo.xml
     @# Patch app ID
@@ -58,7 +65,7 @@ compile-resources: compile-blueprint compile-metainfo
         resources/resources.data.gresource.xml
 
 # Build the application.
-compile: compile-resources compile-desktop-file
+compile: configure-app-id compile-resources compile-desktop-file
 
 # Clean build artifacts
 clean:

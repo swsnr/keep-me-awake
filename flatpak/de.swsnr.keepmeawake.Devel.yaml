@@ -3,7 +3,7 @@ runtime: org.gnome.Platform
 runtime-version: "48"
 sdk: org.gnome.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: de.swsnr.keepmeawake.Devel
 finish-args:
   - --share=ipc
@@ -11,7 +11,7 @@ finish-args:
   - --socket=wayland
   - --device=dri
 build-options:
-  append-path: /usr/lib/sdk/node22/bin
+  append-path: /usr/lib/sdk/rust-stable/bin
 modules:
   # Install just and blueprint for compilation
   - name: just
@@ -51,5 +51,6 @@ modules:
       build-args:
         - --share=network
     build-commands:
-      - npm ci
+      - just APPID=de.swsnr.keepmeawake.Devel compile
+      - cargo build --release --verbose
       - just APPID=de.swsnr.keepmeawake.Devel install-flatpak

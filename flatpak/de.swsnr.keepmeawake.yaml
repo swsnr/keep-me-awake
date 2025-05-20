@@ -3,7 +3,7 @@ runtime: org.gnome.Platform
 runtime-version: "48"
 sdk: org.gnome.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: de.swsnr.keepmeawake
 finish-args:
   - --share=ipc
@@ -11,7 +11,7 @@ finish-args:
   - --socket=wayland
   - --device=dri
 build-options:
-  append-path: /usr/lib/sdk/node22/bin
+  append-path: /usr/lib/sdk/rust-stable/bin
 modules:
   # Install just and blueprint for compilation
   - name: just
@@ -50,8 +50,10 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/swsnr/keep-me-awake.git
-        commit: "05ff0312f1bbffb60255ce0a88fbd6c518dd1750"
-      - de.swsnr.keepmeawake.npm-sources.json
+        commit: "20eeacf9e1d5325a8732dada7f3d232d0be54e0b"
+      - de.swsnr.keepmeawake.cargo-sources.json
     build-commands:
-      - npm ci --offline
+      - install -Dm644 cargo/config .cargo/config.toml
+      - just APPID=de.swsnr.keepmeawake compile
+      - cargo build --release --frozen --verbose
       - just APPID=de.swsnr.keepmeawake install-flatpak
