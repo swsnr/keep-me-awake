@@ -1341,7 +1341,7 @@
           </cc:Agent>
         </dc:contributor>
         <cc:license
-           rdf:resource="https://www.mozilla.org/en-US/MPL/2.0/" />
+           rdf:resource="https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12" />
         <dc:title>Keep Me Awake App Icon</dc:title>
         <dc:creator>
           <cc:Agent>

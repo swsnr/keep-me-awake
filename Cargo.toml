@@ -3,7 +3,7 @@ name = "keep-me-awake"
 description = "Keep your desktop awake"
 homepage = "https://codeberg.org/swsnr/keep-me-awake"
 repository = "https://codeberg.org/swsnr/keep-me-awake"
-license = "MPL-2.0"
+license = "EUPL-1.2"
 authors = ["Sebastian Wiesner <sebastian@swsnr.de>"]
 # Our version number.  Since semver doesn't make much sense for UI applications
 # which have no API we repurpose the version numer as follows:
