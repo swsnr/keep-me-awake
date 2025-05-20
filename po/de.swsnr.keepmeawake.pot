@@ -49,52 +49,65 @@ msgstr ""
 msgid "Idle"
 msgstr ""
 
-#: resources/ui/application-window.blp:26
-msgid "Hello there"
+#: resources/ui/application-window.blp:40
+msgid "Do not inhibit screen lock and suspend"
 msgstr ""
 
-#: resources/ui/application-window.blp:34
+#: resources/ui/application-window.blp:45
+msgid "Inhibit suspend"
+msgstr ""
+
+#: resources/ui/application-window.blp:50
+msgid "Inhibit screen lock and suspend"
+msgstr ""
+
+#: resources/ui/application-window.blp:61
 msgctxt "application-window.menu.label"
-msgid "_About Turn On"
+msgid "_About Keep Me Awake"
+msgstr ""
+
+#: src/app.rs:28
+msgctxt "about-dialog.link.label"
+msgid "Translations"
 msgstr ""
 
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
-#: src/app.ts:74
+#: src/app.rs:37
 msgid "translator-credits"
 msgstr ""
 
-#: src/app.ts:76
+#: src/app.rs:42
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr ""
 
 #. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
-#: src/app.ts:87
+#: src/app.rs:54
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr ""
 
 #. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
-#: src/app.ts:89
+#: src/app.rs:59
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr ""
 
 #. Translators: Use app name from https://codeberg.org/swsnr/turnon
-#: src/app.ts:94
+#: src/app.rs:65
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr ""
 
 #. Translators: Use summary from https://codeberg.org/swsnr/turnon
-#: src/app.ts:96
+#: src/app.rs:70
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr ""
 
-#: src/main.ts:20
+#: src/main.rs:71
 msgctxt "application-name"
 msgid "Keep Me Awake"
 msgstr ""
