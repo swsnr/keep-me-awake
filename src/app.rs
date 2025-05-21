@@ -5,8 +5,10 @@
 // See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
 use adw::prelude::*;
-use glib::{Object, dgettext, dpgettext2};
-use gtk::gio::ActionEntry;
+use glib::{Object, WeakRef, dgettext, dpgettext2};
+use gtk::gio::{ActionEntry, ApplicationHoldGuard};
+
+use crate::config::G_LOG_DOMAIN;
 
 mod widgets;
 
@@ -98,27 +100,158 @@ impl Default for KeepMeAwakeApplication {
     }
 }
 
+/// What's currently being inhibited.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, glib::Enum)]
+#[enum_type(name = "KeepMeAwakeInhibit")]
+pub enum Inhibit {
+    /// Inhibit nothing.
+    Nothing,
+    /// Inhibit suspend.
+    Suspend,
+    /// Inhibit suspend and session idle.
+    SuspendAndIdle,
+}
+
+impl From<&InhibitState> for Inhibit {
+    fn from(value: &InhibitState) -> Self {
+        match value {
+            InhibitState::Nothing => Self::Nothing,
+            InhibitState::Suspend { .. } => Self::Suspend,
+            InhibitState::SuspendAndIdle { .. } => Self::SuspendAndIdle,
+        }
+    }
+}
+
+impl Default for Inhibit {
+    fn default() -> Self {
+        Self::Nothing
+    }
+}
+
+#[derive(Debug)]
+struct InhibitCookieGuard {
+    app: WeakRef<gtk::Application>,
+    cookie: u32,
+}
+
+impl InhibitCookieGuard {
+    fn acquire(
+        app: &impl IsA<gtk::Application>,
+        flags: gtk::ApplicationInhibitFlags,
+        reason: Option<&str>,
+    ) -> Self {
+        let cookie = app.inhibit(app.active_window().as_ref(), flags, reason);
+        glib::debug!("Acquired inhibit cookie {cookie} for {flags:?}");
+        Self {
+            app: app.as_ref().downgrade(),
+            cookie,
+        }
+    }
+}
+
+impl Drop for InhibitCookieGuard {
+    fn drop(&mut self) {
+        if let Some(app) = self.app.upgrade() {
+            glib::debug!("Dropping inhibit cookie {}", self.cookie);
+            app.uninhibit(self.cookie);
+            self.cookie = 0;
+        }
+    }
+}
+
+enum InhibitState {
+    Nothing,
+    // we just store these to keep them until they are dropped
+    #[allow(dead_code)]
+    Suspend(ApplicationHoldGuard, InhibitCookieGuard),
+    #[allow(dead_code)]
+    SuspendAndIdle(ApplicationHoldGuard, InhibitCookieGuard),
+}
+
+impl Default for InhibitState {
+    fn default() -> Self {
+        Self::Nothing
+    }
+}
+
 mod imp {
+    use std::cell::RefCell;
+
+    use adw::prelude::*;
     use adw::subclass::prelude::*;
-    use glib::object::Cast;
-    use gtk::prelude::{GtkApplicationExt, GtkWindowExt};
+    use glib::{dpgettext2, object::Cast};
+    use gtk::{
+        ApplicationInhibitFlags,
+        prelude::{GtkApplicationExt, GtkWindowExt},
+    };
 
     use crate::config::{self, G_LOG_DOMAIN};
 
-    use super::widgets::KeepMeAwakeApplicationWindow;
+    use super::{InhibitState, widgets::KeepMeAwakeApplicationWindow};
 
-    #[derive(Default)]
-    pub struct KeepMeAwakeApplication {}
+    #[derive(Default, glib::Properties)]
+    #[properties(wrapper_type = super::KeepMeAwakeApplication)]
+    pub struct KeepMeAwakeApplication {
+        #[property(get = Self::get_inhibitors, set = Self::set_inhibitors, type = super::Inhibit, builder(super::Inhibit::default()))]
+        inhibitors: RefCell<InhibitState>,
+    }
+
+    impl KeepMeAwakeApplication {
+        fn get_inhibitors(&self) -> super::Inhibit {
+            super::Inhibit::from(&*self.inhibitors.borrow())
+        }
+
+        fn set_inhibitors(&self, inhibit: super::Inhibit) {
+            let new_state = match inhibit {
+                super::Inhibit::Nothing => {
+                    glib::info!("Inhibiting nothing");
+                    super::InhibitState::Nothing
+                }
+                super::Inhibit::Suspend => {
+                    glib::info!("Inhibiting suspend");
+                    super::InhibitState::Suspend(
+                        self.obj().hold(),
+                        super::InhibitCookieGuard::acquire(
+                            &*self.obj(),
+                            ApplicationInhibitFlags::SUSPEND,
+                            Some(&dpgettext2(
+                                None,
+                                "inhibit-reason",
+                                "Keep Me Awake inhibits suspend at your request.",
+                            )),
+                        ),
+                    )
+                }
+                super::Inhibit::SuspendAndIdle => {
+                    glib::info!("Inhibiting suspend and idle");
+                    super::InhibitState::SuspendAndIdle(
+                        self.obj().hold(),
+                        super::InhibitCookieGuard::acquire(
+                            &*self.obj(),
+                            ApplicationInhibitFlags::SUSPEND | ApplicationInhibitFlags::IDLE,
+                            Some(&dpgettext2(
+                                None,
+                                "inhibit-reason",
+                                "Keep Me Awake inhibits suspend and idle at your request.",
+                            )),
+                        ),
+                    )
+                }
+            };
+            self.inhibitors.replace(new_state);
+        }
+    }
 
     #[glib::object_subclass]
     impl ObjectSubclass for KeepMeAwakeApplication {
-        const NAME: &'static str = "KMAApplication";
+        const NAME: &'static str = "KeepMeAwakeApplication";
 
         type Type = super::KeepMeAwakeApplication;
 
         type ParentType = adw::Application;
     }
 
+    #[glib::derived_properties]
     impl ObjectImpl for KeepMeAwakeApplication {}
 
     impl ApplicationImpl for KeepMeAwakeApplication {
@@ -132,10 +265,15 @@ mod imp {
         }
 
         fn activate(&self) {
-            let window = self
-                .obj()
-                .active_window()
-                .unwrap_or_else(|| KeepMeAwakeApplicationWindow::new(&*self.obj()).upcast());
+            let window = self.obj().active_window().unwrap_or_else(|| {
+                let window = KeepMeAwakeApplicationWindow::new(&*self.obj());
+                self.obj()
+                    .bind_property("inhibitors", &window, "inhibitors")
+                    .bidirectional()
+                    .sync_create()
+                    .build();
+                window.upcast()
+            });
             window.present();
         }
     }

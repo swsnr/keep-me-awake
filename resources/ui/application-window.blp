@@ -27,9 +27,11 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
       icon-name: "de.swsnr.keepmeawake";
 
       child: Adw.Clamp {
-        Adw.ToggleGroup {
+        Adw.ToggleGroup toggles {
           orientation: vertical;
           homogeneous: true;
+          active-name: bind $toggle_name(template.inhibitors) as <string>;
+          notify::active-name => $active_toggle_changed() swapped;
 
           styles [
             "flat",
@@ -37,7 +39,7 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
           ]
 
           Adw.Toggle {
-            name: "no-inhibitors";
+            name: "inhibit-nothing";
             label: _("Do not inhibit screen lock and suspend");
           }
 
@@ -47,7 +49,7 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
           }
 
           Adw.Toggle {
-            name: "inhibit-idle-and-suspend";
+            name: "inhibit-suspend-and-idle";
             label: _("Inhibit screen lock and suspend");
           }
         }

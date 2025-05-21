@@ -34,8 +34,6 @@
     clippy::string_to_string,
     clippy::if_then_some_else_none,
     clippy::large_include_file,
-    // Disable as casts
-    clippy::as_conversions,
 )]
 #![allow(clippy::enum_glob_use, clippy::module_name_repetitions)]
 
