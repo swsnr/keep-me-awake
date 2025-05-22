@@ -4,7 +4,7 @@
 //
 // See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
-use glib::{GStr, gstr};
+use glib::{GStr, dpgettext2, gstr};
 use gtk::gio::{self, resources_register};
 
 pub const APP_ID: &GStr =
@@ -19,6 +19,23 @@ pub const G_LOG_DOMAIN: &str = "KeepMeAwake";
 ///
 /// This provides the full version from `Cargo.toml`.
 pub const CARGO_PKG_VERSION: &str = env!("CARGO_PKG_VERSION");
+
+/// The full app license text.
+pub const LICENSE_TEXT: &str = include_str!("../LICENSE");
+
+pub fn license_text() -> String {
+    dpgettext2(
+        None,
+        "about-dialog.license-text",
+        // Translators: This is Pango markup, be sure to escape appropriately
+        "Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n\nLicensed under the terms of the EUPL 1.2. You can find official translations of the license text at <a href=\"%1\">%1</a>.\n\nThe full English text follows.\n\n%2",
+    )
+    .replace(
+        "%1",
+        "https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
+    )
+    .replace("%2", &glib::markup_escape_text(LICENSE_TEXT))
+}
 
 /// Whether the app is running in flatpak.
 fn running_in_flatpak() -> bool {
