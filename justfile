@@ -134,6 +134,13 @@ flatpak-update-cargo-sources:
     flatpak run --command=flatpak-cargo-generator org.flatpak.Builder \
         <(git --no-pager show '{{VERSION}}:Cargo.lock') -o flatpak/de.swsnr.keepmeawake.cargo-sources.json
 
+# Assemble the README image from screenshots.
+build-social-image:
+    montage -geometry 602x602+19+19 \
+        screenshots/inhibit-nothing.png screenshots/inhibit-suspend-and-idle.png \
+        social-image.png
+    oxipng social-image.png
+
 # Run with default settings to make screenshots
 run-for-screenshot:
     @# Run app with default settings: Force the in-memory gsettings backend to
