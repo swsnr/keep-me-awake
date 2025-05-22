@@ -26,7 +26,7 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
 
     Adw.StatusPage {
       vexpand: true;
-      icon-name: "de.swsnr.keepmeawake";
+      icon-name: bind $icon_name(template.inhibitors) as <string>;
 
       child: Adw.Clamp {
         Adw.ToggleGroup toggles {

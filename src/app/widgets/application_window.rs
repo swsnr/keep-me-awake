@@ -44,6 +44,15 @@ mod imp {
     #[gtk::template_callbacks]
     impl KeepMeAwakeApplicationWindow {
         #[template_callback(function)]
+        fn icon_name(inhibit: Inhibit) -> &'static str {
+            match inhibit {
+                Inhibit::Nothing => "cup-empty",
+                Inhibit::Suspend => "cup-full",
+                Inhibit::SuspendAndIdle => "cup-full-steaming",
+            }
+        }
+
+        #[template_callback(function)]
         fn toggle_name(inhibit: Inhibit) -> &'static str {
             match inhibit {
                 Inhibit::Nothing => "inhibit-nothing",
