@@ -39,12 +39,11 @@
     <translation type="gettext">de.swsnr.keepmeawake</translation>
     <content_rating type="oars-1.1" />
     <!-- TODO: Brand colors in branding -->
-    <!-- TODO: Check display sizes -->
     <requires>
         <display_length compare="ge">360</display_length>
     </requires>
     <recommends>
-        <display_length compare="ge">480</display_length>
+        <display_length compare="ge">400</display_length>
     </recommends>
     <supports>
         <control>keyboard</control>
