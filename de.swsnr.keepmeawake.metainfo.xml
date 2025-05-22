@@ -28,7 +28,14 @@
     <developer id="de.swsnr">
         <name translate="no">Sebastian Wiesner</name>
     </developer>
-    <!-- TOOD: screenshots -->
+    <screenshot type="default">
+        <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/screenshots/inhibit-nothing.png</image>
+        <caption>Inhibit nothing</caption>
+    </screenshot>
+    <screenshot>
+        <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/screenshots/inhibit-suspend-and-idle.png</image>
+        <caption>Inhibit suspend and screen locking</caption>
+    </screenshot>
     <translation type="gettext">de.swsnr.keepmeawake</translation>
     <content_rating type="oars-1.1" />
     <!-- TODO: Brand colors in branding -->
