@@ -64,6 +64,12 @@ compile-resources: compile-blueprint compile-metainfo
         --target build/resources/resources.data.gresource \
         resources/resources.data.gresource.xml
 
+compile-dbus:
+    @mkdir -p Build
+    cp -t build dbus-1/de.swsnr.keepmeawake.service
+    sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
+        build/de.swsnr.keepmeawake.service
+
 # Build the application.
 compile: configure-app-id compile-resources compile-desktop-file
 
@@ -89,7 +95,10 @@ install-flatpak:
     @# Install translated appstream metadata and desktop file
     install -Dm0644 build/de.swsnr.keepmeawake.metainfo.xml '/app/share/metainfo/{{APPID}}.metainfo.xml'
     install -Dm0644 build/de.swsnr.keepmeawake.desktop '/app/share/applications/{{APPID}}.desktop'
+    @# Install binary from cargo build --release
     install -Dm0755 target/release/keep-me-awake '/app/bin/{{APPID}}'
+    @# Install configured files
+    install -Dm0644 build/de.swsnr.keepmeawake.service '/app/share/dbus-1/services/{{APPID}}.service'
     @# Static files (icons, etc.)
     install -Dm0644 -t '/app/share/icons/hicolor/scalable/apps/' 'resources/icons/scalable/apps/{{APPID}}.svg'
     install -Dm0644 resources/icons/symbolic/apps/de.swsnr.keepmeawake-symbolic.svg \
