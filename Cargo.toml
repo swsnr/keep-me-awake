@@ -5,18 +5,7 @@ homepage = "https://codeberg.org/swsnr/keep-me-awake"
 repository = "https://codeberg.org/swsnr/keep-me-awake"
 license = "EUPL-1.2"
 authors = ["Sebastian Wiesner <sebastian@swsnr.de>"]
-# Our version number.  Since semver doesn't make much sense for UI applications
-# which have no API we repurpose the version numer as follows:
-#
-# - major: Major new features or major changes to the UI, which may break the app for some users.
-# - minor: User-visible features or bugfixes.
-# - patch: Translation updates.
-#
-# Major and minor releases get release notes, but patch releases do not; this
-# enables us to ship updates to translations whenever translators contributed
-# new languages or made major updates, while still providing meaningful release
-# notes for the last functional changes.
-version = "0.0.1"
+version = "0.1.0"
 edition = "2024"
 publish = false
 rust-version = "1.87"
