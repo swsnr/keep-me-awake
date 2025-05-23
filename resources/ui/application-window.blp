@@ -63,6 +63,13 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
 menu main_menu {
   section {
     item {
+      label: C_("application-window.menu.label", "_Quit");
+      action: "app.quit";
+    }
+  }
+
+  section {
+    item {
       label: C_("application-window.menu.label", "_About Keep Me Awake");
       action: "app.about";
     }
