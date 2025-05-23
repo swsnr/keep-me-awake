@@ -90,8 +90,14 @@ flatpak-build:
         --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=.flatpak-repo \
         .flatpak-builddir flatpak/de.swsnr.keepmeawake.yaml
 
+_install-po destprefix po_file:
+    install -dm0755 '{{destprefix}}/share/locale/{{file_stem(po_file)}}/LC_MESSAGES'
+    msgfmt -o '{{destprefix}}/share/locale/{{file_stem(po_file)}}/LC_MESSAGES/{{APPID}}.mo' '{{po_file}}'
+
 # Install the app for flatpak packaging.
 install-flatpak:
+    @# Install all message catalogs (override VERSION to avoid redundant git describe calls)
+    find po/ -name '*.po' -exec just VERSION= APPID='{{APPID}}' _install-po '/app' '{}' ';'
     @# Install translated appstream metadata and desktop file
     install -Dm0644 build/de.swsnr.keepmeawake.metainfo.xml '/app/share/metainfo/{{APPID}}.metainfo.xml'
     install -Dm0644 build/de.swsnr.keepmeawake.desktop '/app/share/applications/{{APPID}}.desktop'
