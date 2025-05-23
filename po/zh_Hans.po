@@ -17,7 +17,7 @@ msgstr ""
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
-#: resources/ui/application-window.blp:9
+#: resources/ui/application-window.blp:10
 msgid "Keep Me Awake"
 msgstr ""
 
@@ -48,52 +48,89 @@ msgstr ""
 msgid "Idle"
 msgstr ""
 
-#: resources/ui/application-window.blp:26
-msgid "Hello there"
+#: resources/ui/application-window.blp:45
+msgid "Do not inhibit screen lock and suspend"
 msgstr ""
 
-#: resources/ui/application-window.blp:34
+#: resources/ui/application-window.blp:50
+msgid "Inhibit suspend"
+msgstr ""
+
+#: resources/ui/application-window.blp:55
+msgid "Inhibit screen lock and suspend"
+msgstr ""
+
+#: resources/ui/application-window.blp:66
 msgctxt "application-window.menu.label"
-msgid "_About Turn On"
+msgid "_About Keep Me Awake"
+msgstr ""
+
+#: src/app.rs:33
+msgctxt "about-dialog.link.label"
+msgid "Translations"
 msgstr ""
 
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
-#: src/app.ts:74
+#: src/app.rs:42
 msgid "translator-credits"
 msgstr ""
 
-#: src/app.ts:76
+#: src/app.rs:47
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr ""
 
 #. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
-#: src/app.ts:87
+#: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr ""
 
 #. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
-#: src/app.ts:89
+#: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr ""
 
 #. Translators: Use app name from https://codeberg.org/swsnr/turnon
-#: src/app.ts:94
+#: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr ""
 
 #. Translators: Use summary from https://codeberg.org/swsnr/turnon
-#: src/app.ts:96
+#: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr ""
 
-#: src/main.ts:20
+#: src/app.rs:223
+msgctxt "inhibit-reason"
+msgid "Keep Me Awake inhibits suspend at your request."
+msgstr ""
+
+#: src/app.rs:238
+msgctxt "inhibit-reason"
+msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgstr ""
+
+#. Translators: This is Pango markup, be sure to escape appropriately
+#: src/config.rs:31
+msgctxt "about-dialog.license-text"
+msgid ""
+"Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+"\n"
+"Licensed under the terms of the EUPL 1.2. You can find official translations "
+"of the license text at <a href=\"%1\">%1</a>.\n"
+"\n"
+"The full English text follows.\n"
+"\n"
+"%2"
+msgstr ""
+
+#: src/main.rs:69
 msgctxt "application-name"
 msgid "Keep Me Awake"
 msgstr ""
