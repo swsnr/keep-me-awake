@@ -90,7 +90,7 @@ impl KeepMeAwakeApplication {
                 .build(),
         ];
         self.add_action_entries(entries);
-        self.set_accels_for_action("app.action", &["<Control>q"]);
+        self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
 }
 
