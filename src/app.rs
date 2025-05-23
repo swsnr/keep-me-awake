@@ -275,6 +275,11 @@ mod imp {
                     .bidirectional()
                     .sync_create()
                     .build();
+
+                if crate::config::is_development() {
+                    window.add_css_class("devel");
+                }
+
                 window.upcast()
             });
             window.present();

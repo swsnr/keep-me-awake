@@ -42,6 +42,11 @@ fn running_in_flatpak() -> bool {
     std::fs::exists("/.flatpak-info").unwrap_or_default()
 }
 
+/// Whether this is a development or nightly build.
+pub fn is_development() -> bool {
+    APP_ID.ends_with(".Devel")
+}
+
 /// Get the locale directory.
 ///
 /// Return the flatpak locale directory when in
