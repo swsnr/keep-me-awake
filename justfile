@@ -143,6 +143,12 @@ flatpak-update-cargo-sources:
     flatpak run --command=flatpak-cargo-generator org.flatpak.Builder \
         <(git --no-pager show '{{VERSION}}:Cargo.lock') -o flatpak/de.swsnr.keepmeawake.cargo-sources.json
 
+# Print release notes
+print-release-notes:
+    @appstreamcli metainfo-to-news --format yaml de.swsnr.keepmeawake.metainfo.xml - | \
+        yq eval-all '[.]' -oj | jq -r --arg tag "{{VERSION}}" \
+        '.[] | select(.Version == ($tag | ltrimstr("v"))) | .Description | tostring'
+
 # Assemble the README image from screenshots.
 build-social-image:
     montage -geometry 602x602+19+19 \
