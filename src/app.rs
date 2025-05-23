@@ -81,7 +81,15 @@ impl KeepMeAwakeApplication {
     fn setup_actions(&self) {
         let entries = [
             ActionEntry::builder("quit")
-                .activate(|app: &KeepMeAwakeApplication, _, _| app.quit())
+                .activate(|app: &KeepMeAwakeApplication, _, _| {
+                    // Simply clear the inhibitors and close the main widnow;
+                    // this automatically releases any app holds, so the app
+                    // then exits on time out.
+                    if let Some(window) = app.active_window() {
+                        window.close();
+                    }
+                    app.set_inhibitors(Inhibit::Nothing);
+                })
                 .build(),
             ActionEntry::builder("about")
                 .activate(|app: &KeepMeAwakeApplication, _, _| {
