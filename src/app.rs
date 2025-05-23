@@ -185,6 +185,7 @@ mod imp {
     use glib::{dpgettext2, object::Cast};
     use gtk::{
         ApplicationInhibitFlags,
+        gio::Notification,
         prelude::{GtkApplicationExt, GtkWindowExt},
     };
 
@@ -192,10 +193,12 @@ mod imp {
 
     use super::{InhibitState, widgets::KeepMeAwakeApplicationWindow};
 
+    const NOTIFICATION_ID: &str = "de.swsnr.keepmeawake.persistent-inhibitor-notification";
+
     #[derive(Default, glib::Properties)]
     #[properties(wrapper_type = super::KeepMeAwakeApplication)]
     pub struct KeepMeAwakeApplication {
-        #[property(get = Self::get_inhibitors, set = Self::set_inhibitors, type = super::Inhibit, builder(super::Inhibit::default()))]
+        #[property(explicit_notify, get = Self::get_inhibitors, set = Self::set_inhibitors, type = super::Inhibit, builder(super::Inhibit::default()))]
         inhibitors: RefCell<InhibitState>,
     }
 
@@ -205,6 +208,9 @@ mod imp {
         }
 
         fn set_inhibitors(&self, inhibit: super::Inhibit) {
+            if self.get_inhibitors() == inhibit {
+                return;
+            }
             let new_state = match inhibit {
                 super::Inhibit::Nothing => {
                     glib::info!("Inhibiting nothing");
@@ -242,6 +248,46 @@ mod imp {
                 }
             };
             self.inhibitors.replace(new_state);
+            self.obj().notify_inhibitors();
+            self.update_notification(inhibit);
+        }
+
+        fn update_notification(&self, inhibit: super::Inhibit) {
+            let notification = match inhibit {
+                super::Inhibit::Nothing => None,
+                super::Inhibit::Suspend => {
+                    let notification = Notification::new(&dpgettext2(
+                        None,
+                        "notification.title",
+                        "Suspend inhibited",
+                    ));
+                    notification.set_body(Some(&dpgettext2(
+                        None,
+                        "notification.body",
+                        "Keep Me Awake inhibits suspend at your request.",
+                    )));
+                    Some(notification)
+                }
+                super::Inhibit::SuspendAndIdle => {
+                    let notification = Notification::new(&dpgettext2(
+                        None,
+                        "notification.title",
+                        "Suspend and screen lock inhibited",
+                    ));
+                    notification.set_body(Some(&dpgettext2(
+                        None,
+                        "notification.body",
+                        "Keep Me Awake inhibits suspend and screen lock at your request.",
+                    )));
+                    Some(notification)
+                }
+            };
+            if let Some(notification) = notification {
+                self.obj()
+                    .send_notification(Some(NOTIFICATION_ID), &notification);
+            } else {
+                self.obj().withdraw_notification(NOTIFICATION_ID);
+            }
         }
     }
 
@@ -275,6 +321,19 @@ mod imp {
                     .bidirectional()
                     .sync_create()
                     .build();
+
+                // Re-display notification if the main window is closed, to make
+                // sure the user doesn't forget.
+                window.connect_close_request(glib::clone!(
+                    #[weak_allow_none(rename_to = app)]
+                    self.obj(),
+                    move |_| {
+                        if let Some(app) = app {
+                            app.imp().update_notification(app.inhibitors());
+                        }
+                        glib::Propagation::Proceed
+                    }
+                ));
 
                 if crate::config::is_development() {
                     window.add_css_class("devel");
