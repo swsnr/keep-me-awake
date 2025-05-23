@@ -7,114 +7,120 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-05-23 06:19+0000\n"
+"Last-Translator: Sebastian Wiesner <sebastian@swsnr.de>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
 msgid "Keep Me Awake"
-msgstr ""
+msgstr "Keep Me Awake"
 
 #: de.swsnr.keepmeawake.desktop:4 de.swsnr.keepmeawake.metainfo.xml:6
 msgid "Keep your desktop awake"
-msgstr ""
+msgstr "Halte Deinen Desktop wach"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: de.swsnr.keepmeawake.desktop:10
 msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
-msgstr ""
+msgstr "GNOME;GTK;Ruhezustand;Suspend;Idle;Verhindern;"
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""
 "Inhibit lock screen and suspend of your desktop system, via the main user "
 "interface or via global shortcuts."
 msgstr ""
+"Verhindere die Bildschirmsperre und den Ruhezustand Deines Desktop-Systems, "
+"mittels des Hauptfensters oder durch globale Tastenkürzel."
 
 #: de.swsnr.keepmeawake.metainfo.xml:14
 msgid "Suspend"
-msgstr ""
+msgstr "Ruhezustand"
 
 #: de.swsnr.keepmeawake.metainfo.xml:15
 msgid "Inhibit"
-msgstr ""
+msgstr "Verhindern"
 
 #: de.swsnr.keepmeawake.metainfo.xml:16
 msgid "Idle"
-msgstr ""
+msgstr "Idle"
 
 #: resources/ui/application-window.blp:45
 msgid "Do not inhibit screen lock and suspend"
-msgstr ""
+msgstr "Bildschirmsperre und Ruhezustand erlauben"
 
 #: resources/ui/application-window.blp:50
 msgid "Inhibit suspend"
-msgstr ""
+msgstr "Ruhezustand verhindern"
 
 #: resources/ui/application-window.blp:55
 msgid "Inhibit screen lock and suspend"
-msgstr ""
+msgstr "Bildschirmsperre und Ruhezustand verhindern"
 
 #: resources/ui/application-window.blp:66
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
-msgstr ""
+msgstr "_Info zu Keep Me Awake"
 
 #: src/app.rs:33
 msgctxt "about-dialog.link.label"
 msgid "Translations"
-msgstr ""
+msgstr "Übersetzungen"
 
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
 #: src/app.rs:42
 msgid "translator-credits"
-msgstr ""
+msgstr "Sebastian Wiesner <sebastian@swsnr.de>"
 
 #: src/app.rs:47
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
-msgstr ""
+msgstr "Hilfreiche Dienste"
 
 #. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
 #: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
-msgstr ""
+msgstr "Bild des Tages"
 
 #. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
 #: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
-msgstr ""
+msgstr "Dein täglicher Bildschirmhintergrund"
 
 #. Translators: Use app name from https://codeberg.org/swsnr/turnon
 #: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
-msgstr ""
+msgstr "Anschalten"
 
 #. Translators: Use summary from https://codeberg.org/swsnr/turnon
 #: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
-msgstr ""
+msgstr "Geräte in Deinem Netzwerk anschalten"
 
 #: src/app.rs:223
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
-msgstr ""
+msgstr "Keep Me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
 #: src/app.rs:238
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and idle at your request."
 msgstr ""
+"Keep Me Awake verhindert den Ruhezustand und Leerlauf auf Deinen Wunsch."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:31
@@ -129,8 +135,16 @@ msgid ""
 "\n"
 "%2"
 msgstr ""
+"Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+"\n"
+"Lizenziert unter den Bedingungen der EUPL 1.2. Unter <a href=\"%1\">%1</a> "
+"kannst Du eine offizielle Übersetzung der Lizenz finden.\n"
+"\n"
+"Es folgt der vollständige englische Text.\n"
+"\n"
+"%2"
 
 #: src/main.rs:69
 msgctxt "application-name"
 msgid "Keep Me Awake"
-msgstr ""
+msgstr "Keep Me Awake"
