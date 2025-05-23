@@ -64,14 +64,15 @@ compile-resources: compile-blueprint compile-metainfo
         --target build/resources/resources.data.gresource \
         resources/resources.data.gresource.xml
 
-compile-dbus:
+# Compile D-Bus service file.
+compile-dbus-service:
     @mkdir -p Build
     cp -t build dbus-1/de.swsnr.keepmeawake.service
     sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
         build/de.swsnr.keepmeawake.service
 
 # Build the application.
-compile: configure-app-id compile-resources compile-desktop-file
+compile: configure-app-id compile-resources compile-desktop-file compile-dbus-service
 
 # Clean build artifacts
 clean:
