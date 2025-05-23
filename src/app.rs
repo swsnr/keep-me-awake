@@ -55,23 +55,23 @@ impl KeepMeAwakeApplication {
 
         dialog.add_other_app(
             "de.swsnr.pictureoftheday",
-            // Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
+            // Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
             &dpgettext2(None, "about-dialog.other-app.name", "Picture Of The Day"),
             &dpgettext2(
                 None,
                 "about-dialog.other-app.summary",
-                // Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
+                // Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
                 "Your daily wallpaper",
             ),
         );
         dialog.add_other_app(
             "de.swsnr.turnon",
-            // Translators: Use app name from https://codeberg.org/swsnr/turnon
+            // Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
             &dpgettext2(None, "about-dialog.other-app.name", "Turn On"),
             &dpgettext2(
                 None,
                 "about-dialog.other-app.summary",
-                // Translators: Use summary from https://codeberg.org/swsnr/turnon
+                // Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
                 "Turn on devices in your network",
             ),
         );
