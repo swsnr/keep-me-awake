@@ -7,114 +7,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-05-23 06:19+0000\n"
+"Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"translate.codeberg.org/projects/de-swsnr-keepmeawake/de-swsnr-keepmeawake/"
+"zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
 msgid "Keep Me Awake"
-msgstr ""
+msgstr "保持唤醒"
 
 #: de.swsnr.keepmeawake.desktop:4 de.swsnr.keepmeawake.metainfo.xml:6
 msgid "Keep your desktop awake"
-msgstr ""
+msgstr "保持桌面处于唤醒状态"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: de.swsnr.keepmeawake.desktop:10
 msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
-msgstr ""
+msgstr "GNOME;GTK;Suspend;Idle;Inhibit;挂起;空闲;阻止;"
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""
 "Inhibit lock screen and suspend of your desktop system, via the main user "
 "interface or via global shortcuts."
-msgstr ""
+msgstr "通过主用户界面或全局快捷键，阻止锁定屏幕和挂起桌面系统。"
 
 #: de.swsnr.keepmeawake.metainfo.xml:14
 msgid "Suspend"
-msgstr ""
+msgstr "挂起"
 
 #: de.swsnr.keepmeawake.metainfo.xml:15
 msgid "Inhibit"
-msgstr ""
+msgstr "阻止"
 
 #: de.swsnr.keepmeawake.metainfo.xml:16
 msgid "Idle"
-msgstr ""
+msgstr "空闲"
 
 #: resources/ui/application-window.blp:45
 msgid "Do not inhibit screen lock and suspend"
-msgstr ""
+msgstr "不要阻止屏幕锁定和挂起"
 
 #: resources/ui/application-window.blp:50
 msgid "Inhibit suspend"
-msgstr ""
+msgstr "阻止挂起"
 
 #: resources/ui/application-window.blp:55
 msgid "Inhibit screen lock and suspend"
-msgstr ""
+msgstr "阻止屏幕锁定和挂起"
 
 #: resources/ui/application-window.blp:66
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
-msgstr ""
+msgstr "关于保持唤醒(_A)"
 
 #: src/app.rs:33
 msgctxt "about-dialog.link.label"
 msgid "Translations"
-msgstr ""
+msgstr "翻译"
 
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
 #: src/app.rs:42
 msgid "translator-credits"
-msgstr ""
+msgstr "Outbreak2096"
 
 #: src/app.rs:47
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
-msgstr ""
+msgstr "辅助服务"
 
 #. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
 #: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
-msgstr ""
+msgstr "今日图片"
 
 #. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
 #: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
-msgstr ""
+msgstr "您的每日壁纸"
 
 #. Translators: Use app name from https://codeberg.org/swsnr/turnon
 #: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
-msgstr ""
+msgstr "Turn On"
 
 #. Translators: Use summary from https://codeberg.org/swsnr/turnon
 #: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
-msgstr ""
+msgstr "打开网络中的设备"
 
 #: src/app.rs:223
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
-msgstr ""
+msgstr "保持唤醒根据您的要求阻止挂起。"
 
 #: src/app.rs:238
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and idle at your request."
-msgstr ""
+msgstr "保持唤醒根据您的要求阻止挂起和空闲。"
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:31
@@ -129,8 +133,16 @@ msgid ""
 "\n"
 "%2"
 msgstr ""
+"版权所有 Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+"\n"
+"根据 EUPL 1.2 条款授权。您可以在 <a href=\"%1\">%1</a> "
+"找到许可证文本的官方译本。\n"
+"\n"
+"完整的英文文本如下。\n"
+"\n"
+"%2"
 
 #: src/main.rs:69
 msgctxt "application-name"
 msgid "Keep Me Awake"
-msgstr ""
+msgstr "保持唤醒"
