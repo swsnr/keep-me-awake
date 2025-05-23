@@ -25,6 +25,7 @@
         <release version="0.1.0" date="2025-05-23">
             <description>
                 <p>Add main window with toggles to inhibit either suspend, or suspend and screen lock.</p>
+                <p>Global shortcuts and notifications are not yet supported.</p>
             </description>
             <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/v0.1.0</url>
         </release>
