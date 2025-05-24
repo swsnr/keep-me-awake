@@ -8,6 +8,10 @@ Keep your desktop awake
 
 A small GNOME utility application to send Wake On LAN (WoL) magic packets to devices in a network.
 
+## Installation
+
+- [Flathub](https://flathub.org/apps/details/de.swsnr.keepmeawake)
+
 ## Translations
 
 Please submit translations to <https://translate.codeberg.org/engage/de-swsnr-keepmeawake/>.
