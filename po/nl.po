@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-05-27 19:58+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/"
-"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
+"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,6 +53,40 @@ msgstr "Voorkomen"
 msgid "Idle"
 msgstr "Inactief"
 
+#: de.swsnr.keepmeawake.metainfo.xml:30
+msgid "Add persistent notification when sleep or screen lock are inhibited."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:31
+msgid "Correctly quit the app."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:32
+msgid "Global shortcuts are not yet supported."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:42
+msgid ""
+"Add main window with toggles to inhibit either suspend, or suspend and "
+"screen lock."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:43
+msgid "Global shortcuts and notifications are not yet supported."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:55
+#, fuzzy
+#| msgid "Inhibit"
+msgid "Inhibit nothing"
+msgstr "Voorkomen"
+
+#: de.swsnr.keepmeawake.metainfo.xml:59
+#, fuzzy
+#| msgid "Inhibit screen lock and suspend"
+msgid "Inhibit suspend and screen locking"
+msgstr "Schermvergrendeling en slaapstand voorkomen"
+
 #: resources/ui/application-window.blp:45
 msgid "Do not inhibit screen lock and suspend"
 msgstr "Schermvergrendeling en slaapstand niet voorkomen"
@@ -66,6 +100,11 @@ msgid "Inhibit screen lock and suspend"
 msgstr "Schermvergrendeling en slaapstand voorkomen"
 
 #: resources/ui/application-window.blp:66
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr ""
+
+#: resources/ui/application-window.blp:73
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
 msgstr "Over Niet in sl_aap vallen"
@@ -87,38 +126,66 @@ msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "Nuttige diensten"
 
-#. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
+#. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "Afbeelding van de dag"
 
-#. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
+#. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "Uw dagelijkse achtergrond"
 
-#. Translators: Use app name from https://codeberg.org/swsnr/turnon
+#. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Aanzetten"
 
-#. Translators: Use summary from https://codeberg.org/swsnr/turnon
+#. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "Schakel apparaten op uw netwerk in"
 
-#: src/app.rs:223
+#: src/app.rs:237
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
-#: src/app.rs:238
+#: src/app.rs:252
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgstr ""
+"Niet in slaap vallen zal de slaapstand en inactiviteit op verzoek "
+"onderdrukken."
+
+#: src/app.rs:270
+msgctxt "notification.title"
+msgid "Suspend inhibited"
+msgstr ""
+
+#: src/app.rs:275
+#, fuzzy
+#| msgctxt "inhibit-reason"
+#| msgid "Keep Me Awake inhibits suspend at your request."
+msgctxt "notification.body"
+msgid "Keep Me Awake inhibits suspend at your request."
+msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
+
+#: src/app.rs:283
+msgctxt "notification.title"
+msgid "Suspend and screen lock inhibited"
+msgstr ""
+
+#: src/app.rs:288
+#, fuzzy
+#| msgctxt "inhibit-reason"
+#| msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgctxt "notification.body"
+msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 "Niet in slaap vallen zal de slaapstand en inactiviteit op verzoek "
 "onderdrukken."

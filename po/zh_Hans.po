@@ -52,6 +52,40 @@ msgstr "阻止"
 msgid "Idle"
 msgstr "空闲"
 
+#: de.swsnr.keepmeawake.metainfo.xml:30
+msgid "Add persistent notification when sleep or screen lock are inhibited."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:31
+msgid "Correctly quit the app."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:32
+msgid "Global shortcuts are not yet supported."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:42
+msgid ""
+"Add main window with toggles to inhibit either suspend, or suspend and "
+"screen lock."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:43
+msgid "Global shortcuts and notifications are not yet supported."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:55
+#, fuzzy
+#| msgid "Inhibit"
+msgid "Inhibit nothing"
+msgstr "阻止"
+
+#: de.swsnr.keepmeawake.metainfo.xml:59
+#, fuzzy
+#| msgid "Inhibit screen lock and suspend"
+msgid "Inhibit suspend and screen locking"
+msgstr "阻止屏幕锁定和挂起"
+
 #: resources/ui/application-window.blp:45
 msgid "Do not inhibit screen lock and suspend"
 msgstr "不要阻止屏幕锁定和挂起"
@@ -65,6 +99,11 @@ msgid "Inhibit screen lock and suspend"
 msgstr "阻止屏幕锁定和挂起"
 
 #: resources/ui/application-window.blp:66
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr ""
+
+#: resources/ui/application-window.blp:73
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
 msgstr "关于保持唤醒(_A)"
@@ -86,38 +125,64 @@ msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "辅助服务"
 
-#. Translators: Use app name from https://codeberg.org/swsnr/picture-of-the-day
+#. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "今日图片"
 
-#. Translators: Use summary from https://codeberg.org/swsnr/picture-of-the-day
+#. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "您的每日壁纸"
 
-#. Translators: Use app name from https://codeberg.org/swsnr/turnon
+#. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Turn On"
 
-#. Translators: Use summary from https://codeberg.org/swsnr/turnon
+#. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "打开网络中的设备"
 
-#: src/app.rs:223
+#: src/app.rs:237
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "保持唤醒根据您的要求阻止挂起。"
 
-#: src/app.rs:238
+#: src/app.rs:252
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgstr "保持唤醒根据您的要求阻止挂起和空闲。"
+
+#: src/app.rs:270
+msgctxt "notification.title"
+msgid "Suspend inhibited"
+msgstr ""
+
+#: src/app.rs:275
+#, fuzzy
+#| msgctxt "inhibit-reason"
+#| msgid "Keep Me Awake inhibits suspend at your request."
+msgctxt "notification.body"
+msgid "Keep Me Awake inhibits suspend at your request."
+msgstr "保持唤醒根据您的要求阻止挂起。"
+
+#: src/app.rs:283
+msgctxt "notification.title"
+msgid "Suspend and screen lock inhibited"
+msgstr ""
+
+#: src/app.rs:288
+#, fuzzy
+#| msgctxt "inhibit-reason"
+#| msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgctxt "notification.body"
+msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr "保持唤醒根据您的要求阻止挂起和空闲。"
 
 #. Translators: This is Pango markup, be sure to escape appropriately
@@ -135,8 +200,8 @@ msgid ""
 msgstr ""
 "版权所有 Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
 "\n"
-"根据 EUPL 1.2 条款授权。您可以在 <a href=\"%1\">%1</a> "
-"找到许可证文本的官方译本。\n"
+"根据 EUPL 1.2 条款授权。您可以在 <a href=\"%1\">%1</a> 找到许可证文本的官方译"
+"本。\n"
 "\n"
 "完整的英文文本如下。\n"
 "\n"
