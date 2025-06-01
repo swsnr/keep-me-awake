@@ -167,6 +167,14 @@ print-release-notes:
         yq eval-all '[.]' -oj | jq -r --arg tag "{{VERSION}}" \
         '.[] | select(.Version == ($tag | ltrimstr("v"))) | .Description | tostring'
 
+_post-release:
+    @echo "Create new release at https://codeberg.org/swsnr/keep-me-awake/tags"
+    @echo "Run 'just print-release-notes' to get Markdown release notes for the release"
+    @echo "Run 'just flatpak-update-manifest' to update the flatpak manifest."
+
+release *ARGS: test-all && _post-release
+    cargo release {{ARGS}}
+
 # Assemble the README image from screenshots.
 build-social-image:
     montage -geometry 602x602+19+19 \
