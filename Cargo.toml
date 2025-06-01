@@ -22,6 +22,8 @@ libc = "0.2.161"
 pre-release-commit-message = "Release {{version}}"
 tag-message = "Keep Me Awake {{tag_name}}"
 publish = false
+# Only push after we checked that the release is good
+push = false
 # The justfile runs all tests before releasing
 verify = false
 sign-tag = true
