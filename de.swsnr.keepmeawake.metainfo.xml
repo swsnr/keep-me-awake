@@ -23,7 +23,7 @@
     <launchable type="desktop-id">de.swsnr.keepmeawake.desktop</launchable>
     <releases>
         <!-- Add release notes for the next release to a release with
-        version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/turnon/releases/tag/next'.
+        version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/keep-me-awake/releases/tag/next'.
          -->
         <release version="next" date="9999-01-01">
             <description>
@@ -35,7 +35,7 @@
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/11">CB-11</issue>
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/16">CB-16</issue>
             </issues>
-            <url>https://codeberg.org/swsnr/turnon/releases/tag/next</url>
+            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
         <release version="0.1.0" date="2025-05-23">
             <description>
