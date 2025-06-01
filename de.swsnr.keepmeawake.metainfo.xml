@@ -22,16 +22,9 @@
     <url type="vcs-browser">https://codeberg.org/swsnr/keep-me-awake</url>
     <launchable type="desktop-id">de.swsnr.keepmeawake.desktop</launchable>
     <releases>
-        <!-- To start release notes for an upcoming release, copy the following template.
-
-        Upon release, cargo release will replace it accordingly.
-
-        <release version="next" date="9999-01-01">
-            <description>
-            </description>
-            <url>https://codeberg.org/swsnr/turnon/releases/tag/next</url>
-        </release>
-        -->
+        <!-- Add release notes for the next release to a release with
+        version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/turnon/releases/tag/next'.
+         -->
         <release version="next" date="9999-01-01">
             <description>
                 <p>Add persistent notification when sleep or screen lock are inhibited.</p>
