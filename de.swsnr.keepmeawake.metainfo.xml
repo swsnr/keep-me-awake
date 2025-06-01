@@ -29,6 +29,7 @@
             <description>
                 <p>Add persistent notification when sleep or screen lock are inhibited.</p>
                 <p>Correctly quit the app.</p>
+                <p>Global shortcuts are not yet supported.</p>
             </description>
             <issues>
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/11">CB-11</issue>
