@@ -66,7 +66,7 @@ compile-resources: compile-blueprint compile-metainfo
 
 # Compile D-Bus service file.
 compile-dbus-service:
-    @mkdir -p Build
+    @mkdir -p build
     cp -t build dbus-1/de.swsnr.keepmeawake.service
     sed -i '/{{APPID}}/! s/de\.swsnr\.keepmeawake/{{APPID}}/g' \
         build/de.swsnr.keepmeawake.service
