@@ -145,10 +145,21 @@ test-rust:
 # Test everything.
 test-all: (vet "--locked") lint-all compile test-rust
 
-# Update Cargo sources for flatpak.
+# Update Cargo sources for flatpak for `VERSION`.
 flatpak-update-cargo-sources:
     flatpak run --command=flatpak-cargo-generator org.flatpak.Builder \
         <(git --no-pager show '{{VERSION}}:Cargo.lock') -o flatpak/de.swsnr.keepmeawake.cargo-sources.json
+
+# Update the flatpak manifest for `VERSION`.
+flatpak-update-manifest: flatpak-update-cargo-sources
+    yq eval -i '.modules.[2].sources.[0].tag = "$TAG_NAME"' flatpak/de.swsnr.keepmeawake.yaml
+    yq eval -i '.modules.[2].sources.[0].commit = "$TAG_COMMIT"' flatpak/de.swsnr.keepmeawake.yaml
+    env TAG_NAME='{{VERSION}}' \
+        TAG_COMMIT="$(git rev-parse '{{VERSION}}')" \
+        yq eval -i '(.. | select(tag == "!!str")) |= envsubst' flatpak/de.swsnr.keepmeawake.yaml
+    git add flatpak/de.swsnr.keepmeawake.yaml flatpak/de.swsnr.keepmeawake.cargo-sources.json
+    @git commit -m 'Update flatpak manifest for {{VERSION}}'
+    @echo "Run git push and trigger sync workflow at https://github.com/flathub/de.swsnr.keepmeawake/actions/workflows/sync.yaml"
 
 # Print release notes
 print-release-notes:
