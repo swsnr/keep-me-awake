@@ -49,7 +49,7 @@ pub fn is_development() -> bool {
 
 /// Get the locale directory.
 ///
-/// Return the flatpak locale directory when in
+/// Return the flatpak locale directory when running in flatpak.
 pub fn locale_directory() -> &'static GStr {
     if running_in_flatpak() {
         gstr!("/app/share/locale")
