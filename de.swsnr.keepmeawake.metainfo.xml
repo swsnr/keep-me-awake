@@ -24,7 +24,13 @@
     <releases>
         <!-- Add release notes for the next release to a release with
         version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/keep-me-awake/releases/tag/next'.
-         -->
+        -->
+        <release version="next" date="9999-01-01">
+            <description>
+                <p>Keep inhibiting screen lock even after the main window is closed.</p>
+            </description>
+            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
+        </release>
         <release version="0.2.0" date="2025-06-01">
             <description>
                 <p>Add persistent notification when sleep or screen lock are inhibited.</p>

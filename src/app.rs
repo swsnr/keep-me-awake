@@ -151,7 +151,12 @@ impl InhibitCookieGuard {
         flags: gtk::ApplicationInhibitFlags,
         reason: Option<&str>,
     ) -> Self {
-        let cookie = app.inhibit(app.active_window().as_ref(), flags, reason);
+        // We explicitly do not pass a window here, even if the application has an active one.
+        //
+        // If a window is given, Gtk inhibits idle on the compositor via the window surface.
+        // But that's precisely not what we want: we wish to continue inhibiting even if the
+        // window is closed.
+        let cookie = app.inhibit(gtk::Window::NONE, flags, reason);
         glib::debug!("Acquired inhibit cookie {cookie} for {flags:?}");
         Self {
             app: app.as_ref().downgrade(),
