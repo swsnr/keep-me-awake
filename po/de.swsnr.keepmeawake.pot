@@ -149,7 +149,7 @@ msgstr ""
 
 #: src/app.rs:252
 msgctxt "inhibit-reason"
-msgid "Keep Me Awake inhibits suspend and idle at your request."
+msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 
 #: src/app.rs:270

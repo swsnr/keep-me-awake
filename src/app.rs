@@ -249,7 +249,7 @@ mod imp {
                             Some(&dpgettext2(
                                 None,
                                 "inhibit-reason",
-                                "Keep Me Awake inhibits suspend and idle at your request.",
+                                "Keep Me Awake inhibits suspend and screen lock at your request.",
                             )),
                         ),
                     )
