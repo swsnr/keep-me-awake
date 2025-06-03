@@ -53,32 +53,36 @@ msgid "Idle"
 msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+msgid "Keep inhibiting screen lock even after the main window is closed."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr "添加睡眠或屏幕锁定被阻止时的持久通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:37
 msgid "Correctly quit the app."
 msgstr "正确退出应用。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:32
+#: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Global shortcuts are not yet supported."
 msgstr "暂不支持全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:42
+#: de.swsnr.keepmeawake.metainfo.xml:48
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr "添加带有开关的主窗口，以阻止挂起、或同时阻止挂起和屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:49
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "暂不支持全局快捷键和通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:55
+#: de.swsnr.keepmeawake.metainfo.xml:61
 msgid "Inhibit nothing"
 msgstr "不进行任何阻止"
 
-#: de.swsnr.keepmeawake.metainfo.xml:59
+#: de.swsnr.keepmeawake.metainfo.xml:65
 msgid "Inhibit suspend and screen locking"
 msgstr "阻止挂起和屏幕锁定"
 
@@ -145,32 +149,35 @@ msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "打开网络中的设备"
 
-#: src/app.rs:237
+#: src/app.rs:242
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "保持唤醒根据您的要求阻止挂起。"
 
-#: src/app.rs:252
+#: src/app.rs:257
+#, fuzzy
+#| msgctxt "notification.body"
+#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "inhibit-reason"
-msgid "Keep Me Awake inhibits suspend and idle at your request."
-msgstr "保持唤醒根据您的要求阻止挂起和空闲。"
+msgid "Keep Me Awake inhibits suspend and screen lock at your request."
+msgstr "保持唤醒根据您的要求阻止挂起和屏幕锁定。"
 
-#: src/app.rs:270
+#: src/app.rs:275
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "挂起被阻止"
 
-#: src/app.rs:275
+#: src/app.rs:280
 msgctxt "notification.body"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "保持唤醒根据您的要求阻止挂起。"
 
-#: src/app.rs:283
+#: src/app.rs:288
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "挂起和屏幕锁定被阻止"
 
-#: src/app.rs:288
+#: src/app.rs:293
 msgctxt "notification.body"
 msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr "保持唤醒根据您的要求阻止挂起和屏幕锁定。"
@@ -201,3 +208,7 @@ msgstr ""
 msgctxt "application-name"
 msgid "Keep Me Awake"
 msgstr "保持唤醒"
+
+#~ msgctxt "inhibit-reason"
+#~ msgid "Keep Me Awake inhibits suspend and idle at your request."
+#~ msgstr "保持唤醒根据您的要求阻止挂起和空闲。"
