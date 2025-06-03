@@ -28,6 +28,7 @@
         <release version="next" date="9999-01-01">
             <description>
                 <p>Keep inhibiting screen lock even after the main window is closed.</p>
+                <p>Global shortcuts are not yet supported.</p>
             </description>
             <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
