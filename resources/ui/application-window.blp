@@ -17,10 +17,23 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
     [top]
     Adw.HeaderBar {
       [end]
-      MenuButton button_menu {
-        menu-model: main_menu;
-        icon-name: 'menu-large-symbolic';
-        primary: true;
+      Box {
+        orientation: horizontal;
+
+        MenuButton button_menu {
+          menu-model: main_menu;
+          icon-name: 'menu-large-symbolic';
+          primary: true;
+        }
+
+        Button {
+          icon-name: "up-arrow-in-a-star-symbolic";
+          visible: bind template.show-update-indicator;
+
+          styles [
+            "accent",
+          ]
+        }
       }
     }
 

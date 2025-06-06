@@ -39,6 +39,8 @@ mod imp {
     pub struct KeepMeAwakeApplicationWindow {
         #[property(get, set, builder(Inhibit::default()))]
         inhibitors: Cell<Inhibit>,
+        #[property(get, set)]
+        show_update_indicator: Cell<bool>,
     }
 
     #[gtk::template_callbacks]

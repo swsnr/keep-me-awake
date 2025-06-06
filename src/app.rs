@@ -199,6 +199,7 @@ mod imp {
     use adw::prelude::*;
     use adw::subclass::prelude::*;
     use glib::{dpgettext2, object::Cast};
+    use gnome_app_utils::app::AppUpdatedMonitor;
     use gtk::{
         ApplicationInhibitFlags,
         gio::Notification,
@@ -216,6 +217,8 @@ mod imp {
     pub struct KeepMeAwakeApplication {
         #[property(explicit_notify, get = Self::get_inhibitors, set = Self::set_inhibitors, type = super::Inhibit, builder(super::Inhibit::default()))]
         inhibitors: RefCell<InhibitState>,
+        /// App updates monitor,
+        updated_monitor: AppUpdatedMonitor,
     }
 
     impl KeepMeAwakeApplication {
@@ -354,6 +357,11 @@ mod imp {
                 if crate::config::is_development() {
                     window.add_css_class("devel");
                 }
+
+                self.updated_monitor
+                    .bind_property("updated", &window, "show-update-indicator")
+                    .sync_create()
+                    .build();
 
                 window.upcast()
             });
