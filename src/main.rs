@@ -39,25 +39,16 @@
 
 mod app;
 mod config;
-mod gettext;
+
+use glib::dpgettext2;
+use gnome_app_utils::i18n::gettext;
+use gtk::gio::prelude::{ApplicationExt, ApplicationExtManual};
 
 use app::KeepMeAwakeApplication;
 use config::G_LOG_DOMAIN;
-use glib::dpgettext2;
-use gtk::gio::prelude::{ApplicationExt, ApplicationExtManual};
 
 fn main() -> glib::ExitCode {
-    static GLIB_LOGGER: glib::GlibLogger = glib::GlibLogger::new(
-        glib::GlibLoggerFormat::Structured,
-        glib::GlibLoggerDomain::CrateTarget,
-    );
-    let max_level = if std::env::var_os("G_MESSAGES_DEBUG").is_some() {
-        log::LevelFilter::Trace
-    } else {
-        log::LevelFilter::Warn
-    };
-    log::set_max_level(max_level);
-    log::set_logger(&GLIB_LOGGER).unwrap();
+    gnome_app_utils::log::log_to_glib();
 
     let locale_dir = config::locale_directory();
     glib::debug!("Initializing gettext with locale directory {}", locale_dir);
