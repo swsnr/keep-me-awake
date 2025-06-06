@@ -1,5 +1,11 @@
 [
     {
+        "type": "git",
+        "url": "https://codeberg.org/swsnr/gnome-app-utils.rs",
+        "commit": "3f0f41253fa42ca41cdb33221141077cdb8c5a5a",
+        "dest": "flatpak-cargo/git/gnome-app-utils.rs-3f0f412"
+    },
+    {
         "type": "archive",
         "archive-type": "tar-gzip",
         "url": "https://static.crates.io/crates/autocfg/autocfg-1.4.0.crate",
@@ -93,6 +99,19 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/futures/futures-0.3.31.crate",
+        "sha256": "65bc07b1a8bc7c85c5f2e110c476c7389b4554ba72af57d8445ea63a576b0876",
+        "dest": "cargo/vendor/futures-0.3.31"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"65bc07b1a8bc7c85c5f2e110c476c7389b4554ba72af57d8445ea63a576b0876\", \"files\": {}}",
+        "dest": "cargo/vendor/futures-0.3.31",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://static.crates.io/crates/futures-channel/futures-channel-0.3.31.crate",
         "sha256": "2dff15bf788c671c1934e366d07e30c1814a8ef514e1af724a602e8a2fbe1b10",
         "dest": "cargo/vendor/futures-channel-0.3.31"
@@ -153,6 +172,19 @@
         "type": "inline",
         "contents": "{\"package\": \"162ee34ebcb7c64a8abebc059ce0fee27c2262618d7b60ed8faf72fef13c3650\", \"files\": {}}",
         "dest": "cargo/vendor/futures-macro-0.3.31",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/futures-sink/futures-sink-0.3.31.crate",
+        "sha256": "e575fab7d1e0dcb8d0c7bcf9a63ee213816ab51902e6d244a95819acacf1d4f7",
+        "dest": "cargo/vendor/futures-sink-0.3.31"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"e575fab7d1e0dcb8d0c7bcf9a63ee213816ab51902e6d244a95819acacf1d4f7\", \"files\": {}}",
+        "dest": "cargo/vendor/futures-sink-0.3.31",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -236,6 +268,58 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/gdk4-wayland/gdk4-wayland-0.9.6.crate",
+        "sha256": "bd34518488cd624a85e75e82540bc24c72cfeb0aea6bad7faed683ca3977dba0",
+        "dest": "cargo/vendor/gdk4-wayland-0.9.6"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"bd34518488cd624a85e75e82540bc24c72cfeb0aea6bad7faed683ca3977dba0\", \"files\": {}}",
+        "dest": "cargo/vendor/gdk4-wayland-0.9.6",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/gdk4-wayland-sys/gdk4-wayland-sys-0.9.6.crate",
+        "sha256": "7c7a0f2332c531d62ee3f14f5e839ac1abac59e9b052adf1495124c00d89a34b",
+        "dest": "cargo/vendor/gdk4-wayland-sys-0.9.6"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"7c7a0f2332c531d62ee3f14f5e839ac1abac59e9b052adf1495124c00d89a34b\", \"files\": {}}",
+        "dest": "cargo/vendor/gdk4-wayland-sys-0.9.6",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/gdk4-x11/gdk4-x11-0.9.6.crate",
+        "sha256": "5c3e7380a9a206b170e1b52b5f25581406db816c68f4e7140dbef89a9e5b52ac",
+        "dest": "cargo/vendor/gdk4-x11-0.9.6"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"5c3e7380a9a206b170e1b52b5f25581406db816c68f4e7140dbef89a9e5b52ac\", \"files\": {}}",
+        "dest": "cargo/vendor/gdk4-x11-0.9.6",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/gdk4-x11-sys/gdk4-x11-sys-0.9.6.crate",
+        "sha256": "070bd50a053f90d7fdf6be1d75672ea0f97c0e5da3a10dc6d02e5defcb0db32f",
+        "dest": "cargo/vendor/gdk4-x11-sys-0.9.6"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"070bd50a053f90d7fdf6be1d75672ea0f97c0e5da3a10dc6d02e5defcb0db32f\", \"files\": {}}",
+        "dest": "cargo/vendor/gdk4-x11-sys-0.9.6",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://static.crates.io/crates/gio/gio-0.20.11.crate",
         "sha256": "d2a5c3829f5794cb15120db87707b2ec03720edff7ad09eb7b711b532e3fe747",
         "dest": "cargo/vendor/gio-0.20.11"
@@ -296,6 +380,24 @@
         "type": "inline",
         "contents": "{\"package\": \"8ab79e1ed126803a8fb827e3de0e2ff95191912b8db65cee467edb56fc4cc215\", \"files\": {}}",
         "dest": "cargo/vendor/glib-sys-0.20.10",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "shell",
+        "commands": [
+            "cp -r --reflink=auto \"flatpak-cargo/git/gnome-app-utils.rs-3f0f412/.\" \"cargo/vendor/gnome-app-utils\""
+        ]
+    },
+    {
+        "type": "inline",
+        "contents": "[package]\nname = \"gnome-app-utils\"\ndescription = \"Utilities for my Gnome apps\"\nhomepage = \"https://codeberg.org/swsnr/gnome-app-utils.rs\"\nrepository = \"https://codeberg.org/swsnr/gnome-app-utils.rs\"\nlicense = \"EUPL-1.2\"\nauthors = [ \"Sebastian Wiesner <sebastian@swsnr.de>\",]\nversion = \"0.1.0\"\nedition = \"2024\"\npublish = false\nrust-version = \"1.87\"\n\n[dependencies]\nfutures = \"0.3.31\"\nlibc = \"0.2.170\"\nlog = \"0.4.27\"\n\n[dependencies.gdk4-wayland]\nversion = \"0.9.6\"\nfeatures = [ \"v4_18\",]\n\n[dependencies.gdk4-x11]\nversion = \"0.9.6\"\nfeatures = [ \"v4_18\",]\n\n[dependencies.gio]\nversion = \"0.20.11\"\nfeatures = [ \"v2_84\",]\n\n[dependencies.glib]\nversion = \"0.20.10\"\nfeatures = [ \"log\", \"v2_84\",]\n\n[dependencies.gtk]\npackage = \"gtk4\"\nversion = \"0.9.5\"\nfeatures = [ \"v4_18\", \"gnome_47\",]\n\n[dependencies.strum]\nversion = \"0.27.1\"\nfeatures = [ \"derive\",]\n",
+        "dest": "cargo/vendor/gnome-app-utils",
+        "dest-filename": "Cargo.toml"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": null, \"files\": {}}",
+        "dest": "cargo/vendor/gnome-app-utils",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -639,6 +741,19 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/rustversion/rustversion-1.0.21.crate",
+        "sha256": "8a0d197bd2c9dc6e53b84da9556a69ba4cdfab8619eb41a8bd1cc2027a0f6b1d",
+        "dest": "cargo/vendor/rustversion-1.0.21"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"8a0d197bd2c9dc6e53b84da9556a69ba4cdfab8619eb41a8bd1cc2027a0f6b1d\", \"files\": {}}",
+        "dest": "cargo/vendor/rustversion-1.0.21",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
         "url": "https://static.crates.io/crates/semver/semver-1.0.26.crate",
         "sha256": "56e6fa9c48d24d85fb3de5ad847117517440f6beceb7798af16b4a87d616b8d0",
         "dest": "cargo/vendor/semver-1.0.26"
@@ -712,6 +827,32 @@
         "type": "inline",
         "contents": "{\"package\": \"8917285742e9f3e1683f0a9c4e6b57960b7314d0b08d30d1ecd426713ee2eee9\", \"files\": {}}",
         "dest": "cargo/vendor/smallvec-1.15.0",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/strum/strum-0.27.1.crate",
+        "sha256": "f64def088c51c9510a8579e3c5d67c65349dcf755e5479ad3d010aa6454e2c32",
+        "dest": "cargo/vendor/strum-0.27.1"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"f64def088c51c9510a8579e3c5d67c65349dcf755e5479ad3d010aa6454e2c32\", \"files\": {}}",
+        "dest": "cargo/vendor/strum-0.27.1",
+        "dest-filename": ".cargo-checksum.json"
+    },
+    {
+        "type": "archive",
+        "archive-type": "tar-gzip",
+        "url": "https://static.crates.io/crates/strum_macros/strum_macros-0.27.1.crate",
+        "sha256": "c77a8c5abcaf0f9ce05d62342b7d298c346515365c36b673df4ebe3ced01fde8",
+        "dest": "cargo/vendor/strum_macros-0.27.1"
+    },
+    {
+        "type": "inline",
+        "contents": "{\"package\": \"c77a8c5abcaf0f9ce05d62342b7d298c346515365c36b673df4ebe3ced01fde8\", \"files\": {}}",
+        "dest": "cargo/vendor/strum_macros-0.27.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -963,7 +1104,7 @@
     },
     {
         "type": "inline",
-        "contents": "[source.vendored-sources]\ndirectory = \"cargo/vendor\"\n\n[source.crates-io]\nreplace-with = \"vendored-sources\"\n",
+        "contents": "[source.vendored-sources]\ndirectory = \"cargo/vendor\"\n\n[source.crates-io]\nreplace-with = \"vendored-sources\"\n\n[source.\"https://codeberg.org/swsnr/gnome-app-utils.rs\"]\ngit = \"https://codeberg.org/swsnr/gnome-app-utils.rs\"\nreplace-with = \"vendored-sources\"\nbranch = \"main\"\n",
         "dest": "cargo",
         "dest-filename": "config"
     }
