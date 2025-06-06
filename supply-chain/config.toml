@@ -16,6 +16,9 @@ url = "https://raw.githubusercontent.com/mozilla/supply-chain/main/audits.toml"
 [imports.swsnr]
 url = "https://codeberg.org/swsnr/rust-supply-chain/raw/branch/main/audits.toml"
 
+[policy.keep-me-awake]
+criteria = "safe-to-run"
+
 [[exemptions.bitflags]]
 version = "2.9.1"
 criteria = "safe-to-deploy"
