@@ -57,37 +57,38 @@ msgstr ""
 msgid "Show indicator if app was updated in background."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:37
-msgid "Keep inhibiting screen lock even after the main window is closed."
-msgstr ""
-
-#: de.swsnr.keepmeawake.metainfo.xml:38 de.swsnr.keepmeawake.metainfo.xml:46
+#: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
+#: de.swsnr.keepmeawake.metainfo.xml:47
 msgid "Global shortcuts are not yet supported."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
-msgid "Add persistent notification when sleep or screen lock are inhibited."
+#: de.swsnr.keepmeawake.metainfo.xml:38
+msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
 
 #: de.swsnr.keepmeawake.metainfo.xml:45
+msgid "Add persistent notification when sleep or screen lock are inhibited."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:46
 msgid "Correctly quit the app."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:56
+#: de.swsnr.keepmeawake.metainfo.xml:57
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:57
+#: de.swsnr.keepmeawake.metainfo.xml:58
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:69
+#: de.swsnr.keepmeawake.metainfo.xml:70
 msgid "Inhibit nothing"
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:73
+#: de.swsnr.keepmeawake.metainfo.xml:74
 msgid "Inhibit suspend and screen locking"
 msgstr ""
 

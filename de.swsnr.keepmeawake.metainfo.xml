@@ -29,6 +29,7 @@
             <description>
                 <p>Do not show redundant notification when quitting.</p>
                 <p>Show indicator if app was updated in background.</p>
+                <p>Global shortcuts are not yet supported.</p>
             </description>
             <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
