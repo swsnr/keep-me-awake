@@ -2,3 +2,27 @@
 # cargo-vet audits file
 
 [audits]
+
+[[trusted.gdk4-wayland]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-06-06"
+
+[[trusted.gdk4-wayland-sys]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-06-06"
+
+[[trusted.gdk4-x11]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-06-06"
+
+[[trusted.gdk4-x11-sys]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-06-06"
