@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-06-05 00:58+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/"
-"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
+"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,24 +54,34 @@ msgid "Idle"
 msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
-msgid "Keep inhibiting screen lock even after the main window is closed."
-msgstr "Onderdruk het vergrendelscherm, ook als het hoofdvenster is afgesloten."
+msgid "Do not show redundant notification when quitting."
+msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:36
+#: de.swsnr.keepmeawake.metainfo.xml:31
+msgid "Show indicator if app was updated in background."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
+#: de.swsnr.keepmeawake.metainfo.xml:47
+msgid "Global shortcuts are not yet supported."
+msgstr "Globale sneltoetsen worden nog niet ondersteund."
+
+#: de.swsnr.keepmeawake.metainfo.xml:38
+msgid "Keep inhibiting screen lock even after the main window is closed."
+msgstr ""
+"Onderdruk het vergrendelscherm, ook als het hoofdvenster is afgesloten."
+
+#: de.swsnr.keepmeawake.metainfo.xml:45
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 "Nieuw: permanente meldingen tijdens onderdrukken van slaapstand en "
 "schermvergrendeling."
 
-#: de.swsnr.keepmeawake.metainfo.xml:37
+#: de.swsnr.keepmeawake.metainfo.xml:46
 msgid "Correctly quit the app."
 msgstr "Opgelost: de toepassing wordt voortaan juist afgesloten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:38
-msgid "Global shortcuts are not yet supported."
-msgstr "Globale sneltoetsen worden nog niet ondersteund."
-
-#: de.swsnr.keepmeawake.metainfo.xml:48
+#: de.swsnr.keepmeawake.metainfo.xml:57
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -79,36 +89,36 @@ msgstr ""
 "Nieuw: acties in het hoofdvenster voor het onderdrukken van de slaapstand, "
 "schermvergrendeling of beide."
 
-#: de.swsnr.keepmeawake.metainfo.xml:49
+#: de.swsnr.keepmeawake.metainfo.xml:58
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "Globale sneltoetsen en meldingen worden nog niet ondersteund."
 
-#: de.swsnr.keepmeawake.metainfo.xml:61
+#: de.swsnr.keepmeawake.metainfo.xml:70
 msgid "Inhibit nothing"
 msgstr "Niets onderdrukken"
 
-#: de.swsnr.keepmeawake.metainfo.xml:65
+#: de.swsnr.keepmeawake.metainfo.xml:74
 msgid "Inhibit suspend and screen locking"
 msgstr "Schermvergrendeling en slaapstand onderdrukken"
 
-#: resources/ui/application-window.blp:45
+#: resources/ui/application-window.blp:58
 msgid "Do not inhibit screen lock and suspend"
 msgstr "Schermvergrendeling en slaapstand niet onderdrukken"
 
-#: resources/ui/application-window.blp:50
+#: resources/ui/application-window.blp:63
 msgid "Inhibit suspend"
 msgstr "Slaapstand onderdrukken"
 
-#: resources/ui/application-window.blp:55
+#: resources/ui/application-window.blp:68
 msgid "Inhibit screen lock and suspend"
 msgstr "Schermvergrendeling en slaapstand onderdrukken"
 
-#: resources/ui/application-window.blp:66
+#: resources/ui/application-window.blp:79
 msgctxt "application-window.menu.label"
 msgid "_Quit"
 msgstr "_Afsluiten"
 
-#: resources/ui/application-window.blp:73
+#: resources/ui/application-window.blp:86
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
 msgstr "Over Niet in sl_aap vallen"
@@ -154,34 +164,34 @@ msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "Schakel apparaten op uw netwerk in"
 
-#: src/app.rs:242
+#: src/app.rs:248
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
-#: src/app.rs:257
+#: src/app.rs:263
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 "Niet in slaap vallen zal de slaapstand en schermvergrendeling op verzoek "
 "onderdrukken."
 
-#: src/app.rs:275
+#: src/app.rs:281
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "Slaapstand is onderdrukt"
 
-#: src/app.rs:280
+#: src/app.rs:286
 msgctxt "notification.body"
 msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
-#: src/app.rs:288
+#: src/app.rs:294
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "Slaapstand en schermvergrendeling zijn onderdrukt"
 
-#: src/app.rs:293
+#: src/app.rs:299
 msgctxt "notification.body"
 msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr ""
@@ -210,7 +220,7 @@ msgstr ""
 "\n"
 "%2"
 
-#: src/main.rs:69
+#: src/main.rs:60
 msgctxt "application-name"
 msgid "Keep Me Awake"
 msgstr "Niet in slaap vallen"
