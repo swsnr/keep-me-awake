@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-03 14:13+0000\n"
+"PO-Revision-Date: 2025-06-05 00:58+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +55,7 @@ msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Keep inhibiting screen lock even after the main window is closed."
-msgstr ""
+msgstr "Onderdruk het vergrendelscherm, ook als het hoofdvenster is afgesloten."
 
 #: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Add persistent notification when sleep or screen lock are inhibited."
@@ -160,9 +160,6 @@ msgid "Keep Me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
 #: src/app.rs:257
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "inhibit-reason"
 msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr ""
