@@ -82,13 +82,16 @@ impl KeepMeAwakeApplication {
         let entries = [
             ActionEntry::builder("quit")
                 .activate(|app: &KeepMeAwakeApplication, _, _| {
-                    // Simply clear the inhibitors and close the main widnow;
-                    // this automatically releases any app holds, so the app
-                    // then exits on time out.
+                    // Clear inhibitor to withdraw notifications and release the
+                    // inhibition app hold.  Do this first to avoid showing any
+                    // new notifications when closing the main window next.
+                    app.set_inhibitors(Inhibit::Nothing);
+                    // Close the main window to release its app hold.  With no
+                    // holds left the app will automatically exit on its idle
+                    // timeout.
                     if let Some(window) = app.active_window() {
                         window.close();
                     }
-                    app.set_inhibitors(Inhibit::Nothing);
                 })
                 .build(),
             ActionEntry::builder("about")
