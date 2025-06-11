@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-05 00:58+0000\n"
+"PO-Revision-Date: 2025-06-08 08:58+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,11 +55,11 @@ msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Do not show redundant notification when quitting."
-msgstr ""
+msgstr "Toon geen melding tijdens het afsluiten."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Show indicator if app was updated in background."
-msgstr ""
+msgstr "Toon een indicator als de toepassing op de achtergrond is bijgewerkt."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
 #: de.swsnr.keepmeawake.metainfo.xml:47
