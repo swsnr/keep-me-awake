@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-06 12:44+0000\n"
+"PO-Revision-Date: 2025-06-11 05:58+0000\n"
 "Last-Translator: Sebastian Wiesner <sebastian@swsnr.de>\n"
-"Language-Team: German <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/de/>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,8 +34,6 @@ msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
 msgstr "GNOME;GTK;Ruhezustand;Suspend;Idle;Verhindern;"
 
 #: de.swsnr.keepmeawake.metainfo.xml:6
-#, fuzzy
-#| msgid "Inhibit screen lock and suspend"
 msgid "Inhibit lock screen and suspend"
 msgstr "Bildschirmsperre und Ruhezustand verhindern"
 
