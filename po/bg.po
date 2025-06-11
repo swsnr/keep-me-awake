@@ -21,13 +21,17 @@ msgstr ""
 msgid "Keep Me Awake"
 msgstr ""
 
-#: de.swsnr.keepmeawake.desktop:4 de.swsnr.keepmeawake.metainfo.xml:6
+#: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: de.swsnr.keepmeawake.desktop:10
 msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:6
+msgid "Inhibit lock screen and suspend"
 msgstr ""
 
 #: de.swsnr.keepmeawake.metainfo.xml:8

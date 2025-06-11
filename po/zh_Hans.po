@@ -25,7 +25,7 @@ msgstr ""
 msgid "Keep Me Awake"
 msgstr "保持唤醒"
 
-#: de.swsnr.keepmeawake.desktop:4 de.swsnr.keepmeawake.metainfo.xml:6
+#: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
 msgstr "保持桌面处于唤醒状态"
 
@@ -33,6 +33,12 @@ msgstr "保持桌面处于唤醒状态"
 #: de.swsnr.keepmeawake.desktop:10
 msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
 msgstr "GNOME;GTK;Suspend;Idle;Inhibit;挂起;空闲;阻止;"
+
+#: de.swsnr.keepmeawake.metainfo.xml:6
+#, fuzzy
+#| msgid "Inhibit screen lock and suspend"
+msgid "Inhibit lock screen and suspend"
+msgstr "阻止屏幕锁定和挂起"
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""

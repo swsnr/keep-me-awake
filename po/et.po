@@ -24,7 +24,7 @@ msgstr ""
 msgid "Keep Me Awake"
 msgstr "Hoia mind ärkvel"
 
-#: de.swsnr.keepmeawake.desktop:4 de.swsnr.keepmeawake.metainfo.xml:6
+#: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
 msgstr "Ära lase töölaual unne vajuda"
 
@@ -32,6 +32,10 @@ msgstr "Ära lase töölaual unne vajuda"
 #: de.swsnr.keepmeawake.desktop:10
 msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
 msgstr "GNOME;GTK;Suspend;Idle;Inhibit;jõude;unumine;tukastama;tukasta;keela;luba;"
+
+#: de.swsnr.keepmeawake.metainfo.xml:6
+msgid "Inhibit lock screen and suspend"
+msgstr ""
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""
