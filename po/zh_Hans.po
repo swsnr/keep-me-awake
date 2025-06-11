@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-05 00:58+0000\n"
+"PO-Revision-Date: 2025-06-08 08:58+0000\n"
 "Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/de-swsnr-keepmeawake/de-swsnr-keepmeawake/"
@@ -54,11 +54,11 @@ msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Do not show redundant notification when quitting."
-msgstr ""
+msgstr "退出时不要显示多余的通知。"
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Show indicator if app was updated in background."
-msgstr ""
+msgstr "如果应用在后台更新，则显示指示器。"
 
 #: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
 #: de.swsnr.keepmeawake.metainfo.xml:47
