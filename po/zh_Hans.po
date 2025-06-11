@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-08 08:58+0000\n"
+"PO-Revision-Date: 2025-06-10 01:58+0000\n"
 "Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/de-swsnr-keepmeawake/de-swsnr-keepmeawake/"
@@ -35,10 +35,8 @@ msgid "GNOME;GTK;Suspend;Idle;Inhibit;"
 msgstr "GNOME;GTK;Suspend;Idle;Inhibit;挂起;空闲;阻止;"
 
 #: de.swsnr.keepmeawake.metainfo.xml:6
-#, fuzzy
-#| msgid "Inhibit screen lock and suspend"
 msgid "Inhibit lock screen and suspend"
-msgstr "阻止屏幕锁定和挂起"
+msgstr "阻止锁定屏幕和挂起"
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""
