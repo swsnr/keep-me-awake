@@ -57,45 +57,52 @@ msgid "Idle"
 msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgctxt "about-dialog.link.label"
+#| msgid "Translations"
+msgid "Update translations."
+msgstr "翻译"
+
+#: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Do not show redundant notification when quitting."
 msgstr "退出时不要显示多余的通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:37
 msgid "Show indicator if app was updated in background."
 msgstr "如果应用在后台更新，则显示指示器。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
-#: de.swsnr.keepmeawake.metainfo.xml:47
+#: de.swsnr.keepmeawake.metainfo.xml:38 de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Global shortcuts are not yet supported."
 msgstr "暂不支持全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:38
+#: de.swsnr.keepmeawake.metainfo.xml:44
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr "即使在主窗口关闭后，也要保持阻止屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr "添加睡眠或屏幕锁定被阻止时的持久通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:46
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid "Correctly quit the app."
 msgstr "正确退出应用。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:57
+#: de.swsnr.keepmeawake.metainfo.xml:63
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr "添加带有开关的主窗口，以阻止挂起、或同时阻止挂起和屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:58
+#: de.swsnr.keepmeawake.metainfo.xml:64
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "暂不支持全局快捷键和通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:70
+#: de.swsnr.keepmeawake.metainfo.xml:76
 msgid "Inhibit nothing"
 msgstr "不进行任何阻止"
 
-#: de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Inhibit suspend and screen locking"
 msgstr "阻止挂起和屏幕锁定"
 

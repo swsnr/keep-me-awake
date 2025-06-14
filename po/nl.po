@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-06-10 01:58+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/"
-"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
+"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,34 +58,41 @@ msgid "Idle"
 msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgctxt "about-dialog.link.label"
+#| msgid "Translations"
+msgid "Update translations."
+msgstr "Vertalingen"
+
+#: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Do not show redundant notification when quitting."
 msgstr "Toon geen melding tijdens het afsluiten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:37
 msgid "Show indicator if app was updated in background."
 msgstr "Toon een indicator als de toepassing op de achtergrond is bijgewerkt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:32 de.swsnr.keepmeawake.metainfo.xml:39
-#: de.swsnr.keepmeawake.metainfo.xml:47
+#: de.swsnr.keepmeawake.metainfo.xml:38 de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Global shortcuts are not yet supported."
 msgstr "Globale sneltoetsen worden nog niet ondersteund."
 
-#: de.swsnr.keepmeawake.metainfo.xml:38
+#: de.swsnr.keepmeawake.metainfo.xml:44
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
 "Onderdruk het vergrendelscherm, ook als het hoofdvenster is afgesloten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 "Nieuw: permanente meldingen tijdens onderdrukken van slaapstand en "
 "schermvergrendeling."
 
-#: de.swsnr.keepmeawake.metainfo.xml:46
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid "Correctly quit the app."
 msgstr "Opgelost: de toepassing wordt voortaan juist afgesloten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:57
+#: de.swsnr.keepmeawake.metainfo.xml:63
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -93,15 +100,15 @@ msgstr ""
 "Nieuw: acties in het hoofdvenster voor het onderdrukken van de slaapstand, "
 "schermvergrendeling of beide."
 
-#: de.swsnr.keepmeawake.metainfo.xml:58
+#: de.swsnr.keepmeawake.metainfo.xml:64
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "Globale sneltoetsen en meldingen worden nog niet ondersteund."
 
-#: de.swsnr.keepmeawake.metainfo.xml:70
+#: de.swsnr.keepmeawake.metainfo.xml:76
 msgid "Inhibit nothing"
 msgstr "Niets onderdrukken"
 
-#: de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Inhibit suspend and screen locking"
 msgstr "Schermvergrendeling en slaapstand onderdrukken"
 
