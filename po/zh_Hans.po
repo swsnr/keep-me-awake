@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-10 01:58+0000\n"
+"PO-Revision-Date: 2025-06-14 06:58+0000\n"
 "Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/de-swsnr-keepmeawake/de-swsnr-keepmeawake/"
@@ -57,11 +57,8 @@ msgid "Idle"
 msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
-#, fuzzy
-#| msgctxt "about-dialog.link.label"
-#| msgid "Translations"
 msgid "Update translations."
-msgstr "翻译"
+msgstr "更新翻译。"
 
 #: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Do not show redundant notification when quitting."
