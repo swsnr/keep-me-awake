@@ -2,11 +2,11 @@
 
 [![Translation status](https://translate.codeberg.org/widget/de-swsnr-keepmeawake/de-swsnr-keepmeawake/svg-badge.svg)](https://translate.codeberg.org/engage/de-swsnr-keepmeawake/)
 
-Keep your desktop awake
+Inhibit lock screen and suspend.
 
 ![The main window with no inhibitors on the left side, and with inhibiting suspend and screen lock on the right side](./social-image.png)
 
-A small GNOME utility application to send Wake On LAN (WoL) magic packets to devices in a network.
+A small GNOME utility application to inhibit lock screen and suspend.
 
 ## Installation
 
