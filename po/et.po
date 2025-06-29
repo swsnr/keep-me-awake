@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-27 19:58+0000\n"
+"PO-Revision-Date: 2025-06-29 20:58+0000\n"
 "Last-Translator: Priit Jõerüüt <jrtcdbrg@noreply.codeberg.org>\n"
-"Language-Team: Estonian <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/et/>\n"
+"Language-Team: Estonian <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,15 +53,15 @@ msgstr ""
 
 #: de.swsnr.keepmeawake.metainfo.xml:16
 msgid "Idle"
-msgstr ""
+msgstr "Jõude"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Update translations."
-msgstr ""
+msgstr "Uuendatud tõlked."
 
 #: de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Do not show redundant notification when quitting."
-msgstr ""
+msgstr "Väljumisel ei kuva enam mittevajalikku teavitust."
 
 #: de.swsnr.keepmeawake.metainfo.xml:37
 msgid "Show indicator if app was updated in background."
@@ -70,7 +70,7 @@ msgstr ""
 #: de.swsnr.keepmeawake.metainfo.xml:38 de.swsnr.keepmeawake.metainfo.xml:45
 #: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Global shortcuts are not yet supported."
-msgstr ""
+msgstr "Üldised kiirklahvid pole veel toetatud."
 
 #: de.swsnr.keepmeawake.metainfo.xml:44
 msgid "Keep inhibiting screen lock even after the main window is closed."
@@ -117,53 +117,53 @@ msgstr ""
 #: resources/ui/application-window.blp:79
 msgctxt "application-window.menu.label"
 msgid "_Quit"
-msgstr ""
+msgstr "_Välju"
 
 #: resources/ui/application-window.blp:86
 msgctxt "application-window.menu.label"
 msgid "_About Keep Me Awake"
-msgstr ""
+msgstr "R_akenduse teave: Hoia mind ärkvel"
 
 #: src/app.rs:33
 msgctxt "about-dialog.link.label"
 msgid "Translations"
-msgstr ""
+msgstr "Tõlked"
 
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
 #: src/app.rs:42
 msgid "translator-credits"
-msgstr ""
+msgstr "Priit Jõerüüt 2025"
 
 #: src/app.rs:47
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
-msgstr ""
+msgstr "Abiks olevad teenused"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:59
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
-msgstr ""
+msgstr "Päevapilt"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:64
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
-msgstr ""
+msgstr "Sinu igapäevane taustapilt"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:70
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
-msgstr ""
+msgstr "Lülita sisse"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:75
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
-msgstr ""
+msgstr "Lülita seadmed oma võrgus sisse"
 
 #: src/app.rs:248
 msgctxt "inhibit-reason"
@@ -212,4 +212,4 @@ msgstr ""
 #: src/main.rs:60
 msgctxt "application-name"
 msgid "Keep Me Awake"
-msgstr ""
+msgstr "Hoia mind ärkvel"
