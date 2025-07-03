@@ -1,7 +1,16 @@
 
 # cargo-vet audits file
 
-[audits]
+[[audits.slab]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-run"
+delta = "0.4.9 -> 0.4.10"
+
+[[trusted.cairo-rs]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-07-08"
+end = "2026-07-03"
 
 [[trusted.gdk4-wayland]]
 criteria = "safe-to-run"
@@ -26,3 +35,39 @@ criteria = "safe-to-run"
 user-id = 3623 # Sebastian Dröge (sdroege)
 start = "2021-04-04"
 end = "2026-06-06"
+
+[[trusted.gio]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2020-08-28"
+end = "2026-07-03"
+
+[[trusted.glib]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2020-02-14"
+end = "2026-07-03"
+
+[[trusted.glib-macros]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-07-08"
+end = "2026-07-03"
+
+[[trusted.gtk4]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2022-01-15"
+end = "2026-07-03"
+
+[[trusted.libc]]
+criteria = "safe-to-run"
+user-id = 55123 # rust-lang-owner
+start = "2024-08-15"
+end = "2026-07-03"
+
+[[trusted.pango]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2020-08-11"
+end = "2026-07-03"
