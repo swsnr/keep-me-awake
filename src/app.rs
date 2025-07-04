@@ -6,6 +6,11 @@
 
 use adw::prelude::*;
 use glib::{Object, WeakRef, dgettext, dpgettext2};
+use gnome_app_utils::portal::{
+    RequestResult,
+    background::{RequestBackgroundFlags, request_background},
+    window::PortalWindowHandle,
+};
 use gtk::gio::{ActionEntry, ApplicationHoldGuard};
 
 use crate::config::G_LOG_DOMAIN;
@@ -103,6 +108,43 @@ impl KeepMeAwakeApplication {
         self.add_action_entries(entries);
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
+
+    async fn ask_background(&self) {
+        let connection = self.dbus_connection().unwrap();
+        let reason = dpgettext2(
+            None,
+            "portal.request-background.reason",
+            "Inhibit suspend and idle without a main window",
+        );
+        let parent_window = PortalWindowHandle::new_for_app(self).await;
+        glib::info!("Requesting permission to run in background and autostart");
+        let result = request_background(
+            &connection,
+            &parent_window,
+            Some(&reason),
+            None,
+            RequestBackgroundFlags::empty(),
+        )
+        .await;
+
+        match result {
+            Ok(result) => {
+                if result.request_result == RequestResult::Success {
+                    if !result.background {
+                        glib::warn!("Background request successful, but background not granted?");
+                    }
+                } else {
+                    glib::warn!(
+                        "Background request no successfully: {:?}",
+                        result.request_result
+                    );
+                }
+            }
+            Err(error) => {
+                glib::error!("Failed to request background with autostart: {error}");
+            }
+        }
+    }
 }
 
 impl Default for KeepMeAwakeApplication {
@@ -198,7 +240,7 @@ mod imp {
 
     use adw::prelude::*;
     use adw::subclass::prelude::*;
-    use glib::{dpgettext2, object::Cast};
+    use glib::dpgettext2;
     use gnome_app_utils::app::AppUpdatedMonitor;
     use gtk::{
         ApplicationInhibitFlags,
@@ -333,7 +375,9 @@ mod imp {
         }
 
         fn activate(&self) {
-            let window = self.obj().active_window().unwrap_or_else(|| {
+            if let Some(window) = self.obj().active_window() {
+                window.present();
+            } else {
                 let window = KeepMeAwakeApplicationWindow::new(&*self.obj());
                 self.obj()
                     .bind_property("inhibitors", &window, "inhibitors")
@@ -357,15 +401,25 @@ mod imp {
                 if crate::config::is_development() {
                     window.add_css_class("devel");
                 }
+                window.present();
 
                 self.updated_monitor
                     .bind_property("updated", &window, "show-update-indicator")
                     .sync_create()
                     .build();
 
-                window.upcast()
-            });
-            window.present();
+                // Request background if the app gets activated, to be able to
+                // keep running while inhibiting even if the user closes the window.
+                // Do so after the window was presented to make there's a window to
+                // show permission prompts on.
+                glib::spawn_future_local(glib::clone!(
+                    #[weak(rename_to = app)]
+                    self.obj(),
+                    async move {
+                        app.ask_background().await;
+                    }
+                ));
+            }
         }
     }
 
