@@ -1297,6 +1297,12 @@ version = "0.3.6"
 notes = "Very simple crate which doesn't interact with the underlying system at all."
 aggregated-from = "https://codeberg.org/swsnr/turnon/raw/branch/main/supply-chain/audits.toml"
 
+[[audits.swsnr.audits.formatx]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-run"
+version = "0.2.4"
+aggregated-from = "https://codeberg.org/swsnr/picture-of-the-day/raw/branch/main/supply-chain/audits.toml"
+
 [[audits.swsnr.audits.hashbrown]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"

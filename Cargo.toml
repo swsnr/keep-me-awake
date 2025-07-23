@@ -16,6 +16,7 @@ futures-util = { version = "0.3.31" }
 glib = { version = "0.21.0", features = ["log_macros"] }
 gnome-app-utils = { git = "https://codeberg.org/swsnr/gnome-app-utils.rs.git", branch = "main" }
 gtk = { package = "gtk4", version = "0.10.0", features = ["gnome_48"] }
+formatx = "0.2.4"
 
 [package.metadata.release]
 pre-release-commit-message = "Release {{version}}"

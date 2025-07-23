@@ -4,6 +4,7 @@
 //
 // See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
+use formatx::formatx;
 use glib::{GStr, dpgettext2, gstr};
 use gtk::gio::{self, resources_register};
 
@@ -23,25 +24,29 @@ pub const CARGO_PKG_VERSION: &str = env!("CARGO_PKG_VERSION");
 /// The full app license text.
 pub const LICENSE_TEXT: &str = include_str!("../LICENSE");
 
+/// The URL to official translations of the EUPL 1.2
+const LICENSE_TRANSLATIONS_URL: &str =
+    "https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12";
+
 pub fn license_text() -> String {
-    dpgettext2(
-        None,
-        "about-dialog.license-text",
-        // Translators: This is Pango markup, be sure to escape appropriately
-        "Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;
+    formatx!(
+        dpgettext2(
+            None,
+            "about-dialog.license-text",
+            // Translators: This is Pango markup, be sure to escape appropriately
+            "Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;
 
 Licensed under the terms of the EUPL 1.2. You can find official translations \
-of the license text at <a href=\"%1\">%1</a>.
+of the license text at <a href=\"{translations}\">{translations}</a>.
 
 The full English text follows.
 
-%2",
+{license_text}",
+        ),
+        translations = LICENSE_TRANSLATIONS_URL,
+        license_text = glib::markup_escape_text(LICENSE_TEXT)
     )
-    .replace(
-        "%1",
-        "https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
-    )
-    .replace("%2", &glib::markup_escape_text(LICENSE_TEXT))
+    .unwrap()
 }
 
 /// Whether the app is running in flatpak.
