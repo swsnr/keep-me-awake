@@ -56,50 +56,50 @@ msgstr "阻止"
 msgid "Idle"
 msgstr "空闲"
 
-#: de.swsnr.keepmeawake.metainfo.xml:30
+#: de.swsnr.keepmeawake.metainfo.xml:30 de.swsnr.keepmeawake.metainfo.xml:36
 msgid "Update translations."
 msgstr "更新翻译。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:36
+#: de.swsnr.keepmeawake.metainfo.xml:42
 msgid "Do not show redundant notification when quitting."
 msgstr "退出时不要显示多余的通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:37
+#: de.swsnr.keepmeawake.metainfo.xml:43
 msgid "Show indicator if app was updated in background."
 msgstr "如果应用在后台更新，则显示指示器。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:38 de.swsnr.keepmeawake.metainfo.xml:45
-#: de.swsnr.keepmeawake.metainfo.xml:53
+#: de.swsnr.keepmeawake.metainfo.xml:44 de.swsnr.keepmeawake.metainfo.xml:51
+#: de.swsnr.keepmeawake.metainfo.xml:59
 msgid "Global shortcuts are not yet supported."
 msgstr "暂不支持全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
+#: de.swsnr.keepmeawake.metainfo.xml:50
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr "即使在主窗口关闭后，也要保持阻止屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:51
+#: de.swsnr.keepmeawake.metainfo.xml:57
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr "添加睡眠或屏幕锁定被阻止时的持久通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:52
+#: de.swsnr.keepmeawake.metainfo.xml:58
 msgid "Correctly quit the app."
 msgstr "正确退出应用。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:63
+#: de.swsnr.keepmeawake.metainfo.xml:69
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr "添加带有开关的主窗口，以阻止挂起、或同时阻止挂起和屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:64
+#: de.swsnr.keepmeawake.metainfo.xml:70
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "暂不支持全局快捷键和通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:76
+#: de.swsnr.keepmeawake.metainfo.xml:82
 msgid "Inhibit nothing"
 msgstr "不进行任何阻止"
 
-#: de.swsnr.keepmeawake.metainfo.xml:80
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Inhibit suspend and screen locking"
 msgstr "阻止挂起和屏幕锁定"
 
@@ -197,17 +197,28 @@ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgstr "保持唤醒根据您的要求阻止挂起和屏幕锁定。"
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/config.rs:31
+#: src/config.rs:37
+#, fuzzy
+#| msgctxt "about-dialog.license-text"
+#| msgid ""
+#| "Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+#| "\n"
+#| "Licensed under the terms of the EUPL 1.2. You can find official "
+#| "translations of the license text at <a href=\"%1\">%1</a>.\n"
+#| "\n"
+#| "The full English text follows.\n"
+#| "\n"
+#| "%2"
 msgctxt "about-dialog.license-text"
 msgid ""
-"Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+"Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
 "\n"
 "Licensed under the terms of the EUPL 1.2. You can find official translations "
-"of the license text at <a href=\"%1\">%1</a>.\n"
+"of the license text at <a href=\"{translations}\">{translations}</a>.\n"
 "\n"
 "The full English text follows.\n"
 "\n"
-"%2"
+"{license_text}"
 msgstr ""
 "版权所有 Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
 "\n"
