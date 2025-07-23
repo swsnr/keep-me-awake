@@ -12,7 +12,7 @@ default:
 pot:
     find src -name '*.rs' > po/POTFILES.rs
     find resources/ -name '*.blp' > po/POTFILES.blp
-    xgettext {{xgettext_opts}} --language=C --keyword=dpgettext2:2c,3 --files-from=po/POTFILES.rs --output=po/de.swsnr.keepmeawake.rs.pot
+    xgettext {{xgettext_opts}} --language=Rust --keyword=dpgettext2:2c,3 --files-from=po/POTFILES.rs --output=po/de.swsnr.keepmeawake.rs.pot
     xgettext {{xgettext_opts}} --language=C --keyword=_ --keyword=C_:1c,2 --files-from=po/POTFILES.blp --output=po/de.swsnr.keepmeawake.blp.pot
     xgettext {{xgettext_opts}} --output=po/de.swsnr.keepmeawake.pot \
         po/de.swsnr.keepmeawake.rs.pot po/de.swsnr.keepmeawake.blp.pot \
