@@ -27,8 +27,12 @@
         -->
         <release version="next" date="9999-01-01">
             <description>
-                <p>Update translations</p>
+                <p>Add global Super+W shortcut to toggle inhibiting sleep.</p>
+                <p>Update translations.</p>
             </description>
+            <issues>
+                <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/10">CB-10</issue>
+            </issues>
             <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
         <release version="0.4.0" date="2025-09-22">

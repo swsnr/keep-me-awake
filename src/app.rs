@@ -111,6 +111,14 @@ impl KeepMeAwakeApplication {
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
 
+    fn toggle_keep_me_awake(&self) {
+        let new_inhibitor: Inhibit = match self.inhibitors() {
+            Inhibit::Nothing => Inhibit::SuspendAndIdle,
+            Inhibit::Suspend | Inhibit::SuspendAndIdle => Inhibit::Nothing,
+        };
+        self.set_inhibitors(new_inhibitor);
+    }
+
     async fn ask_background(&self) -> Result<(), glib::Error> {
         let connection = self.dbus_connection().unwrap();
         let reason = dpgettext2(
@@ -150,12 +158,20 @@ impl Default for KeepMeAwakeApplication {
 }
 
 mod imp {
-    use std::cell::RefCell;
+    use std::{cell::RefCell, rc::Rc};
 
     use adw::prelude::*;
     use adw::subclass::prelude::*;
+    use futures_util::{StreamExt, future};
     use glib::dpgettext2;
-    use gnome_app_utils::app::AppUpdatedMonitor;
+    use gnome_app_utils::{
+        app::AppUpdatedMonitor,
+        portal::{
+            PortalSession,
+            global_shortcuts::{GlobalShortcutsSession, NewShortcut},
+            window::PortalWindowHandle,
+        },
+    };
     use gtk::{
         ApplicationInhibitFlags,
         gio::Notification,
@@ -181,6 +197,8 @@ mod imp {
         inhibitors: RefCell<InhibitState>,
         /// App updates monitor,
         updated_monitor: AppUpdatedMonitor,
+        /// Session for global shortcuts
+        shortcuts_session: RefCell<Option<Rc<GlobalShortcutsSession>>>,
     }
 
     impl KeepMeAwakeApplication {
@@ -270,6 +288,60 @@ mod imp {
                 self.obj().withdraw_notification(NOTIFICATION_ID);
             }
         }
+
+        async fn setup_global_shortcuts(&self) -> Result<(), glib::Error> {
+            if self.shortcuts_session.borrow().is_some() {
+                return Ok(());
+            }
+
+            let connection = self.obj().dbus_connection().unwrap();
+            glib::info!("Creating session for global shortcuts");
+            let session = Rc::new(GlobalShortcutsSession::create(&connection).await?);
+            self.shortcuts_session.replace(Some(session.clone()));
+
+            glib::info!(
+                "Binding global shortcuts in session {}",
+                session.object_path().as_str()
+            );
+            let parent_window = PortalWindowHandle::new_for_app(&*self.obj()).await;
+            // See https://specifications.freedesktop.org/shortcuts-spec/latest/ for shortcuts syntax.
+            // Yes, the Super key is LOGO in this spec.
+            session
+                .bind_shortcuts(
+                    &parent_window,
+                    &[NewShortcut {
+                        id: "keep-me-awake-toggle",
+                        description: &dpgettext2(
+                            None,
+                            "global shortcut description",
+                            "Toggle Keep Me Awake",
+                        ),
+                        preferred_trigger: Some("LOGO+w"),
+                    }],
+                )
+                .await?;
+            glib::spawn_future_local(session.receive_activated().for_each(glib::clone!(
+                #[weak(rename_to = app)]
+                self.obj(),
+                #[upgrade_or]
+                future::ready(()),
+                move |activated| {
+                    match activated.shortcut_id.as_str() {
+                        "keep-me-awake-toggle" => {
+                            glib::debug!("Toggling keep me awake by global shortcut");
+                            app.toggle_keep_me_awake();
+                        }
+                        unknown => {
+                            glib::warn!(
+                                "Received activation signal for unknown global shortcut: {unknown}"
+                            );
+                        }
+                    }
+                    future::ready(())
+                }
+            )));
+            Ok(())
+        }
     }
 
     #[glib::object_subclass]
@@ -338,6 +410,9 @@ mod imp {
                     async move {
                         if let Err(error) = app.ask_background().await {
                             glib::warn!("Background permission request failed: {}", error);
+                        }
+                        if let Err(error) = app.imp().setup_global_shortcuts().await {
+                            glib::error!("Failed to setup global shortcuts: {error}");
                         }
                     }
                 ));
