@@ -26,6 +26,11 @@ who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
 delta = "0.4.9 -> 0.4.10"
 
+[[audits.slab]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-deploy"
+delta = "0.4.10 -> 0.4.11"
+
 [[trusted.cairo-rs]]
 criteria = "safe-to-run"
 user-id = 3623 # Sebastian Dröge (sdroege)
