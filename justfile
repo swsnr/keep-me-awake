@@ -1,4 +1,4 @@
-APPID := "de.swsnr.keepmeawake"
+APPID := "de.swsnr.keepmeawake.Devel"
 VERSION := `git describe --always`
 
 xgettext_opts := '--package-name=' + APPID + \
