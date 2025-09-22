@@ -28,6 +28,7 @@
         <release version="next" date="9999-01-01">
             <description>
                 <p>Update to GNOME 49.</p>
+                <p>Global shortcuts are not yet supported.</p>
             </description>
         </release>
         <release version="0.3.3" date="2025-06-30">
