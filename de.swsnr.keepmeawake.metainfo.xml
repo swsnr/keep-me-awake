@@ -30,6 +30,7 @@
                 <p>Update to GNOME 49.</p>
                 <p>Global shortcuts are not yet supported.</p>
             </description>
+            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
         <release version="0.3.3" date="2025-06-30">
             <description>
