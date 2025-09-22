@@ -47,8 +47,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/swsnr/keep-me-awake.git
-        commit: "9a20fdb29fbe08e8ea3954ffed79463af16b7dc5"
-        tag: "v0.3.3"
+        commit: "24004ff98bc593c3bcff30b9999fba6fa9ba1bb0"
+        tag: "v0.4.0"
       - de.swsnr.keepmeawake.cargo-sources.json
     build-commands:
       - install -Dm644 cargo/config .cargo/config.toml
