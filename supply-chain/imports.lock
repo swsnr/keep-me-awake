@@ -9,8 +9,8 @@ user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.cairo-sys-rs]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
@@ -22,78 +22,78 @@ user-id = 52553
 user-login = "embark-studios"
 
 [[publisher.gdk-pixbuf]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.gdk-pixbuf-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.gdk4]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gdk4-sys]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gdk4-wayland]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gdk4-wayland-sys]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gdk4-x11]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gdk4-x11-sys]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gio]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.gio-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.glib]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.3"
+when = "2025-09-21"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
@@ -106,53 +106,53 @@ user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.glib-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.gobject-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.graphene-rs]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.graphene-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.gsk4]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gsk4-sys]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gtk4]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.gtk4-macros]]
 version = "0.10.0"
@@ -162,11 +162,11 @@ user-login = "bilelmoussaoui"
 user-name = "Bilal Elmoussaoui"
 
 [[publisher.gtk4-sys]]
-version = "0.10.0"
-when = "2025-07-15"
-user-id = 54339
-user-login = "bilelmoussaoui"
-user-name = "Bilal Elmoussaoui"
+version = "0.10.1"
+when = "2025-09-17"
+user-id = 3623
+user-login = "sdroege"
+user-name = "Sebastian Dröge"
 
 [[publisher.libadwaita]]
 version = "0.8.0"
@@ -189,15 +189,15 @@ user-id = 55123
 user-login = "rust-lang-owner"
 
 [[publisher.pango]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.3"
+when = "2025-09-21"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
 
 [[publisher.pango-sys]]
-version = "0.21.1"
-when = "2025-08-09"
+version = "0.21.2"
+when = "2025-09-17"
 user-id = 3623
 user-login = "sdroege"
 user-name = "Sebastian Dröge"
@@ -714,74 +714,6 @@ who = "danakj <danakj@chromium.org>"
 criteria = "safe-to-run"
 delta = "0.4.0 -> 0.4.1"
 notes = "No unsafe, net or fs."
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Lukasz Anforowicz <lukasza@chromium.org>"
-criteria = "safe-to-deploy"
-version = "1.0.14"
-notes = """
-Grepped for `-i cipher`, `-i crypto`, `'\bfs\b'``, `'\bnet\b'``, `'\bunsafe\b'``
-and there were no hits except for:
-
-* Using trivially-safe `unsafe` in test code:
-
-    ```
-    tests/test_const.rs:unsafe fn _unsafe() {}
-    tests/test_const.rs:const _UNSAFE: () = unsafe { _unsafe() };
-    ```
-
-* Using `unsafe` in a string:
-
-    ```
-    src/constfn.rs:            \"unsafe\" => Qualifiers::Unsafe,
-    ```
-
-* Using `std::fs` in `build/build.rs` to write `${OUT_DIR}/version.expr`
-  which is later read back via `include!` used in `src/lib.rs`.
-
-Version `1.0.6` of this crate has been added to Chromium in
-https://source.chromium.org/chromium/chromium/src/+/28841c33c77833cc30b286f9ae24c97e7a8f4057
-"""
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Adrian Taylor <adetaylor@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.14 -> 1.0.15"
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "danakj <danakj@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.15 -> 1.0.16"
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Dustin J. Mitchell <djmitche@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.16 -> 1.0.17"
-notes = "Just updates windows compat"
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Liza Burakova <liza@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.17 -> 1.0.18"
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Dustin J. Mitchell <djmitche@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.18 -> 1.0.19"
-notes = "No unsafe, just doc changes"
-aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
-
-[[audits.google.audits.rustversion]]
-who = "Daniel Cheng <dcheng@chromium.org>"
-criteria = "safe-to-deploy"
-delta = "1.0.19 -> 1.0.20"
-notes = "Only minor updates to documentation and the mock today used for testing."
 aggregated-from = "https://chromium.googlesource.com/chromium/src/+/main/third_party/rust/chromium_crates_io/supply-chain/audits.toml?format=TEXT"
 
 [[audits.google.audits.semver]]
@@ -1361,12 +1293,6 @@ aggregated-from = "https://codeberg.org/swsnr/wol.rs/raw/branch/main/supply-chai
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
 delta = "1.0.95 -> 1.0.97"
-aggregated-from = "https://codeberg.org/swsnr/gnome-app-utils.rs/raw/branch/main/supply-chain/audits.toml"
-
-[[audits.swsnr.audits.rustversion]]
-who = "Sebastian Wiesner <sebastian@swsnr.de>"
-criteria = "safe-to-run"
-delta = "1.0.20 -> 1.0.21"
 aggregated-from = "https://codeberg.org/swsnr/gnome-app-utils.rs/raw/branch/main/supply-chain/audits.toml"
 
 [[audits.swsnr.audits.smallvec]]

@@ -75,9 +75,21 @@ end = "2026-07-16"
 
 [[trusted.gdk4]]
 criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2022-01-15"
+end = "2026-09-22"
+
+[[trusted.gdk4]]
+criteria = "safe-to-run"
 user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
 start = "2021-07-12"
 end = "2026-07-16"
+
+[[trusted.gdk4-sys]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-09-22"
 
 [[trusted.gdk4-sys]]
 criteria = "safe-to-run"
@@ -213,9 +225,21 @@ end = "2026-07-16"
 
 [[trusted.gsk4]]
 criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2022-01-15"
+end = "2026-09-22"
+
+[[trusted.gsk4]]
+criteria = "safe-to-run"
 user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
 start = "2021-07-12"
 end = "2026-07-16"
+
+[[trusted.gsk4-sys]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-09-22"
 
 [[trusted.gsk4-sys]]
 criteria = "safe-to-run"
@@ -240,6 +264,12 @@ criteria = "safe-to-run"
 user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
 start = "2021-07-12"
 end = "2026-07-16"
+
+[[trusted.gtk4-sys]]
+criteria = "safe-to-run"
+user-id = 3623 # Sebastian Dröge (sdroege)
+start = "2021-04-04"
+end = "2026-09-22"
 
 [[trusted.gtk4-sys]]
 criteria = "safe-to-run"
