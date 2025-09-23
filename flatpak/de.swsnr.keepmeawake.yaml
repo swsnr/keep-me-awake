@@ -31,7 +31,7 @@ modules:
           - x86_64
     build-commands:
       - install -D -m755 just /app/bin/just
-    cleanup: "*"
+    cleanup: ["*"]
   - name: keepmeawake
     buildsystem: simple
     sources:
