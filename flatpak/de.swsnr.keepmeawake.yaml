@@ -13,7 +13,7 @@ finish-args:
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
 modules:
-  # Install just and blueprint for compilation
+  # Install just for compilation
   - name: just
     buildsystem: simple
     sources:
