@@ -74,6 +74,10 @@ compile-dbus-service:
 # Build the application.
 compile: configure-app-id compile-resources compile-desktop-file compile-dbus-service
 
+# Run in scope with correct app ID.
+run *ARGS:
+    systemd-run --user --scope --unit "app-{{APPID}}-dev" cargo run {{ARGS}}
+
 # Clean build artifacts
 clean:
     rm -rf build .flatpak-repo .flatpak-builddir
