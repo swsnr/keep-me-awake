@@ -11,7 +11,7 @@ use gnome_app_utils::portal::{
     background::{RequestBackgroundFlags, request_background},
     window::PortalWindowHandle,
 };
-use gtk::gio::ActionEntry;
+use gtk::gio::{ActionEntry, IOErrorEnum};
 
 use crate::config::G_LOG_DOMAIN;
 
@@ -112,7 +112,7 @@ impl KeepMeAwakeApplication {
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
 
-    async fn ask_background(&self) {
+    async fn ask_background(&self) -> Result<(), glib::Error> {
         let connection = self.dbus_connection().unwrap();
         let reason = dpgettext2(
             None,
@@ -128,24 +128,25 @@ impl KeepMeAwakeApplication {
             None,
             RequestBackgroundFlags::empty(),
         )
-        .await;
+        .await?;
 
-        match result {
-            Ok(result) => {
-                if result.request_result == RequestResult::Success {
-                    if !result.background {
-                        glib::warn!("Background request successful, but background not granted?");
-                    }
-                } else {
-                    glib::warn!(
-                        "Background request no successfully: {:?}",
-                        result.request_result
-                    );
-                }
+        if result.request_result == RequestResult::Success {
+            if result.background {
+                Ok(())
+            } else {
+                Err(glib::Error::new(
+                    IOErrorEnum::Failed,
+                    "Background permission not granted",
+                ))
             }
-            Err(error) => {
-                glib::error!("Failed to request background with autostart: {error}");
-            }
+        } else {
+            Err(glib::Error::new(
+                IOErrorEnum::Failed,
+                &format!(
+                    "Background request did not finish successfully: {:?}",
+                    result.request_result
+                ),
+            ))
         }
     }
 }
@@ -346,7 +347,9 @@ mod imp {
                     #[weak(rename_to = app)]
                     self.obj(),
                     async move {
-                        app.ask_background().await;
+                        if let Err(error) = app.ask_background().await {
+                            glib::warn!("Background permission request failed: {}", error);
+                        }
                     }
                 ));
             }
