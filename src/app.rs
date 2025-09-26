@@ -7,7 +7,6 @@
 use adw::prelude::*;
 use glib::{Object, dgettext, dpgettext2};
 use gnome_app_utils::portal::{
-    RequestResult,
     background::{RequestBackgroundFlags, request_background},
     window::PortalWindowHandle,
 };
@@ -130,22 +129,12 @@ impl KeepMeAwakeApplication {
         )
         .await?;
 
-        if result.request_result == RequestResult::Success {
-            if result.background {
-                Ok(())
-            } else {
-                Err(glib::Error::new(
-                    IOErrorEnum::Failed,
-                    "Background permission not granted",
-                ))
-            }
+        if result.background {
+            Ok(())
         } else {
             Err(glib::Error::new(
                 IOErrorEnum::Failed,
-                &format!(
-                    "Background request did not finish successfully: {:?}",
-                    result.request_result
-                ),
+                "Background permission not granted",
             ))
         }
     }
