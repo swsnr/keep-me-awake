@@ -120,7 +120,7 @@ impl KeepMeAwakeApplication {
             "Inhibit suspend and idle without a main window",
         );
         let parent_window = PortalWindowHandle::new_for_app(self).await;
-        glib::info!("Requesting permission to run in background and autostart");
+        glib::info!("Requesting permission to run in background");
         let result = request_background(
             &connection,
             &parent_window,
