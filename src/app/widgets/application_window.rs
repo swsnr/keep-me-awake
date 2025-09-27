@@ -53,29 +53,6 @@ mod imp {
                 Inhibit::SuspendAndIdle => "cup-full-steaming",
             }
         }
-
-        #[template_callback(function)]
-        fn toggle_name(inhibit: Inhibit) -> &'static str {
-            match inhibit {
-                Inhibit::Nothing => "inhibit-nothing",
-                Inhibit::Suspend => "inhibit-suspend",
-                Inhibit::SuspendAndIdle => "inhibit-suspend-and-idle",
-            }
-        }
-
-        #[template_callback]
-        fn active_toggle_changed(&self, _property: &glib::Value, toggles: &adw::ToggleGroup) {
-            let inhibit = match toggles.active_name().as_ref().map(glib::GString::as_str) {
-                Some("inhibit-nothing") => Inhibit::Nothing,
-                Some("inhibit-suspend") => Inhibit::Suspend,
-                Some("inhibit-suspend-and-idle") => Inhibit::SuspendAndIdle,
-                other => unreachable!("We should not reach this: {other:?}"),
-            };
-            if inhibit != self.inhibitors.get() {
-                self.inhibitors.set(inhibit);
-                self.obj().notify_inhibitors();
-            }
-        }
     }
 
     #[glib::object_subclass]

@@ -8,7 +8,7 @@ using Adw 1;
 
 template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
   title: _("Keep Me Awake");
-  default-height: 400;
+  default-height: 460;
   default-width: 400;
 
   content: Adw.ToolbarView {
@@ -42,30 +42,39 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
       icon-name: bind $icon_name(template.inhibitors) as <string>;
 
       child: Adw.Clamp {
-        Adw.ToggleGroup toggles {
+        Gtk.Box {
           orientation: vertical;
           homogeneous: true;
-          active-name: bind $toggle_name(template.inhibitors) as <string>;
-          notify::active-name => $active_toggle_changed() swapped;
+          spacing: 6;
 
-          styles [
-            "flat",
-            "round",
-          ]
-
-          Adw.Toggle {
-            name: "inhibit-nothing";
+          Gtk.ToggleButton {
             label: _("Do not inhibit screen lock and suspend");
+            action-name: "app.inhibit";
+            action-target: "'nothing'";
+
+            styles [
+              "pill",
+            ]
           }
 
-          Adw.Toggle {
-            name: "inhibit-suspend";
+          Gtk.ToggleButton {
             label: _("Inhibit suspend");
+            action-name: "app.inhibit";
+            action-target: "'suspend'";
+
+            styles [
+              "pill",
+            ]
           }
 
-          Adw.Toggle {
-            name: "inhibit-suspend-and-idle";
+          Gtk.ToggleButton {
             label: _("Inhibit screen lock and suspend");
+            action-name: "app.inhibit";
+            action-target: "'suspend-and-idle'";
+
+            styles [
+              "pill",
+            ]
           }
         }
       };
