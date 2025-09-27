@@ -10,7 +10,7 @@ use gnome_app_utils::portal::{
     background::{RequestBackgroundFlags, request_background},
     window::PortalWindowHandle,
 };
-use gtk::gio::{ActionEntry, IOErrorEnum};
+use gtk::gio::{ActionEntry, IOErrorEnum, PropertyAction};
 
 use crate::config::G_LOG_DOMAIN;
 
@@ -108,6 +108,9 @@ impl KeepMeAwakeApplication {
                 .build(),
         ];
         self.add_action_entries(entries);
+
+        self.add_action(&PropertyAction::new("inhibit", self, "inhibitors"));
+
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
 
