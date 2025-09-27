@@ -156,8 +156,8 @@ flatpak-update-cargo-sources:
 
 # Update the flatpak manifest for `VERSION`.
 flatpak-update-manifest: flatpak-update-cargo-sources
-    yq eval -i '.modules.[2].sources.[0].tag = "$TAG_NAME"' flatpak/de.swsnr.keepmeawake.yaml
-    yq eval -i '.modules.[2].sources.[0].commit = "$TAG_COMMIT"' flatpak/de.swsnr.keepmeawake.yaml
+    yq eval -i '.modules.[1].sources.[0].tag = "$TAG_NAME"' flatpak/de.swsnr.keepmeawake.yaml
+    yq eval -i '.modules.[1].sources.[0].commit = "$TAG_COMMIT"' flatpak/de.swsnr.keepmeawake.yaml
     env TAG_NAME='{{VERSION}}' \
         TAG_COMMIT="$(git rev-parse '{{VERSION}}')" \
         yq eval -i '(.. | select(tag == "!!str")) |= envsubst' flatpak/de.swsnr.keepmeawake.yaml
