@@ -1,4 +1,4 @@
-# Keep Me Awake
+# Keep me Awake
 
 [![Translation status](https://translate.codeberg.org/widget/de-swsnr-keepmeawake/de-swsnr-keepmeawake/svg-badge.svg)](https://translate.codeberg.org/engage/de-swsnr-keepmeawake/)
 

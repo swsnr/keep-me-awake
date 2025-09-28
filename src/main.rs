@@ -57,7 +57,7 @@ fn main() -> glib::ExitCode {
     }
 
     config::register_resources();
-    glib::set_application_name(&dpgettext2(None, "application-name", "Keep Me Awake"));
+    glib::set_application_name(&dpgettext2(None, "application-name", "Keep me Awake"));
 
     let app = KeepMeAwakeApplication::default();
     app.set_version(config::CARGO_PKG_VERSION);

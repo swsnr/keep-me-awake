@@ -229,7 +229,7 @@ mod imp {
                     notification.set_body(Some(&dpgettext2(
                         None,
                         "notification.body",
-                        "Keep Me Awake inhibits suspend at your request.",
+                        "Keep me Awake inhibits suspend at your request.",
                     )));
                     Some(notification)
                 }
@@ -242,7 +242,7 @@ mod imp {
                     notification.set_body(Some(&dpgettext2(
                         None,
                         "notification.body",
-                        "Keep Me Awake inhibits suspend and screen lock at your request.",
+                        "Keep me Awake inhibits suspend and screen lock at your request.",
                     )));
                     Some(notification)
                 }
@@ -280,7 +280,7 @@ mod imp {
                         description: &dpgettext2(
                             None,
                             "global shortcut description",
-                            "Toggle Keep Me Awake",
+                            "Toggle Keep me Awake",
                         ),
                         preferred_trigger: Some("LOGO+w"),
                     }],

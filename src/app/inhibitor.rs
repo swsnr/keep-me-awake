@@ -166,7 +166,7 @@ mod imp {
                             Some(&dpgettext2(
                                 None,
                                 "inhibit-reason",
-                                "Keep Me Awake inhibits suspend at your request.",
+                                "Keep me Awake inhibits suspend at your request.",
                             )),
                         );
                         InhibitState::Inhibited(application.hold(), cookie)

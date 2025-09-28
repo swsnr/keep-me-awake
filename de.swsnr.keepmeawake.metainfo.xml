@@ -2,7 +2,7 @@
 <component type="desktop-application">
     <id>de.swsnr.keepmeawake</id>
     <metadata_license>CC0-1.0</metadata_license>
-    <name>Keep Me Awake</name>
+    <name>Keep me Awake</name>
     <summary>Inhibit lock screen and suspend</summary>
     <description>
         <p>Inhibit lock screen and suspend of your desktop system, via the main user interface or via global shortcuts.</p>

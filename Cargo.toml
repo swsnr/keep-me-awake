@@ -20,7 +20,7 @@ formatx = "0.2.4"
 
 [package.metadata.release]
 pre-release-commit-message = "Release {{version}}"
-tag-message = "Keep Me Awake {{tag_name}}"
+tag-message = "Keep me Awake {{tag_name}}"
 publish = false
 # Only push after we checked that the release is good
 push = false
