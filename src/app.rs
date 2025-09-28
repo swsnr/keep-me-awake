@@ -5,7 +5,7 @@
 // See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
 use adw::prelude::*;
-use glib::{Object, dgettext, dpgettext2};
+use glib::{Object, dgettext, dpgettext2, subclass::types::ObjectSubclassIsExt as _};
 use gnome_app_utils::portal::{
     background::{RequestBackgroundFlags, request_background},
     window::PortalWindowHandle,
@@ -14,9 +14,9 @@ use gtk::gio::{ActionEntry, IOErrorEnum, PropertyAction};
 
 use crate::config::G_LOG_DOMAIN;
 
-use inhibit::Inhibit;
+use inhibitor::Inhibit;
 
-mod inhibit;
+mod inhibitor;
 mod widgets;
 
 glib::wrapper! {
@@ -92,7 +92,7 @@ impl KeepMeAwakeApplication {
                     // Clear inhibitor to withdraw notifications and release the
                     // inhibition app hold.  Do this first to avoid showing any
                     // new notifications when closing the main window next.
-                    app.set_inhibitors(Inhibit::Nothing);
+                    app.imp().inhibitor().set_inhibitors(Inhibit::Nothing);
                     // Close the main window to release its app hold.  With no
                     // holds left the app will automatically exit on its idle
                     // timeout.
@@ -109,17 +109,22 @@ impl KeepMeAwakeApplication {
         ];
         self.add_action_entries(entries);
 
-        self.add_action(&PropertyAction::new("inhibit", self, "inhibitors"));
+        self.add_action(&PropertyAction::new(
+            "inhibit",
+            self.imp().inhibitor(),
+            "inhibitors",
+        ));
 
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
 
     fn toggle_keep_me_awake(&self) {
-        let new_inhibitor: Inhibit = match self.inhibitors() {
+        let inhibitor = self.imp().inhibitor();
+        let new_inhibitor: Inhibit = match inhibitor.inhibitors() {
             Inhibit::Nothing => Inhibit::SuspendAndIdle,
             Inhibit::Suspend | Inhibit::SuspendAndIdle => Inhibit::Nothing,
         };
-        self.set_inhibitors(new_inhibitor);
+        inhibitor.set_inhibitors(new_inhibitor);
     }
 
     async fn ask_background(&self) -> Result<(), glib::Error> {
@@ -176,28 +181,20 @@ mod imp {
         },
     };
     use gtk::{
-        ApplicationInhibitFlags,
         gio::Notification,
         prelude::{GtkApplicationExt, GtkWindowExt},
     };
 
-    use crate::{
-        app::inhibit::InhibitCookieGuard,
-        config::{self, G_LOG_DOMAIN},
-    };
+    use crate::config::{APP_ID, CARGO_PKG_VERSION, G_LOG_DOMAIN};
 
-    use super::{
-        inhibit::{Inhibit, InhibitState},
-        widgets::KeepMeAwakeApplicationWindow,
-    };
+    use super::inhibitor::{Inhibit, Inhibitor};
+    use super::widgets::KeepMeAwakeApplicationWindow;
 
     const NOTIFICATION_ID: &str = "de.swsnr.keepmeawake.persistent-inhibitor-notification";
 
-    #[derive(Default, glib::Properties)]
-    #[properties(wrapper_type = super::KeepMeAwakeApplication)]
+    #[derive(Default)]
     pub struct KeepMeAwakeApplication {
-        #[property(explicit_notify, get = Self::get_inhibitors, set = Self::set_inhibitors, type = super::Inhibit, builder(super::Inhibit::default()))]
-        inhibitors: RefCell<InhibitState>,
+        inhibitor: Inhibitor,
         /// App updates monitor,
         updated_monitor: AppUpdatedMonitor,
         /// Session for global shortcuts
@@ -205,57 +202,12 @@ mod imp {
     }
 
     impl KeepMeAwakeApplication {
-        fn get_inhibitors(&self) -> Inhibit {
-            Inhibit::from(&*self.inhibitors.borrow())
+        pub fn inhibitor(&self) -> &Inhibitor {
+            &self.inhibitor
         }
 
-        fn set_inhibitors(&self, inhibit: Inhibit) {
-            if self.get_inhibitors() == inhibit {
-                return;
-            }
-            let new_state = match inhibit {
-                Inhibit::Nothing => {
-                    glib::info!("Inhibiting nothing");
-                    InhibitState::Nothing
-                }
-                Inhibit::Suspend => {
-                    glib::info!("Inhibiting suspend");
-                    InhibitState::Suspend(
-                        self.obj().hold(),
-                        InhibitCookieGuard::acquire(
-                            &*self.obj(),
-                            ApplicationInhibitFlags::SUSPEND,
-                            Some(&dpgettext2(
-                                None,
-                                "inhibit-reason",
-                                "Keep Me Awake inhibits suspend at your request.",
-                            )),
-                        ),
-                    )
-                }
-                Inhibit::SuspendAndIdle => {
-                    glib::info!("Inhibiting suspend and idle");
-                    InhibitState::SuspendAndIdle(
-                        self.obj().hold(),
-                        InhibitCookieGuard::acquire(
-                            &*self.obj(),
-                            ApplicationInhibitFlags::SUSPEND | ApplicationInhibitFlags::IDLE,
-                            Some(&dpgettext2(
-                                None,
-                                "inhibit-reason",
-                                "Keep Me Awake inhibits suspend and screen lock at your request.",
-                            )),
-                        ),
-                    )
-                }
-            };
-            self.inhibitors.replace(new_state);
-            self.obj().notify_inhibitors();
-            self.update_notification(inhibit);
-        }
-
-        fn update_notification(&self, inhibit: Inhibit) {
-            let notification = match inhibit {
+        fn update_notification(&self) {
+            let notification = match self.inhibitor.inhibitors() {
                 Inhibit::Nothing => None,
                 Inhibit::Suspend => {
                     let notification = Notification::new(&dpgettext2(
@@ -356,15 +308,28 @@ mod imp {
         type ParentType = adw::Application;
     }
 
-    #[glib::derived_properties]
-    impl ObjectImpl for KeepMeAwakeApplication {}
+    impl ObjectImpl for KeepMeAwakeApplication {
+        fn constructed(&self) {
+            self.parent_constructed();
+
+            self.inhibitor
+                .set_application(Some(self.obj().as_ref().upcast_ref()));
+            self.inhibitor.connect_inhibitors_notify(glib::clone!(
+                #[weak(rename_to = app)]
+                self.obj(),
+                move |_| {
+                    app.imp().update_notification();
+                }
+            ));
+        }
+    }
 
     impl ApplicationImpl for KeepMeAwakeApplication {
         fn startup(&self) {
             self.parent_startup();
 
-            glib::info!("Starting application {}", config::CARGO_PKG_VERSION);
-            gtk::Window::set_default_icon_name(config::APP_ID);
+            glib::info!("Starting application {}", CARGO_PKG_VERSION);
+            gtk::Window::set_default_icon_name(APP_ID);
 
             self.obj().setup_actions();
         }
@@ -374,21 +339,20 @@ mod imp {
                 window.present();
             } else {
                 let window = KeepMeAwakeApplicationWindow::new(&*self.obj());
-                self.obj()
+                self.inhibitor
                     .bind_property("inhibitors", &window, "inhibitors")
-                    .bidirectional()
                     .sync_create()
                     .build();
 
                 // Re-display notification if the main window is closed, to make
                 // sure the user doesn't forget.
                 window.connect_close_request(glib::clone!(
-                    #[weak_allow_none(rename_to = app)]
+                    #[weak(rename_to = app)]
                     self.obj(),
+                    #[upgrade_or]
+                    glib::Propagation::Proceed,
                     move |_| {
-                        if let Some(app) = app {
-                            app.imp().update_notification(app.inhibitors());
-                        }
+                        app.imp().update_notification();
                         glib::Propagation::Proceed
                     }
                 ));
