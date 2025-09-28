@@ -87,6 +87,16 @@ impl KeepMeAwakeApplication {
 
     fn setup_actions(&self) {
         let entries = [
+            ActionEntry::builder("toggle-inhibit")
+                .activate(|app: &KeepMeAwakeApplication, _, _| {
+                    let inhibitor = app.imp().inhibitor();
+                    let new_inhibitor: Inhibit = match inhibitor.inhibitors() {
+                        Inhibit::Nothing => Inhibit::SuspendAndIdle,
+                        Inhibit::Suspend | Inhibit::SuspendAndIdle => Inhibit::Nothing,
+                    };
+                    inhibitor.set_inhibitors(new_inhibitor);
+                })
+                .build(),
             ActionEntry::builder("quit")
                 .activate(|app: &KeepMeAwakeApplication, _, _| {
                     // Clear inhibitor to withdraw notifications and release the
@@ -116,15 +126,6 @@ impl KeepMeAwakeApplication {
         ));
 
         self.set_accels_for_action("app.quit", &["<Control>q"]);
-    }
-
-    fn toggle_keep_me_awake(&self) {
-        let inhibitor = self.imp().inhibitor();
-        let new_inhibitor: Inhibit = match inhibitor.inhibitors() {
-            Inhibit::Nothing => Inhibit::SuspendAndIdle,
-            Inhibit::Suspend | Inhibit::SuspendAndIdle => Inhibit::Nothing,
-        };
-        inhibitor.set_inhibitors(new_inhibitor);
     }
 
     async fn ask_background(&self) -> Result<(), glib::Error> {
@@ -284,7 +285,7 @@ mod imp {
                     match activated.shortcut_id.as_str() {
                         "keep-me-awake-toggle" => {
                             glib::debug!("Toggling keep me awake by global shortcut");
-                            app.toggle_keep_me_awake();
+                            app.activate_action("toggle-inhibit", None);
                         }
                         unknown => {
                             glib::warn!(
