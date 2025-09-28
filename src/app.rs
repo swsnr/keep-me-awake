@@ -4,6 +4,8 @@
 //
 // See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
+use std::collections::HashMap;
+
 use adw::prelude::*;
 use glib::{Object, dgettext, dpgettext2, subclass::types::ObjectSubclassIsExt as _};
 use gnome_app_utils::portal::{
@@ -85,6 +87,52 @@ impl KeepMeAwakeApplication {
         dialog.present(self.active_window().as_ref());
     }
 
+    fn show_shortcuts_dialog(&self) {
+        let builder = gtk::Builder::new();
+        builder
+            .add_from_resource(&format!(
+                "{}/ui/shortcuts-dialog.ui",
+                self.resource_base_path().unwrap()
+            ))
+            .unwrap();
+        let dialog = builder
+            .object::<adw::ShortcutsDialog>("shortcuts_dialog")
+            .unwrap();
+        let global_shortcuts = builder
+            .object::<adw::ShortcutsSection>("global_shortcuts")
+            .unwrap()
+            .downgrade();
+
+        if let Some(shortcuts_session) = self.imp().global_shortcuts_session() {
+            glib::spawn_future_local(async move {
+                match shortcuts_session.list_shortcuts().await {
+                    Ok(shortcuts) => {
+                        if let Some(global_shortcuts) = global_shortcuts.upgrade() {
+                            let mut original_shortcuts = HashMap::new();
+                            original_shortcuts.insert("keep-me-awake-toggle", "<Super>w");
+                            for shortcut in &shortcuts {
+                                let item = adw::ShortcutsItem::new(
+                                    &shortcut.description,
+                                    original_shortcuts
+                                        .get(shortcut.id.as_str())
+                                        .copied()
+                                        .unwrap_or_default(),
+                                );
+                                item.set_subtitle(&shortcut.trigger_description);
+                                global_shortcuts.add(item);
+                            }
+                        }
+                    }
+                    Err(error) => {
+                        glib::error!("Failed to list shortcuts: {error}");
+                    }
+                }
+            });
+        }
+
+        dialog.present(self.active_window().as_ref());
+    }
+
     fn setup_actions(&self) {
         let entries = [
             ActionEntry::builder("configure-global-shortcuts")
@@ -103,6 +151,11 @@ impl KeepMeAwakeApplication {
                         Inhibit::Suspend | Inhibit::SuspendAndIdle => Inhibit::Nothing,
                     };
                     inhibitor.set_inhibitors(new_inhibitor);
+                })
+                .build(),
+            ActionEntry::builder("shortcuts")
+                .activate(|app: &KeepMeAwakeApplication, _, _| {
+                    app.show_shortcuts_dialog();
                 })
                 .build(),
             ActionEntry::builder("quit")
@@ -144,6 +197,7 @@ impl KeepMeAwakeApplication {
         configure_global_shortcuts.set_enabled(false);
 
         self.set_accels_for_action("app.quit", &["<Control>q"]);
+        self.set_accels_for_action("app.shortcuts", &["<Control>question"]);
     }
 
     async fn ask_background(&self) -> Result<(), glib::Error> {
@@ -226,7 +280,7 @@ mod imp {
             &self.inhibitor
         }
 
-        fn global_shortcuts_session(&self) -> Option<Rc<GlobalShortcutsSession>> {
+        pub fn global_shortcuts_session(&self) -> Option<Rc<GlobalShortcutsSession>> {
             self.global_shortcuts_session
                 .borrow()
                 .as_ref()

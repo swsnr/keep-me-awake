@@ -4,6 +4,7 @@
     <gresource prefix="/de/swsnr/keepmeawake/">
         <!-- UI files compiled with blueprint -->
         <file compressed="true" preprocess="xml-stripblanks">ui/application-window.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
         <!-- Metainfo file, with translations -->
         <file compressed="true" preprocess="xml-stripblanks">de.swsnr.keepmeawake.metainfo.xml</file>
     </gresource>

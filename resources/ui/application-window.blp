@@ -38,6 +38,13 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
 
             section {
               item {
+                label: C_("application-window.menu.label", "_Shortcuts");
+                action: "app.shortcuts";
+              }
+            }
+
+            section {
+              item {
                 label: C_("application-window.menu.label", "_About Keep me Awake");
                 action: "app.about";
               }

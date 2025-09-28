@@ -1,0 +1,34 @@
+// Copyright Sebastian Wiesner <sebastian@swsnr.de>
+//
+// Licensed under the EUPL
+//
+// See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+using Gtk 4.0;
+using Adw 1;
+
+/** Documentation for all relevant shortcuts of our app.
+ *
+ * Adwaita's main application automatically sets up an action with a shortcut to
+ * show this window if shortcuts-dialog.ui exists.
+ *
+ * see https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1.8/class.Application.html#shortcuts-dialog
+ */
+Adw.ShortcutsDialog shortcuts_dialog {
+    Adw.ShortcutsSection global_shortcuts {
+        title: C_("shortcuts section", "Global shortcuts");
+    }
+
+    Adw.ShortcutsSection {
+        title: C_("shortcuts section", "General");
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut item title", "Show shortcuts");
+            action-name: "app.shortcuts";
+        }
+
+        Adw.ShortcutsItem {
+            title: C_("shortcut item title", "Quit");
+            action-name: "app.quit";
+        }
+    }
+}
