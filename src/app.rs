@@ -99,6 +99,8 @@ impl KeepMeAwakeApplication {
                 .build(),
             ActionEntry::builder("quit")
                 .activate(|app: &KeepMeAwakeApplication, _, _| {
+                    // Clear out global shortcuts to drop hold guard for global shortcuts.
+                    app.imp().drop_global_shortcuts();
                     // Clear inhibitor to withdraw notifications and release the
                     // inhibition app hold.  Do this first to avoid showing any
                     // new notifications when closing the main window next.
@@ -182,7 +184,7 @@ mod imp {
         },
     };
     use gtk::{
-        gio::Notification,
+        gio::{ApplicationHoldGuard, Notification},
         prelude::{GtkApplicationExt, GtkWindowExt},
     };
 
@@ -199,12 +201,20 @@ mod imp {
         /// App updates monitor,
         updated_monitor: AppUpdatedMonitor,
         /// Session for global shortcuts
-        shortcuts_session: RefCell<Option<Rc<GlobalShortcutsSession>>>,
+        global_shortcuts_session: RefCell<Option<Rc<GlobalShortcutsSession>>>,
+        /// App hold guard, to keep running when we've set up global shortcuts.
+        global_shortcuts_guard: RefCell<Option<ApplicationHoldGuard>>,
     }
 
     impl KeepMeAwakeApplication {
         pub fn inhibitor(&self) -> &Inhibitor {
             &self.inhibitor
+        }
+
+        /// Drop global shortcuts session and app guard.
+        pub fn drop_global_shortcuts(&self) {
+            self.global_shortcuts_session.borrow_mut().take();
+            self.global_shortcuts_guard.borrow_mut().take();
         }
 
         fn update_notification(&self) {
@@ -246,14 +256,14 @@ mod imp {
         }
 
         async fn setup_global_shortcuts(&self) -> Result<(), glib::Error> {
-            if self.shortcuts_session.borrow().is_some() {
+            if self.global_shortcuts_session.borrow().is_some() {
                 return Ok(());
             }
 
             let connection = self.obj().dbus_connection().unwrap();
             glib::info!("Creating session for global shortcuts");
             let session = Rc::new(GlobalShortcutsSession::create(&connection).await?);
-            self.shortcuts_session.replace(Some(session.clone()));
+            self.global_shortcuts_session.replace(Some(session.clone()));
 
             glib::info!(
                 "Binding global shortcuts in session {}",
@@ -381,6 +391,9 @@ mod imp {
                         }
                         if let Err(error) = app.imp().setup_global_shortcuts().await {
                             glib::error!("Failed to setup global shortcuts: {error}");
+                        } else {
+                            glib::info!("Global shortcuts set up, keep running in background");
+                            app.imp().global_shortcuts_guard.replace(Some(app.hold()));
                         }
                     }
                 ));

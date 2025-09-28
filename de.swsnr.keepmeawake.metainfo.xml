@@ -28,10 +28,12 @@
         <release version="next" date="9999-01-01">
             <description>
                 <p>Add global Super+W shortcut to toggle inhibiting sleep.</p>
+                <p>Once started keep running in background to react to global shortcuts.</p>
                 <p>Update translations.</p>
             </description>
             <issues>
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/10">CB-10</issue>
+                <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/32">CB-32</issue>
             </issues>
             <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
         </release>
