@@ -10,7 +10,7 @@ use gnome_app_utils::portal::{
     background::{RequestBackgroundFlags, request_background},
     window::PortalWindowHandle,
 };
-use gtk::gio::{ActionEntry, IOErrorEnum, PropertyAction};
+use gtk::gio::{ActionEntry, IOErrorEnum, PropertyAction, SimpleAction};
 
 use crate::config::G_LOG_DOMAIN;
 
@@ -87,6 +87,14 @@ impl KeepMeAwakeApplication {
 
     fn setup_actions(&self) {
         let entries = [
+            ActionEntry::builder("configure-global-shortcuts")
+                .activate(|app: &KeepMeAwakeApplication, _, _| {
+                    let app = app.clone();
+                    glib::spawn_future_local(async move {
+                        app.imp().configure_global_shortcuts().await;
+                    });
+                })
+                .build(),
             ActionEntry::builder("toggle-inhibit")
                 .activate(|app: &KeepMeAwakeApplication, _, _| {
                     let inhibitor = app.imp().inhibitor();
@@ -120,12 +128,20 @@ impl KeepMeAwakeApplication {
                 .build(),
         ];
         self.add_action_entries(entries);
-
         self.add_action(&PropertyAction::new(
             "inhibit",
             self.imp().inhibitor(),
             "inhibitors",
         ));
+
+        // Disable action to configure global shortcuts until we've checked the
+        // portal version.
+        let configure_global_shortcuts = self
+            .lookup_action("configure-global-shortcuts")
+            .unwrap()
+            .downcast::<SimpleAction>()
+            .unwrap();
+        configure_global_shortcuts.set_enabled(false);
 
         self.set_accels_for_action("app.quit", &["<Control>q"]);
     }
@@ -179,12 +195,14 @@ mod imp {
         app::AppUpdatedMonitor,
         portal::{
             PortalSession,
-            global_shortcuts::{GlobalShortcutsSession, NewShortcut},
+            global_shortcuts::{
+                ActivationToken, GlobalShortcutsSession, NewShortcut, global_shortcuts_version,
+            },
             window::PortalWindowHandle,
         },
     };
     use gtk::{
-        gio::{ApplicationHoldGuard, Notification},
+        gio::{ApplicationHoldGuard, Notification, SimpleAction},
         prelude::{GtkApplicationExt, GtkWindowExt},
     };
 
@@ -211,10 +229,34 @@ mod imp {
             &self.inhibitor
         }
 
+        fn global_shortcuts_session(&self) -> Option<Rc<GlobalShortcutsSession>> {
+            self.global_shortcuts_session
+                .borrow()
+                .as_ref()
+                .map(Clone::clone)
+        }
+
         /// Drop global shortcuts session and app guard.
         pub fn drop_global_shortcuts(&self) {
             self.global_shortcuts_session.borrow_mut().take();
             self.global_shortcuts_guard.borrow_mut().take();
+        }
+
+        pub async fn configure_global_shortcuts(&self) {
+            if let Some(session) = self.global_shortcuts_session() {
+                let parent_window = PortalWindowHandle::new_for_app(&*self.obj()).await;
+                let activation_token = self
+                    .obj()
+                    .active_window()
+                    .as_ref()
+                    .and_then(ActivationToken::from_widget);
+                if let Err(error) = session
+                    .configure_shortcuts(&parent_window, activation_token.as_ref())
+                    .await
+                {
+                    glib::error!("Failed to configure global shortcuts: {error}");
+                }
+            }
         }
 
         fn update_notification(&self) {
@@ -261,7 +303,22 @@ mod imp {
             }
 
             let connection = self.obj().dbus_connection().unwrap();
-            glib::info!("Creating session for global shortcuts");
+            let version = global_shortcuts_version(&connection).await?;
+
+            if version < 2 {
+                glib::warn!(
+                    "Global shortcuts portal version {version} found, disabling configuration of global shortcuts"
+                );
+            } else {
+                self.obj()
+                    .lookup_action("configure-global-shortcuts")
+                    .unwrap()
+                    .downcast::<SimpleAction>()
+                    .unwrap()
+                    .set_enabled(true);
+            }
+
+            glib::info!("Creating session for global shortcuts version {version}");
             let session = Rc::new(GlobalShortcutsSession::create(&connection).await?);
             self.global_shortcuts_session.replace(Some(session.clone()));
 

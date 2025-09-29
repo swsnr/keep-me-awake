@@ -21,7 +21,29 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
         orientation: horizontal;
 
         MenuButton button_menu {
-          menu-model: main_menu;
+          menu-model: menu {
+            section {
+              item {
+                label: C_("application-window.menu.label", "_Quit");
+                action: "app.quit";
+              }
+            }
+
+            section {
+              item {
+                label: C_("application-window.menu.label", "Configure _global shortcuts");
+                action: "app.configure-global-shortcuts";
+              }
+            }
+
+            section {
+              item {
+                label: C_("application-window.menu.label", "_About Keep me Awake");
+                action: "app.about";
+              }
+            }
+          };
+
           icon-name: 'menu-large-symbolic';
           primary: true;
         }
@@ -80,20 +102,4 @@ template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
       };
     }
   };
-}
-
-menu main_menu {
-  section {
-    item {
-      label: C_("application-window.menu.label", "_Quit");
-      action: "app.quit";
-    }
-  }
-
-  section {
-    item {
-      label: C_("application-window.menu.label", "_About Keep me Awake");
-      action: "app.about";
-    }
-  }
 }
