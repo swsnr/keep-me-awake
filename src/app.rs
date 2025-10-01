@@ -201,10 +201,7 @@ mod imp {
             window::PortalWindowHandle,
         },
     };
-    use gtk::{
-        gio::{ApplicationHoldGuard, Notification, SimpleAction},
-        prelude::{GtkApplicationExt, GtkWindowExt},
-    };
+    use gtk::gio::{ApplicationHoldGuard, Notification, SimpleAction};
 
     use crate::config::{APP_ID, CARGO_PKG_VERSION, G_LOG_DOMAIN};
 
@@ -434,6 +431,9 @@ mod imp {
                     .bind_property("updated", &window, "show-update-indicator")
                     .sync_create()
                     .build();
+
+                self.obj()
+                    .activate_action("inhibit", Some(&"suspend-and-idle".to_variant()));
 
                 // Request background if the app gets activated, to be able to
                 // keep running while inhibiting even if the user closes the window.
