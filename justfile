@@ -121,6 +121,7 @@ lint-blueprint:
 
 # Lint flatpak manifest.
 lint-flatpak:
+    flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.Devel.yaml
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream de.swsnr.keepmeawake.metainfo.xml
 
