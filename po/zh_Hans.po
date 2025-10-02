@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-07-28 02:09+0000\n"
+"PO-Revision-Date: 2025-09-27 00:09+0000\n"
 "Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "translate.codeberg.org/projects/de-swsnr-keepmeawake/de-swsnr-keepmeawake/"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 5.13.2\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
@@ -58,7 +58,7 @@ msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Update to GNOME 49."
-msgstr ""
+msgstr "更新到 GNOME 49。"
 
 #: de.swsnr.keepmeawake.metainfo.xml:31 de.swsnr.keepmeawake.metainfo.xml:51
 #: de.swsnr.keepmeawake.metainfo.xml:58 de.swsnr.keepmeawake.metainfo.xml:66
