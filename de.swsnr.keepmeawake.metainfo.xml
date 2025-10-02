@@ -25,7 +25,7 @@
         <!-- Add release notes for the next release to a release with
         version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/keep-me-awake/releases/tag/next'.
         -->
-        <release version="next" date="9999-01-01">
+        <release version="1.0.0" date="2025-10-02">
             <description>
                 <p>Add global Super+W shortcut to toggle inhibiting sleep.</p>
                 <p>Once started keep running in background to react to global shortcuts.</p>
@@ -40,7 +40,7 @@
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/36">CB-36</issue>
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/40">CB-40</issue>
             </issues>
-            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
+            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/v1.0.0</url>
         </release>
         <release version="0.4.0" date="2025-09-22">
             <description>
