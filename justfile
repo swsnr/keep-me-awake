@@ -199,4 +199,4 @@ run-for-screenshot:
     @# settings.
     @#
     @# Effectively this makes our app run with default settings.
-    env GSETTINGS_BACKEND=memory ADW_DISABLE_PORTAL=1 cargo run
+    env GSETTINGS_BACKEND=memory ADW_DISABLE_PORTAL=1 just run
