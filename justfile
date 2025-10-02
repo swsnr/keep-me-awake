@@ -187,6 +187,10 @@ build-social-image:
         social-image.png
     oxipng social-image.png
 
+# Run oxipng on all screenshots
+optimize-screenshots:
+    oxipng screenshots/*.png
+
 # Run with default settings to make screenshots
 run-for-screenshot:
     @# Run app with default settings: Force the in-memory gsettings backend to
