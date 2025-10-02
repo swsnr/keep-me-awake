@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-24 13:09+0000\n"
+"PO-Revision-Date: 2025-10-02 17:13+0000\n"
 "Last-Translator: Sebastian Wiesner <sebastian@swsnr.de>\n"
-"Language-Team: German <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/de/>\n"
+"Language-Team: German <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +21,8 @@ msgstr ""
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgid "Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Keep me Awake"
 
 #: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
@@ -62,22 +60,28 @@ msgstr "Idle"
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr ""
+"Ein globales Super+W Tastenkürzel wurde hinzugefügt, welches den Ruhezustand "
+"verhindert."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
+"Nachdem die Anwendung gestartet wurde, läuft sie im Hintergrund weiter, um "
+"auf das globale Tastenkürzel zu reagieren."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
+"Menüeinträge wurden hinzugefügt, um die Tastenkürzel der Anwendung "
+"anzuzeigen, und, in unterstützten Desktop-Umgebungen, die globalen "
+"Tastenkürzel zu konfigurieren."
 
 #: de.swsnr.keepmeawake.metainfo.xml:33
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgid "Inhibit suspend and session lock on startup."
-msgstr "Ruhezustand und Bildschirmsperre verhindern"
+msgstr ""
+"Nach dem Start werden Ruhezustand und Bildschirmsperre direkt unterbunden."
 
 #: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
 #: de.swsnr.keepmeawake.metainfo.xml:60
@@ -148,20 +152,17 @@ msgstr "_Beenden"
 #: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
 msgid "Configure _global shortcuts"
-msgstr ""
+msgstr "_Globale Tastenkürzel konfigurieren"
 
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
 msgid "_Shortcuts"
-msgstr ""
+msgstr "_Tastenkürzel"
 
 #: resources/ui/application-window.blp:48
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_About Keep Me Awake"
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
-msgstr "_Info zu Keep Me Awake"
+msgstr "_Info zu Keep me Awake"
 
 #: resources/ui/application-window.blp:80
 msgid "Do not inhibit screen lock and suspend"
@@ -178,25 +179,22 @@ msgstr "Bildschirmsperre und Ruhezustand verhindern"
 #: resources/ui/shortcuts-dialog.blp:18
 msgctxt "shortcuts section"
 msgid "Global shortcuts"
-msgstr ""
+msgstr "Globale Tastenkürzel"
 
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: resources/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut item title"
 msgid "Show shortcuts"
-msgstr ""
+msgstr "Tastenkürzel anzeigen"
 
 #: resources/ui/shortcuts-dialog.blp:30
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_Quit"
 msgctxt "shortcut item title"
 msgid "Quit"
-msgstr "_Beenden"
+msgstr "Beenden"
 
 #: src/app.rs:42
 msgctxt "about-dialog.link.label"
@@ -240,11 +238,9 @@ msgid "Turn on devices in your network"
 msgstr "Geräte in Deinem Netzwerk anschalten"
 
 #: src/app.rs:208
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
-msgstr "Ruhezustand und Bildschirmsperre verhindern"
+msgstr "Ruhezustand und Bildschirmsperre ohne Hauptfenster verhindern"
 
 #: src/app.rs:320
 msgctxt "notification.title"
@@ -252,12 +248,9 @@ msgid "Suspend inhibited"
 msgstr "Ruhezustand wird verhindert"
 
 #: src/app.rs:325
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep Me Awake verhindert den Ruhezustand auf Deinen Wunsch."
+msgstr "Keep me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
 #: src/app.rs:333
 msgctxt "notification.title"
@@ -265,29 +258,21 @@ msgid "Suspend and screen lock inhibited"
 msgstr "Ruhezustand und Bildschirmsperre werden verhindert"
 
 #: src/app.rs:338
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
-"Keep Me Awake verhindert den Ruhezustand und die Bildschirmsperre auf Deinen "
+"Keep me Awake verhindert den Ruhezustand und die Bildschirmsperre auf Deinen "
 "Wunsch."
 
 #: src/app.rs:391
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "global shortcut description"
 msgid "Toggle Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Keep me Awake umschalten"
 
 #: src/app/inhibitor.rs:169
-#, fuzzy
-#| msgctxt "inhibit-reason"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep Me Awake verhindert den Ruhezustand auf Deinen Wunsch."
+msgstr "Keep me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
@@ -313,11 +298,9 @@ msgstr ""
 "{license_text}"
 
 #: src/main.rs:60
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "application-name"
 msgid "Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Keep me Awake"
 
 #~ msgctxt "inhibit-reason"
 #~ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
