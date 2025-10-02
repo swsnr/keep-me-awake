@@ -14,21 +14,21 @@ using Adw 1;
  * see https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1.8/class.Application.html#shortcuts-dialog
  */
 Adw.ShortcutsDialog shortcuts_dialog {
-    Adw.ShortcutsSection global_shortcuts {
-        title: C_("shortcuts section", "Global shortcuts");
+  Adw.ShortcutsSection global_shortcuts {
+    title: C_("shortcuts section", "Global shortcuts");
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcuts section", "General");
+
+    Adw.ShortcutsItem {
+      title: C_("shortcut item title", "Show shortcuts");
+      action-name: "app.shortcuts";
     }
 
-    Adw.ShortcutsSection {
-        title: C_("shortcuts section", "General");
-
-        Adw.ShortcutsItem {
-            title: C_("shortcut item title", "Show shortcuts");
-            action-name: "app.shortcuts";
-        }
-
-        Adw.ShortcutsItem {
-            title: C_("shortcut item title", "Quit");
-            action-name: "app.quit";
-        }
+    Adw.ShortcutsItem {
+      title: C_("shortcut item title", "Quit");
+      action-name: "app.quit";
     }
+  }
 }
