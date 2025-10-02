@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-09-24 13:09+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
-"Language-Team: Dutch <https://translate.codeberg.org/projects/"
-"de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
+"Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
+"keepmeawake/de-swsnr-keepmeawake/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,9 @@ msgstr ""
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
-msgid "Keep Me Awake"
+#, fuzzy
+#| msgid "Keep Me Awake"
+msgid "Keep me Awake"
 msgstr "Niet in slaap vallen"
 
 #: de.swsnr.keepmeawake.desktop:4
@@ -58,42 +60,63 @@ msgid "Idle"
 msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
-msgid "Update to GNOME 49."
-msgstr "Bijgewerkt naar GNOME 49."
+msgid "Add global Super+W shortcut to toggle inhibiting sleep."
+msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:31 de.swsnr.keepmeawake.metainfo.xml:51
-#: de.swsnr.keepmeawake.metainfo.xml:58 de.swsnr.keepmeawake.metainfo.xml:66
-msgid "Global shortcuts are not yet supported."
-msgstr "Globale sneltoetsen worden nog niet ondersteund."
+#: de.swsnr.keepmeawake.metainfo.xml:31
+msgid "Once started keep running in background to react to global shortcuts."
+msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:37 de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:32
+msgid ""
+"Add menu items to show application shortcuts and, in supported desktop "
+"environments, configure global shortcuts."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:33
+#, fuzzy
+#| msgid "Inhibit suspend and screen locking"
+msgid "Inhibit suspend and session lock on startup."
+msgstr "Schermvergrendeling en slaapstand onderdrukken"
+
+#: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
+#: de.swsnr.keepmeawake.metainfo.xml:60
 msgid "Update translations."
 msgstr "Vertalingen bijgewerkt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:49
+#: de.swsnr.keepmeawake.metainfo.xml:47
+msgid "Update to GNOME 49."
+msgstr "Bijgewerkt naar GNOME 49."
+
+#: de.swsnr.keepmeawake.metainfo.xml:48 de.swsnr.keepmeawake.metainfo.xml:68
+#: de.swsnr.keepmeawake.metainfo.xml:75 de.swsnr.keepmeawake.metainfo.xml:83
+msgid "Global shortcuts are not yet supported."
+msgstr "Globale sneltoetsen worden nog niet ondersteund."
+
+#: de.swsnr.keepmeawake.metainfo.xml:66
 msgid "Do not show redundant notification when quitting."
 msgstr "Toon geen melding tijdens het afsluiten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:50
+#: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Show indicator if app was updated in background."
 msgstr "Toon een indicator als de toepassing op de achtergrond is bijgewerkt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:57
+#: de.swsnr.keepmeawake.metainfo.xml:74
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
 "Onderdruk het vergrendelscherm, ook als het hoofdvenster is afgesloten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:64
+#: de.swsnr.keepmeawake.metainfo.xml:81
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 "Nieuw: permanente meldingen tijdens onderdrukken van slaapstand en "
 "schermvergrendeling."
 
-#: de.swsnr.keepmeawake.metainfo.xml:65
+#: de.swsnr.keepmeawake.metainfo.xml:82
 msgid "Correctly quit the app."
 msgstr "Opgelost: de toepassing wordt voortaan juist afgesloten."
 
-#: de.swsnr.keepmeawake.metainfo.xml:76
+#: de.swsnr.keepmeawake.metainfo.xml:93
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -101,41 +124,77 @@ msgstr ""
 "Nieuw: acties in het hoofdvenster voor het onderdrukken van de slaapstand, "
 "schermvergrendeling of beide."
 
-#: de.swsnr.keepmeawake.metainfo.xml:77
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "Globale sneltoetsen en meldingen worden nog niet ondersteund."
 
-#: de.swsnr.keepmeawake.metainfo.xml:89
+#: de.swsnr.keepmeawake.metainfo.xml:106
 msgid "Inhibit nothing"
 msgstr "Niets onderdrukken"
 
-#: de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:110
 msgid "Inhibit suspend and screen locking"
 msgstr "Schermvergrendeling en slaapstand onderdrukken"
 
-#: resources/ui/application-window.blp:58
-msgid "Do not inhibit screen lock and suspend"
-msgstr "Schermvergrendeling en slaapstand niet onderdrukken"
-
-#: resources/ui/application-window.blp:63
-msgid "Inhibit suspend"
-msgstr "Slaapstand onderdrukken"
-
-#: resources/ui/application-window.blp:68
-msgid "Inhibit screen lock and suspend"
-msgstr "Schermvergrendeling en slaapstand onderdrukken"
-
-#: resources/ui/application-window.blp:79
+#: resources/ui/application-window.blp:27
 msgctxt "application-window.menu.label"
 msgid "_Quit"
 msgstr "_Afsluiten"
 
-#: resources/ui/application-window.blp:86
+#: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
-msgid "_About Keep Me Awake"
+msgid "Configure _global shortcuts"
+msgstr ""
+
+#: resources/ui/application-window.blp:41
+msgctxt "application-window.menu.label"
+msgid "_Shortcuts"
+msgstr ""
+
+#: resources/ui/application-window.blp:48
+#, fuzzy
+#| msgctxt "application-window.menu.label"
+#| msgid "_About Keep Me Awake"
+msgctxt "application-window.menu.label"
+msgid "_About Keep me Awake"
 msgstr "Over Niet in sl_aap vallen"
 
-#: src/app.rs:33
+#: resources/ui/application-window.blp:80
+msgid "Do not inhibit screen lock and suspend"
+msgstr "Schermvergrendeling en slaapstand niet onderdrukken"
+
+#: resources/ui/application-window.blp:90
+msgid "Inhibit suspend"
+msgstr "Slaapstand onderdrukken"
+
+#: resources/ui/application-window.blp:100
+msgid "Inhibit screen lock and suspend"
+msgstr "Schermvergrendeling en slaapstand onderdrukken"
+
+#: resources/ui/shortcuts-dialog.blp:18
+msgctxt "shortcuts section"
+msgid "Global shortcuts"
+msgstr ""
+
+#: resources/ui/shortcuts-dialog.blp:22
+msgctxt "shortcuts section"
+msgid "General"
+msgstr ""
+
+#: resources/ui/shortcuts-dialog.blp:25
+msgctxt "shortcut item title"
+msgid "Show shortcuts"
+msgstr ""
+
+#: resources/ui/shortcuts-dialog.blp:30
+#, fuzzy
+#| msgctxt "application-window.menu.label"
+#| msgid "_Quit"
+msgctxt "shortcut item title"
+msgid "Quit"
+msgstr "_Afsluiten"
+
+#: src/app.rs:42
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr "Vertalingen"
@@ -143,72 +202,88 @@ msgstr "Vertalingen"
 #. Credits for the translator to the current language.
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or "Jane Doe https://jdoe.example.com"
 #. Mail address or URL are optional.  Separate multiple translators with a newline, i.e. \n
-#: src/app.rs:42
+#: src/app.rs:51
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: src/app.rs:47
+#: src/app.rs:56
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "Nuttige diensten"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/app.rs:59
+#: src/app.rs:68
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "Afbeelding van de dag"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/app.rs:64
+#: src/app.rs:73
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "Uw dagelijkse achtergrond"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/app.rs:70
+#: src/app.rs:79
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Aanzetten"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/app.rs:75
+#: src/app.rs:84
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "Schakel apparaten op uw netwerk in"
 
-#: src/app.rs:248
-msgctxt "inhibit-reason"
-msgid "Keep Me Awake inhibits suspend at your request."
-msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
+#: src/app.rs:208
+#, fuzzy
+#| msgid "Inhibit suspend and screen locking"
+msgctxt "portal.request-background.reason"
+msgid "Inhibit suspend and idle without a main window"
+msgstr "Schermvergrendeling en slaapstand onderdrukken"
 
-#: src/app.rs:263
-msgctxt "inhibit-reason"
-msgid "Keep Me Awake inhibits suspend and screen lock at your request."
-msgstr ""
-"Niet in slaap vallen zal de slaapstand en schermvergrendeling op verzoek "
-"onderdrukken."
-
-#: src/app.rs:281
+#: src/app.rs:320
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "Slaapstand is onderdrukt"
 
-#: src/app.rs:286
+#: src/app.rs:325
+#, fuzzy
+#| msgctxt "notification.body"
+#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "notification.body"
-msgid "Keep Me Awake inhibits suspend at your request."
+msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
-#: src/app.rs:294
+#: src/app.rs:333
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "Slaapstand en schermvergrendeling zijn onderdrukt"
 
-#: src/app.rs:299
+#: src/app.rs:338
+#, fuzzy
+#| msgctxt "notification.body"
+#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "notification.body"
-msgid "Keep Me Awake inhibits suspend and screen lock at your request."
+msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 "Niet in slaap vallen zal de slaapstand en schermvergrendeling op verzoek "
 "onderdrukken."
+
+#: src/app.rs:391
+#, fuzzy
+#| msgid "Keep Me Awake"
+msgctxt "global shortcut description"
+msgid "Toggle Keep me Awake"
+msgstr "Niet in slaap vallen"
+
+#: src/app/inhibitor.rs:169
+#, fuzzy
+#| msgctxt "inhibit-reason"
+#| msgid "Keep Me Awake inhibits suspend at your request."
+msgctxt "inhibit-reason"
+msgid "Keep me Awake inhibits suspend at your request."
+msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
@@ -234,9 +309,21 @@ msgstr ""
 "{license_text}"
 
 #: src/main.rs:60
+#, fuzzy
+#| msgid "Keep Me Awake"
 msgctxt "application-name"
-msgid "Keep Me Awake"
+msgid "Keep me Awake"
 msgstr "Niet in slaap vallen"
+
+#~ msgctxt "inhibit-reason"
+#~ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
+#~ msgstr ""
+#~ "Niet in slaap vallen zal de slaapstand en schermvergrendeling op verzoek "
+#~ "onderdrukken."
+
+#~ msgctxt "application-name"
+#~ msgid "Keep Me Awake"
+#~ msgstr "Niet in slaap vallen"
 
 #~ msgctxt "inhibit-reason"
 #~ msgid "Keep Me Awake inhibits suspend and idle at your request."
