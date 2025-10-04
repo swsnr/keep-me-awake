@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-02 17:13+0000\n"
+"PO-Revision-Date: 2025-10-04 09:09+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
 "Language-Team: Dutch <https://translate.codeberg.org/projects/"
 "de-swsnr-keepmeawake/de-swsnr-keepmeawake/nl/>\n"
@@ -59,23 +59,25 @@ msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
-msgstr ""
+msgstr "Nieuw: Super+W-sneltoets om slaaponderdrukking aan en uit te zetten."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
+"Laat de toepassing op de achtergrond draaien om sneltoetsen te kunnen "
+"gebruiken."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
+"Voeg menu-items toe om sneltoetsen te tonen en - in ondersteunde "
+"werkomgevingen - om deze in te stellen."
 
 #: de.swsnr.keepmeawake.metainfo.xml:33
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgid "Inhibit suspend and session lock on startup."
-msgstr "Schermvergrendeling en slaapstand onderdrukken"
+msgstr "Onderdruk schermvergrendeling en slaapstand na opstarten."
 
 #: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
 #: de.swsnr.keepmeawake.metainfo.xml:60
@@ -142,17 +144,14 @@ msgstr "_Afsluiten"
 #: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
 msgid "Configure _global shortcuts"
-msgstr ""
+msgstr "_Sneltoetsen instellen"
 
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
 msgid "_Shortcuts"
-msgstr ""
+msgstr "_Sneltoetsen"
 
 #: resources/ui/application-window.blp:48
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_About Keep Me Awake"
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
 msgstr "Over Niet in sl_aap vallen"
@@ -172,25 +171,22 @@ msgstr "Schermvergrendeling en slaapstand onderdrukken"
 #: resources/ui/shortcuts-dialog.blp:18
 msgctxt "shortcuts section"
 msgid "Global shortcuts"
-msgstr ""
+msgstr "Globale sneltoetsen"
 
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: resources/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut item title"
 msgid "Show shortcuts"
-msgstr ""
+msgstr "Sneltoetsen tonen"
 
 #: resources/ui/shortcuts-dialog.blp:30
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_Quit"
 msgctxt "shortcut item title"
 msgid "Quit"
-msgstr "_Afsluiten"
+msgstr "Afsluiten"
 
 #: src/app.rs:42
 msgctxt "about-dialog.link.label"
@@ -234,11 +230,9 @@ msgid "Turn on devices in your network"
 msgstr "Schakel apparaten op uw netwerk in"
 
 #: src/app.rs:208
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
-msgstr "Schermvergrendeling en slaapstand onderdrukken"
+msgstr "Schermvergrendeling en slaapstand onderdrukken zonder hoofdvenster"
 
 #: src/app.rs:320
 msgctxt "notification.title"
@@ -246,9 +240,6 @@ msgid "Suspend inhibited"
 msgstr "Slaapstand is onderdrukt"
 
 #: src/app.rs:325
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
@@ -259,9 +250,6 @@ msgid "Suspend and screen lock inhibited"
 msgstr "Slaapstand en schermvergrendeling zijn onderdrukt"
 
 #: src/app.rs:338
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
@@ -269,16 +257,11 @@ msgstr ""
 "onderdrukken."
 
 #: src/app.rs:391
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "global shortcut description"
 msgid "Toggle Keep me Awake"
-msgstr "Niet in slaap vallen"
+msgstr "Niet in slaap vallen aan/uit"
 
 #: src/app/inhibitor.rs:169
-#, fuzzy
-#| msgctxt "inhibit-reason"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
@@ -307,8 +290,6 @@ msgstr ""
 "{license_text}"
 
 #: src/main.rs:60
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Niet in slaap vallen"
