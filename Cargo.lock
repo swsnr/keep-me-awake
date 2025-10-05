@@ -342,7 +342,7 @@ dependencies = [
 [[package]]
 name = "gnome-app-utils"
 version = "0.1.0"
-source = "git+https://codeberg.org/swsnr/gnome-app-utils.rs.git?rev=486a41bd0ae931dec8d98407bf3983e0475697b2#486a41bd0ae931dec8d98407bf3983e0475697b2"
+source = "git+https://codeberg.org/swsnr/gnome-app-utils.rs.git?rev=5994027108392d682c3373d36c9026042244eba4#5994027108392d682c3373d36c9026042244eba4"
 dependencies = [
  "futures",
  "gdk4-wayland",
@@ -352,6 +352,7 @@ dependencies = [
  "gtk4",
  "libc",
  "log",
+ "pin-project-lite",
  "strum",
 ]
 
