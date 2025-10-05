@@ -31,7 +31,7 @@ impl KeepMeAwakeApplication {
     fn show_about_dialog(&self) {
         let dialog = adw::AboutDialog::from_appdata(
             "/de/swsnr/keepmeawake/de.swsnr.keepmeawake.metainfo.xml",
-            Some(crate::config::CARGO_PKG_VERSION),
+            Some(&crate::config::release_notes_version().to_string()),
         );
         dialog.set_version(crate::config::CARGO_PKG_VERSION);
 

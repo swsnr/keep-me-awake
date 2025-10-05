@@ -5,6 +5,17 @@ homepage = "https://codeberg.org/swsnr/keep-me-awake"
 repository = "https://codeberg.org/swsnr/keep-me-awake"
 license = "EUPL-1.2"
 authors = ["Sebastian Wiesner <sebastian@swsnr.de>"]
+# Our version number.  Since semver doesn't make much sense for UI applications
+# which have no API we repurpose the version numer as follows:
+#
+# - major: Major new features or major changes to the UI, which may break the app for some users.
+# - minor: User-visible features or bugfixes.
+# - patch: Translation updates.
+#
+# Major and minor releases get release notes, but patch releases do not; this
+# enables us to ship updates to translations whenever translators contributed
+# new languages or made major updates, while still providing meaningful release
+# notes for the last functional changes.
 version = "1.0.0"
 edition = "2024"
 publish = false
@@ -17,6 +28,7 @@ glib = { version = "0.21.0", features = ["log_macros"] }
 gnome-app-utils = { git = "https://codeberg.org/swsnr/gnome-app-utils.rs.git", rev = "d81125b37e7e9be365841b0c2f93fe303cba6dac" }
 gtk = { package = "gtk4", version = "0.10.1" }
 formatx = "0.2.4"
+semver = "1.0.27"
 
 [package.metadata.release]
 pre-release-commit-message = "Release {{version}}"

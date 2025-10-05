@@ -1295,6 +1295,12 @@ criteria = "safe-to-run"
 delta = "1.0.95 -> 1.0.97"
 aggregated-from = "https://codeberg.org/swsnr/gnome-app-utils.rs/raw/branch/main/supply-chain/audits.toml"
 
+[[audits.swsnr.audits.semver]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-run"
+delta = "1.0.26 -> 1.0.27"
+aggregated-from = "https://codeberg.org/swsnr/turnon/raw/branch/main/supply-chain/audits.toml"
+
 [[audits.swsnr.audits.smallvec]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"

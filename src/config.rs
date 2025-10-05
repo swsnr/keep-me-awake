@@ -21,6 +21,26 @@ pub const G_LOG_DOMAIN: &str = "KeepMeAwake";
 /// This provides the full version from `Cargo.toml`.
 pub const CARGO_PKG_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+/// Get [`CARGO_PKG_VERSION`] parsed.
+fn cargo_pkg_version() -> semver::Version {
+    semver::Version::parse(CARGO_PKG_VERSION).unwrap()
+}
+
+/// The version to use for release notes.
+///
+/// Returns [`CARGO_PKG_VERSION`] but with patch set to 0, and all pre and
+/// build parts emptied.
+///
+/// This follows our versioning policy which uses patch releases only for
+/// translation updates.
+pub fn release_notes_version() -> semver::Version {
+    let mut version = cargo_pkg_version();
+    version.patch = 0;
+    version.pre = semver::Prerelease::EMPTY;
+    version.build = semver::BuildMetadata::EMPTY;
+    version
+}
+
 /// The full app license text.
 pub const LICENSE_TEXT: &str = include_str!("../LICENSE");
 
@@ -112,5 +132,44 @@ pub fn register_resources() {
         let bytes = glib::Bytes::from_static(resource);
         let resource = gio::Resource::from_data(&bytes).unwrap();
         resources_register(&resource);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn release_notes_version_only_has_major_and_minor() {
+        let version = super::release_notes_version();
+        assert_eq!(version.major, super::cargo_pkg_version().major);
+        assert_eq!(version.minor, super::cargo_pkg_version().minor);
+        assert_eq!(version.patch, 0);
+        assert!(version.pre.is_empty());
+        assert!(version.build.is_empty());
+    }
+    #[test]
+    fn release_notes_for_release_notes_version() {
+        let metadata = std::fs::read_to_string(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/de.swsnr.keepmeawake.metainfo.xml"
+        ))
+        .unwrap();
+        assert!(metadata.contains(&format!(
+            "<release version=\"{}\"",
+            super::release_notes_version()
+        )));
+    }
+
+    #[test]
+    fn no_release_notes_for_cargo_pkg_version() {
+        let version = super::cargo_pkg_version();
+        if version != super::release_notes_version() {
+            let metadata = std::fs::read_to_string(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "/de.swsnr.keepmeawake.metainfo.xml"
+            ))
+            .unwrap();
+            assert!(!metadata.contains(&format!("version=\"{version}\"")));
+        }
     }
 }
