@@ -273,6 +273,8 @@ mod imp {
         global_shortcuts_session: RefCell<Option<Rc<GlobalShortcutsSession>>>,
         /// App hold guard, to keep running when we've set up global shortcuts.
         global_shortcuts_guard: RefCell<Option<ApplicationHoldGuard>>,
+        /// The running task for consuming activated shortcuts
+        global_shortcuts_activated_task: RefCell<Option<glib::JoinHandle<()>>>,
     }
 
     impl KeepMeAwakeApplication {
@@ -289,6 +291,9 @@ mod imp {
 
         /// Drop global shortcuts session and app guard.
         pub fn drop_global_shortcuts(&self) {
+            if let Some(handle) = self.global_shortcuts_activated_task.borrow_mut().take() {
+                handle.abort();
+            }
             self.global_shortcuts_session.borrow_mut().take();
             self.global_shortcuts_guard.borrow_mut().take();
         }
@@ -394,7 +399,7 @@ mod imp {
                     }],
                 )
                 .await?;
-            glib::spawn_future_local(session.receive_activated().for_each(glib::clone!(
+            let handle = glib::spawn_future_local(session.receive_activated().for_each(glib::clone!(
                 #[weak(rename_to = app)]
                 self.obj(),
                 #[upgrade_or]
@@ -414,6 +419,7 @@ mod imp {
                     future::ready(())
                 }
             )));
+            self.global_shortcuts_activated_task.replace(Some(handle));
             Ok(())
         }
     }
