@@ -14,7 +14,7 @@ rust-version = "1.89"
 adw = { package = "libadwaita", version = "0.8.0", features = ["v1_8"] }
 futures-util = { version = "0.3.31" }
 glib = { version = "0.21.0", features = ["log_macros"] }
-gnome-app-utils = { git = "https://codeberg.org/swsnr/gnome-app-utils.rs.git", rev = "b7d89090519529f8b7ef39b026eeda6e08b1861c" }
+gnome-app-utils = { git = "https://codeberg.org/swsnr/gnome-app-utils.rs.git", rev = "d81125b37e7e9be365841b0c2f93fe303cba6dac" }
 gtk = { package = "gtk4", version = "0.10.1" }
 formatx = "0.2.4"
 
