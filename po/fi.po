@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-01 14:09+0000\n"
-"Last-Translator: Ricky-Tigg <ricky-tigg@noreply.codeberg.org>\n"
-"Language-Team: Finnish <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/fi/>\n"
+"PO-Revision-Date: 2025-10-06 20:09+0000\n"
+"Last-Translator: artnay <artnay@noreply.codeberg.org>\n"
+"Language-Team: Finnish <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,15 +144,12 @@ msgstr ""
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
 msgid "_Shortcuts"
-msgstr ""
+msgstr "_Pikanäppäimet"
 
 #: resources/ui/application-window.blp:48
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_About Keep Me Awake"
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
-msgstr "_Tietoja - Keep Me Awake"
+msgstr "_Tietoja - Keep me Awake"
 
 #: resources/ui/application-window.blp:80
 msgid "Do not inhibit screen lock and suspend"
@@ -174,20 +171,17 @@ msgstr ""
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #: resources/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut item title"
 msgid "Show shortcuts"
-msgstr ""
+msgstr "Näytä pikanäppäimet"
 
 #: resources/ui/shortcuts-dialog.blp:30
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_Quit"
 msgctxt "shortcut item title"
 msgid "Quit"
-msgstr "_Lopeta"
+msgstr "Lopeta"
 
 #: src/app.rs:42
 msgctxt "about-dialog.link.label"
@@ -231,11 +225,9 @@ msgid "Turn on devices in your network"
 msgstr "Kytke verkossasi olevat laitteet päälle"
 
 #: src/app.rs:208
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
-msgstr "Estä valmiustila ja näytön lukitus"
+msgstr "Estä valmiustila ja joutenolo ilman pääikkunaa"
 
 #: src/app.rs:320
 msgctxt "notification.title"
@@ -243,12 +235,9 @@ msgid "Suspend inhibited"
 msgstr "Valmiustila estetty"
 
 #: src/app.rs:325
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep Me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
+msgstr "Keep me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
 
 #: src/app.rs:333
 msgctxt "notification.title"
@@ -256,13 +245,10 @@ msgid "Suspend and screen lock inhibited"
 msgstr "Valmiustila ja näytön lukitus estetty"
 
 #: src/app.rs:338
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
-"Keep Me Awake estää pyynnöstäsi valmiustilan ja näytön lukituksen "
+"Keep me Awake estää pyynnöstäsi valmiustilan ja näytön lukituksen "
 "aktivoitumisen."
 
 #: src/app.rs:391
@@ -273,12 +259,9 @@ msgid "Toggle Keep me Awake"
 msgstr "Keep Me Awake"
 
 #: src/app/inhibitor.rs:169
-#, fuzzy
-#| msgctxt "inhibit-reason"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep Me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
+msgstr "Keep me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
@@ -303,11 +286,9 @@ msgstr ""
 "{license_text}"
 
 #: src/main.rs:60
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "application-name"
 msgid "Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Keep me Awake"
 
 #~ msgctxt "inhibit-reason"
 #~ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
