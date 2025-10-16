@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-06 20:09+0000\n"
-"Last-Translator: artnay <artnay@noreply.codeberg.org>\n"
+"PO-Revision-Date: 2025-10-16 15:09+0000\n"
+"Last-Translator: Ricky-Tigg <ricky-tigg@noreply.codeberg.org>\n"
 "Language-Team: Finnish <https://translate.codeberg.org/projects/"
 "de-swsnr-keepmeawake/de-swsnr-keepmeawake/fi/>\n"
 "Language: fi\n"
@@ -16,15 +16,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.2\n"
+"X-Generator: Weblate 5.13.3\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgid "Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Pidä minut hereillä"
 
 #: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
@@ -61,23 +59,25 @@ msgstr "Jouten"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
-msgstr ""
+msgstr "Lisää yleisesti pätevä Super+W-pikanäppäin unen estämiseksi."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
+"Käynnistyksen jälkeen, pysy käynnissä taustalla reagoidakseen yleisesti "
+"päteviin pikanäppäimiin."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
+"Lisää valikkokohtia sovellusten pikanäppäinten näyttämiseksi ja tuetuissa "
+"työpöytäympäristöissä, määritä yleisesti päteviä pikanäppäimiä."
 
 #: de.swsnr.keepmeawake.metainfo.xml:33
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgid "Inhibit suspend and session lock on startup."
-msgstr "Estä valmiustila ja näytön lukitus"
+msgstr "Estä keskeytys ja istunnon lukitus käynnistyksen yhteydessä."
 
 #: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
 #: de.swsnr.keepmeawake.metainfo.xml:60
@@ -118,6 +118,8 @@ msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr ""
+"Lisää pääikkuna, jossa on kytkimet joko keskeytyksen tai keskeytyksen ja "
+"näytön lukituksen estämiseksi."
 
 #: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Global shortcuts and notifications are not yet supported."
@@ -139,7 +141,7 @@ msgstr "_Lopeta"
 #: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
 msgid "Configure _global shortcuts"
-msgstr ""
+msgstr "Määritä _yleisesti pätevät pikanäppäimet"
 
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
@@ -149,7 +151,7 @@ msgstr "_Pikanäppäimet"
 #: resources/ui/application-window.blp:48
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
-msgstr "_Tietoja - Keep me Awake"
+msgstr "_Tietoja - Pidä minut hereillä"
 
 #: resources/ui/application-window.blp:80
 msgid "Do not inhibit screen lock and suspend"
@@ -166,7 +168,7 @@ msgstr "Estä näytön lukitus ja valmiustila"
 #: resources/ui/shortcuts-dialog.blp:18
 msgctxt "shortcuts section"
 msgid "Global shortcuts"
-msgstr ""
+msgstr "Yleisesti pätevät pikanäppäimet"
 
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
@@ -237,7 +239,7 @@ msgstr "Valmiustila estetty"
 #: src/app.rs:325
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
+msgstr "Pidä minut hereillä estää pyynnöstäsi valmiustilan aktivoitumisen."
 
 #: src/app.rs:333
 msgctxt "notification.title"
@@ -248,20 +250,18 @@ msgstr "Valmiustila ja näytön lukitus estetty"
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
-"Keep me Awake estää pyynnöstäsi valmiustilan ja näytön lukituksen "
+"Pidä minut hereillä estää pyynnöstäsi valmiustilan ja näytön lukituksen "
 "aktivoitumisen."
 
 #: src/app.rs:391
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "global shortcut description"
 msgid "Toggle Keep me Awake"
-msgstr "Keep Me Awake"
+msgstr "Pidä minut hereillä -painikkeen vaihto"
 
 #: src/app/inhibitor.rs:169
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Keep me Awake estää pyynnöstäsi valmiustilan aktivoitumisen."
+msgstr "Pidä minut hereillä estää pyynnöstäsi valmiustilan aktivoitumisen."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
@@ -288,7 +288,7 @@ msgstr ""
 #: src/main.rs:60
 msgctxt "application-name"
 msgid "Keep me Awake"
-msgstr "Keep me Awake"
+msgstr "Pidä minut hereillä"
 
 #~ msgctxt "inhibit-reason"
 #~ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
