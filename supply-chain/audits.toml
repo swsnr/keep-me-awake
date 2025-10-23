@@ -1,6 +1,12 @@
 
 # cargo-vet audits file
 
+[[audits.gtk4-macros]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-deploy"
+delta = "0.10.0 -> 0.10.1"
+notes = "No actual code changes"
+
 [[audits.hashbrown]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
@@ -11,10 +17,20 @@ who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
 delta = "2.7.2 -> 2.7.5"
 
+[[audits.memchr]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-run"
+delta = "2.7.5 -> 2.7.6"
+
 [[audits.serde_spanned]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
 delta = "0.6.7 -> 0.6.9"
+
+[[audits.serde_spanned]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-deploy"
+delta = "0.6.9 -> 1.0.3"
 
 [[audits.slab]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
