@@ -8,11 +8,7 @@ use formatx::formatx;
 use glib::{GStr, dpgettext2, gstr};
 use gtk::gio::{self, resources_register};
 
-pub const APP_ID: &GStr =
-    // SAFETY: We explicitly append a nul byte
-    unsafe {
-        GStr::from_str_with_nul_unchecked(concat!(include_str!("../build/app-id"), "\0"))
-    };
+pub const APP_ID: &str = include_str!("../build/app-id");
 
 pub const G_LOG_DOMAIN: &str = "KeepMeAwake";
 
