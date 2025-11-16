@@ -130,7 +130,7 @@ lint-data:
     appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml
 
 # Lint Rust code.
-lint-rust:
+lint-rust: configure-app-id
     cargo +stable deny --all-features --locked check
     cargo +stable fmt -- --check
     cargo +stable clippy --all-targets
