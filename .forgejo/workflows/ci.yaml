@@ -8,6 +8,5 @@ jobs:
   test-all:
     runs-on: swsnr-rust-gnome
     steps:
-      - run: flatpak install --user org.flatpak.Builder
       - uses: actions/checkout@v5
       - run: just test-all
