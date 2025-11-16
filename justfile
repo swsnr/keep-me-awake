@@ -140,7 +140,7 @@ lint-all: lint-rust lint-blueprint lint-data lint-flatpak
 
 # Vet the Rust supply chain.
 vet *ARGS:
-    cargo vet {{ARGS}}
+    cargo +stable vet {{ARGS}}
 
 # Test rust.
 test-rust:
