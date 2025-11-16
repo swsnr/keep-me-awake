@@ -18,21 +18,16 @@ impl Default for Inhibitor {
 }
 
 /// What's currently being inhibited.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, glib::Enum)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, glib::Enum)]
 #[enum_type(name = "KeepMeAwakeInhibit")]
 pub enum Inhibit {
     /// Inhibit nothing.
+    #[default]
     Nothing,
     /// Inhibit suspend.
     Suspend,
     /// Inhibit suspend and session idle.
     SuspendAndIdle,
-}
-
-impl Default for Inhibit {
-    fn default() -> Self {
-        Self::Nothing
-    }
 }
 
 impl From<Inhibit> for ApplicationInhibitFlags {
@@ -98,8 +93,9 @@ mod imp {
         }
     }
 
-    #[derive(Debug)]
+    #[derive(Debug, Default)]
     enum InhibitState {
+        #[default]
         Nothing,
         Inhibited(#[allow(dead_code)] ApplicationHoldGuard, InhibitCookieGuard),
     }
@@ -116,12 +112,6 @@ mod imp {
                     }
                 }
             }
-        }
-    }
-
-    impl Default for InhibitState {
-        fn default() -> Self {
-            Self::Nothing
         }
     }
 
