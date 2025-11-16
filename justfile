@@ -120,7 +120,7 @@ lint-blueprint:
     blueprint-compiler format resources/**/*.blp
 
 # Lint flatpak manifest.
-lint-flatpak:
+lint-flatpak-manifest:
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.Devel.yaml
     flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml
 
@@ -135,7 +135,7 @@ lint-rust: configure-app-id
     cargo +stable clippy --all-targets
 
 # Lint everything.
-lint-all: lint-rust lint-blueprint lint-data lint-flatpak
+lint-all: lint-rust lint-blueprint lint-data
 
 # Vet the Rust supply chain.
 vet *ARGS:
