@@ -7,22 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-29 20:58+0000\n"
+"PO-Revision-Date: 2025-12-15 10:11+0000\n"
 "Last-Translator: Priit Jõerüüt <jrtcdbrg@noreply.codeberg.org>\n"
-"Language-Team: Estonian <https://translate.codeberg.org/projects/de-swsnr-"
-"keepmeawake/de-swsnr-keepmeawake/et/>\n"
+"Language-Team: Estonian <https://translate.codeberg.org/projects/"
+"de-swsnr-keepmeawake/de-swsnr-keepmeawake/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgid "Keep me Awake"
 msgstr "Hoia mind ärkvel"
 
@@ -37,21 +35,23 @@ msgstr "GNOME;GTK;Suspend;Idle;Inhibit;jõude;unumine;tukastama;tukasta;keela;lu
 
 #: de.swsnr.keepmeawake.metainfo.xml:6
 msgid "Inhibit lock screen and suspend"
-msgstr ""
+msgstr "Keela lukustusvaade ja unerežiim"
 
 #: de.swsnr.keepmeawake.metainfo.xml:8
 msgid ""
 "Inhibit lock screen and suspend of your desktop system, via the main user "
 "interface or via global shortcuts."
 msgstr ""
+"Keela oma süle- või lauaarvuti lukustusvaade ja unerežiim kas "
+"kasutajaliidesest või üldiste kiirklahvidega."
 
 #: de.swsnr.keepmeawake.metainfo.xml:14
 msgid "Suspend"
-msgstr ""
+msgstr "Unerežiim"
 
 #: de.swsnr.keepmeawake.metainfo.xml:15
 msgid "Inhibit"
-msgstr ""
+msgstr "Keela"
 
 #: de.swsnr.keepmeawake.metainfo.xml:16
 msgid "Idle"
@@ -59,21 +59,25 @@ msgstr "Jõude"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
-msgstr ""
+msgstr "Lisasime üldise Super+W kiirklahv unerežiimi keelamiseks/lubamiseks."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
+"Peale käivitamist jääb rakendus taustal tööle ja saab reageerida üldiste "
+"kiirklahvide vajutustele."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
+"Lisasime menüüvaliku kiirklahvide jaoks ja kui töölauakeskkond seda toetab, "
+"ka võimaluse üldiste kiirklahvide seadistamiseks."
 
 #: de.swsnr.keepmeawake.metainfo.xml:33
 msgid "Inhibit suspend and session lock on startup."
-msgstr ""
+msgstr "Lukustusvaate ja unerežiimi keelamise võimalus käivitamisel."
 
 #: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
 #: de.swsnr.keepmeawake.metainfo.xml:60
@@ -82,7 +86,7 @@ msgstr "Uuendatud tõlked."
 
 #: de.swsnr.keepmeawake.metainfo.xml:47
 msgid "Update to GNOME 49."
-msgstr ""
+msgstr "Uuendus kasutab nüüd GNOME 49 teeke."
 
 #: de.swsnr.keepmeawake.metainfo.xml:48 de.swsnr.keepmeawake.metainfo.xml:68
 #: de.swsnr.keepmeawake.metainfo.xml:75 de.swsnr.keepmeawake.metainfo.xml:83
@@ -96,36 +100,39 @@ msgstr "Väljumisel ei kuva enam mittevajalikku teavitust."
 #: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Show indicator if app was updated in background."
 msgstr ""
+"Kui rakendust uuendatakse taustal, siis näitame graafilist indikaatorit."
 
 #: de.swsnr.keepmeawake.metainfo.xml:74
 msgid "Keep inhibiting screen lock even after the main window is closed."
-msgstr ""
+msgstr "Lukustusvaate keelamine jätkub ka peale põhiakna sulgemist."
 
 #: de.swsnr.keepmeawake.metainfo.xml:81
 msgid "Add persistent notification when sleep or screen lock are inhibited."
-msgstr ""
+msgstr "Kui lukustusvaade ja unerežiim on keelatud, siis kuvame püsiteavitust."
 
 #: de.swsnr.keepmeawake.metainfo.xml:82
 msgid "Correctly quit the app."
-msgstr ""
+msgstr "Rakenduse sulgemine toimib nüüd korrektselt."
 
 #: de.swsnr.keepmeawake.metainfo.xml:93
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr ""
+"Lisandus nuppudega põhivaade, kus saab keelata lukustusvaade ja unerežiimi "
+"või need käivitada."
 
 #: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Global shortcuts and notifications are not yet supported."
-msgstr ""
+msgstr "Üldised kiirklahvid ja teavitused pole veel toetatud."
 
 #: de.swsnr.keepmeawake.metainfo.xml:106
 msgid "Inhibit nothing"
-msgstr ""
+msgstr "Vaade, mis näitab, et mitte midagi pole keelatud"
 
 #: de.swsnr.keepmeawake.metainfo.xml:110
 msgid "Inhibit suspend and screen locking"
-msgstr ""
+msgstr "Lukustusvaade ja unerežiim on keelatud"
 
 #: resources/ui/application-window.blp:27
 msgctxt "application-window.menu.label"
@@ -135,55 +142,49 @@ msgstr "_Välju"
 #: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
 msgid "Configure _global shortcuts"
-msgstr ""
+msgstr "Seadista üldisi _kiirklahve"
 
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
 msgid "_Shortcuts"
-msgstr ""
+msgstr "_Kiirklahvid"
 
 #: resources/ui/application-window.blp:48
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_About Keep Me Awake"
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
 msgstr "R_akenduse teave: Hoia mind ärkvel"
 
 #: resources/ui/application-window.blp:80
 msgid "Do not inhibit screen lock and suspend"
-msgstr ""
+msgstr "Ära keela lukustusvaadet ja unerežiimi"
 
 #: resources/ui/application-window.blp:90
 msgid "Inhibit suspend"
-msgstr ""
+msgstr "Keela unerežiim"
 
 #: resources/ui/application-window.blp:100
 msgid "Inhibit screen lock and suspend"
-msgstr ""
+msgstr "Keela lukustusvaade ja unerežiim"
 
 #: resources/ui/shortcuts-dialog.blp:18
 msgctxt "shortcuts section"
 msgid "Global shortcuts"
-msgstr ""
+msgstr "Üldised kiirklahvid"
 
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
 msgid "General"
-msgstr ""
+msgstr "Üldised"
 
 #: resources/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut item title"
 msgid "Show shortcuts"
-msgstr ""
+msgstr "Näita kiirklahve"
 
 #: resources/ui/shortcuts-dialog.blp:30
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_Quit"
 msgctxt "shortcut item title"
 msgid "Quit"
-msgstr "_Välju"
+msgstr "Välju"
 
 #: src/app.rs:42
 msgctxt "about-dialog.link.label"
@@ -229,39 +230,39 @@ msgstr "Lülita seadmed oma võrgus sisse"
 #: src/app.rs:208
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
-msgstr ""
+msgstr "Keela jõudeolek ja unerežiim ilma põhivaadet kasutamata"
 
 #: src/app.rs:320
 msgctxt "notification.title"
 msgid "Suspend inhibited"
-msgstr ""
+msgstr "Unerežiim on keelatud"
 
 #: src/app.rs:325
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr ""
+msgstr "Rakendus „Hoia mind ärkvel“ on sinu palvel keelanud arvuti unerežiimi."
 
 #: src/app.rs:333
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
-msgstr ""
+msgstr "Lukustusvaade ja unerežiim on keelatud"
 
 #: src/app.rs:338
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
+"Rakendus „Hoia mind ärkvel“ on sinu palvel keelanud arvuti unerežiimi ja "
+"lukustusvaate."
 
 #: src/app.rs:391
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "global shortcut description"
 msgid "Toggle Keep me Awake"
-msgstr "Hoia mind ärkvel"
+msgstr "Lülita „Hoia mind ärkvel“ sisse/välja"
 
 #: src/app/inhibitor.rs:169
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr ""
+msgstr "Rakendus „Hoia mind ärkvel“ on sinu palvel keelanud arvuti unerežiimi."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
@@ -276,10 +277,16 @@ msgid ""
 "\n"
 "{license_text}"
 msgstr ""
+"Autoriõigused {copyright_name} &lt;{copyright_email}&gt;\n"
+"\n"
+"Litsentseeritud EUPL 1.2 alusel. Selle litsentsi ametliku tõlke leiad siit: "
+"<a href=\"{translations}\">{translations}</a>.\n"
+"\n"
+"Täismahuline ingliskeelne tekst on alljärgnevas.\n"
+"\n"
+"{license_text}"
 
 #: src/main.rs:60
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Hoia mind ärkvel"
