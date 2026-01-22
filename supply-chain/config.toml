@@ -25,6 +25,18 @@ url = "https://codeberg.org/swsnr/rust-supply-chain/raw/branch/main/audits.toml"
 [policy.keep-me-awake]
 criteria = "safe-to-run"
 
+[[exemptions.hashbrown]]
+version = "0.16.1"
+criteria = "safe-to-run"
+
+[[exemptions.indexmap]]
+version = "2.13.0"
+criteria = "safe-to-run"
+
+[[exemptions.proc-macro2]]
+version = "1.0.106"
+criteria = "safe-to-run"
+
 [[exemptions.target-lexicon]]
 version = "0.12.16"
 criteria = "safe-to-run"
