@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-06-15 15:43+0000\n"
-"Last-Translator: bordam <bordam@noreply.codeberg.org>\n"
+"PO-Revision-Date: 2026-01-25 17:21+0000\n"
+"Last-Translator: albanobattistella <albanobattistella@noreply.codeberg.org>\n"
 "Language-Team: Italian <https://translate.codeberg.org/projects/de-swsnr-"
 "keepmeawake/de-swsnr-keepmeawake/it/>\n"
 "Language: it\n"
@@ -16,15 +16,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
 #: resources/ui/application-window.blp:10
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgid "Keep me Awake"
-msgstr "Mantienimi sveglio"
+msgstr "Keep me Awake"
 
 #: de.swsnr.keepmeawake.desktop:4
 msgid "Keep your desktop awake"
@@ -62,22 +60,26 @@ msgstr "Inattività"
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr ""
+"Aggiungere la scorciatoia globale Super+W per attivare/disattivare la "
+"sospensione."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
+"Una volta avviato, continua a funzionare in background per reagire alle "
+"scorciatoie globali."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
+"Aggiungere voci di menu per visualizzare i collegamenti alle applicazioni e, "
+"negli ambienti desktop supportati, configurare i collegamenti globali."
 
 #: de.swsnr.keepmeawake.metainfo.xml:33
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgid "Inhibit suspend and session lock on startup."
-msgstr "Inibisci la sospensione e il blocco schermo"
+msgstr "Inibisci la sospensione e il blocco della sessione all'avvio."
 
 #: de.swsnr.keepmeawake.metainfo.xml:34 de.swsnr.keepmeawake.metainfo.xml:54
 #: de.swsnr.keepmeawake.metainfo.xml:60
@@ -86,42 +88,48 @@ msgstr "Traduzioni aggiornate."
 
 #: de.swsnr.keepmeawake.metainfo.xml:47
 msgid "Update to GNOME 49."
-msgstr ""
+msgstr "Aggiornamento a GNOME 49."
 
 #: de.swsnr.keepmeawake.metainfo.xml:48 de.swsnr.keepmeawake.metainfo.xml:68
 #: de.swsnr.keepmeawake.metainfo.xml:75 de.swsnr.keepmeawake.metainfo.xml:83
 msgid "Global shortcuts are not yet supported."
-msgstr ""
+msgstr "Le scorciatoie globali non sono ancora supportate."
 
 #: de.swsnr.keepmeawake.metainfo.xml:66
 msgid "Do not show redundant notification when quitting."
-msgstr ""
+msgstr "Non mostrare notifiche ridondanti quando si esce."
 
 #: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Show indicator if app was updated in background."
-msgstr ""
+msgstr "Mostra l'indicatore se l'app è stata aggiornata in background."
 
 #: de.swsnr.keepmeawake.metainfo.xml:74
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
+"Continua a inibire il blocco dello schermo anche dopo aver chiuso la "
+"finestra principale."
 
 #: de.swsnr.keepmeawake.metainfo.xml:81
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
+"Aggiungi una notifica persistente quando la modalità sospensione o il blocco "
+"schermo sono inibiti."
 
 #: de.swsnr.keepmeawake.metainfo.xml:82
 msgid "Correctly quit the app."
-msgstr ""
+msgstr "Chiudere correttamente l'app."
 
 #: de.swsnr.keepmeawake.metainfo.xml:93
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr ""
+"Aggiungi una finestra principale con pulsanti per inibire la sospensione o "
+"la sospensione e il blocco dello schermo."
 
 #: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Global shortcuts and notifications are not yet supported."
-msgstr ""
+msgstr "Le scorciatoie e le notifiche globali non sono ancora supportate."
 
 #: de.swsnr.keepmeawake.metainfo.xml:106
 msgid "Inhibit nothing"
@@ -139,20 +147,17 @@ msgstr "_Esci"
 #: resources/ui/application-window.blp:34
 msgctxt "application-window.menu.label"
 msgid "Configure _global shortcuts"
-msgstr ""
+msgstr "Configura scorciatoie _globali"
 
 #: resources/ui/application-window.blp:41
 msgctxt "application-window.menu.label"
 msgid "_Shortcuts"
-msgstr ""
+msgstr "_Scorciatoie"
 
 #: resources/ui/application-window.blp:48
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_About Keep Me Awake"
 msgctxt "application-window.menu.label"
 msgid "_About Keep me Awake"
-msgstr "_Informazioni su Mantienimi sveglio"
+msgstr "_Informazioni su Keep me Awake"
 
 #: resources/ui/application-window.blp:80
 msgid "Do not inhibit screen lock and suspend"
@@ -169,25 +174,22 @@ msgstr "Inibisci il blocco schermo e la sospensione"
 #: resources/ui/shortcuts-dialog.blp:18
 msgctxt "shortcuts section"
 msgid "Global shortcuts"
-msgstr ""
+msgstr "Scorciatoie globali"
 
 #: resources/ui/shortcuts-dialog.blp:22
 msgctxt "shortcuts section"
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: resources/ui/shortcuts-dialog.blp:25
 msgctxt "shortcut item title"
 msgid "Show shortcuts"
-msgstr ""
+msgstr "Mostra scorciatoie"
 
 #: resources/ui/shortcuts-dialog.blp:30
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "_Quit"
 msgctxt "shortcut item title"
 msgid "Quit"
-msgstr "_Esci"
+msgstr "Esci"
 
 #: src/app.rs:42
 msgctxt "about-dialog.link.label"
@@ -210,32 +212,30 @@ msgstr "Servizi utili"
 #: src/app.rs:68
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
-msgstr ""
+msgstr "Foto del giorno"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
 #: src/app.rs:73
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
-msgstr ""
+msgstr "Il tuo sfondo quotidiano"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:79
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
-msgstr ""
+msgstr "Accendi"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
 #: src/app.rs:84
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
-msgstr ""
+msgstr "Accendi i dispositivi nella tua rete"
 
 #: src/app.rs:208
-#, fuzzy
-#| msgid "Inhibit suspend and screen locking"
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
-msgstr "Inibisci la sospensione e il blocco schermo"
+msgstr "Inibisci la sospensione e l'inattività senza una finestra principale"
 
 #: src/app.rs:320
 msgctxt "notification.title"
@@ -243,12 +243,9 @@ msgid "Suspend inhibited"
 msgstr "Sospensione inibita"
 
 #: src/app.rs:325
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Mantienimi sveglio inibisce la sospensione su tua richiesta."
+msgstr "Keep me Awake inibisce la sospensione su tua richiesta."
 
 #: src/app.rs:333
 msgctxt "notification.title"
@@ -256,43 +253,24 @@ msgid "Suspend and screen lock inhibited"
 msgstr "Sospensione e blocco schermo inibiti"
 
 #: src/app.rs:338
-#, fuzzy
-#| msgctxt "notification.body"
-#| msgid "Keep Me Awake inhibits suspend and screen lock at your request."
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
-"Mantienimi sveglio inibisce la sospensione e il blocco schermo su tua "
+"Keep me Awake inibisce la sospensione e il blocco dello schermo su tua "
 "richiesta."
 
 #: src/app.rs:391
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "global shortcut description"
 msgid "Toggle Keep me Awake"
-msgstr "Mantienimi sveglio"
+msgstr "Attiva/disattiva Keep me Awake"
 
 #: src/app/inhibitor.rs:169
-#, fuzzy
-#| msgctxt "inhibit-reason"
-#| msgid "Keep Me Awake inhibits suspend at your request."
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
-msgstr "Mantienimi sveglio inibisce la sospensione su tua richiesta."
+msgstr "Keep me Awake inibisce la sospensione su tua richiesta."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/config.rs:37
-#, fuzzy
-#| msgctxt "about-dialog.license-text"
-#| msgid ""
-#| "Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
-#| "\n"
-#| "Licensed under the terms of the EUPL 1.2. You can find official "
-#| "translations of the license text at <a href=\"%1\">%1</a>.\n"
-#| "\n"
-#| "The full English text follows.\n"
-#| "\n"
-#| "%2"
 msgctxt "about-dialog.license-text"
 msgid ""
 "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
@@ -304,21 +282,20 @@ msgid ""
 "\n"
 "{license_text}"
 msgstr ""
-"Copyright Sebastian Wiesner &lt;sebastian@swsnr.de&gt;\n"
+"Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
 "\n"
-"Concesso in licenza secondo i termini della EUPL 1.2. Puoi trovare le "
-"traduzioni ufficiali del testo della licenza su <a href=\"%1\">%1</a>.\n"
+"Concesso in licenza secondo i termini della EUPL 1.2. Le traduzioni "
+"ufficiali del testo della licenza sono disponibili all'indirizzo <a href=\""
+"{translations}\">{translations}</a>.\n"
 "\n"
-"Segue il testo inglese completo.\n"
+"Di seguito il testo completo in inglese.\n"
 "\n"
-"%2"
+"{license_text}"
 
 #: src/main.rs:60
-#, fuzzy
-#| msgid "Keep Me Awake"
 msgctxt "application-name"
 msgid "Keep me Awake"
-msgstr "Mantienimi sveglio"
+msgstr "Keep me Awake"
 
 #~ msgctxt "inhibit-reason"
 #~ msgid "Keep Me Awake inhibits suspend and screen lock at your request."
