@@ -22,6 +22,11 @@ who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
 delta = "2.7.5 -> 2.7.6"
 
+[[audits.memchr]]
+who = "Sebastian Wiesner <sebastian@swsnr.de>"
+criteria = "safe-to-run"
+delta = "2.7.6 -> 2.8.0"
+
 [[audits.serde_spanned]]
 who = "Sebastian Wiesner <sebastian@swsnr.de>"
 criteria = "safe-to-run"
@@ -61,7 +66,7 @@ end = "2026-07-16"
 
 [[trusted.cairo-sys-rs]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -73,7 +78,7 @@ end = "2026-07-16"
 
 [[trusted.gdk-pixbuf]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -85,7 +90,7 @@ end = "2026-07-16"
 
 [[trusted.gdk-pixbuf-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -97,7 +102,7 @@ end = "2026-09-22"
 
 [[trusted.gdk4]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -109,7 +114,7 @@ end = "2026-09-22"
 
 [[trusted.gdk4-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -121,7 +126,7 @@ end = "2026-06-06"
 
 [[trusted.gdk4-wayland]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -133,7 +138,7 @@ end = "2026-06-06"
 
 [[trusted.gdk4-wayland-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -145,7 +150,7 @@ end = "2026-06-06"
 
 [[trusted.gdk4-x11]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -157,7 +162,7 @@ end = "2026-06-06"
 
 [[trusted.gdk4-x11-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -175,7 +180,7 @@ end = "2026-07-16"
 
 [[trusted.gio-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -199,7 +204,7 @@ end = "2026-07-16"
 
 [[trusted.glib-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -211,7 +216,7 @@ end = "2026-07-16"
 
 [[trusted.gobject-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -223,7 +228,7 @@ end = "2026-07-16"
 
 [[trusted.graphene-rs]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -235,7 +240,7 @@ end = "2026-07-16"
 
 [[trusted.graphene-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
@@ -247,7 +252,7 @@ end = "2026-09-22"
 
 [[trusted.gsk4]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -259,7 +264,7 @@ end = "2026-09-22"
 
 [[trusted.gsk4-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -271,13 +276,13 @@ end = "2026-07-03"
 
 [[trusted.gtk4]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
 [[trusted.gtk4-macros]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -289,7 +294,7 @@ end = "2026-09-22"
 
 [[trusted.gtk4-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2021-07-12"
 end = "2026-07-16"
 
@@ -325,7 +330,7 @@ end = "2026-07-16"
 
 [[trusted.pango-sys]]
 criteria = "safe-to-run"
-user-id = 54339 # Bilal Elmoussaoui (bilelmoussaoui)
+user-id = 54339
 start = "2023-07-23"
 end = "2026-07-16"
 
