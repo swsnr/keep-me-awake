@@ -1,0 +1,15 @@
+[project]
+name = "keep-me-awake"
+description = "Keep your desktop awake"
+requires-python = ">=3.14"
+dynamic = ['version']
+authors = [{ name = "Sebastian Wiesner", email = "sebastian@swsnr.de" }]
+readme = "README.md"
+license = "EUPL-1.2"
+classifiers = ["Private :: Do Not Upload"]
+dependencies = []
+
+[project.urls]
+homepage = "https://codeberg.org/swsnr/keep-me-awake"
+repository = "https://codeberg.org/swsnr/keep-me-awake.git"
+issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
