@@ -7,9 +7,31 @@ authors = [{ name = "Sebastian Wiesner", email = "sebastian@swsnr.de" }]
 readme = "README.md"
 license = "EUPL-1.2"
 classifiers = ["Private :: Do Not Upload"]
-dependencies = []
+dependencies = ["pygobject>=3.56.0"]
 
 [project.urls]
 homepage = "https://codeberg.org/swsnr/keep-me-awake"
 repository = "https://codeberg.org/swsnr/keep-me-awake.git"
 issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
+
+[project.gui-scripts]
+"de.swsnr.keepmeawake" = "keep_me_awake.main:main"
+
+[dependency-groups]
+dev = ["pygobject-stubs>=2.16.0", "hatchling"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.hooks.custom]
+
+[tool.hatch.version]
+path = "src/keep_me_awake/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = ["**/*.ui"]
+
+[tool.hatch.build.targets.wheel]
+artifacts = ["**/*.ui"]
+exclude = ["**/*.blp"]

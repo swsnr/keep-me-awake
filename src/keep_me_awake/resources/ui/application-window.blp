@@ -1,0 +1,112 @@
+// Copyright Sebastian Wiesner <sebastian@swsnr.de>
+//
+// Licensed under the EUPL
+//
+// See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+using Gtk 4.0;
+using Adw 1;
+
+template $KeepMeAwakeApplicationWindow: Adw.ApplicationWindow {
+  title: _("Keep me Awake");
+  default-height: 460;
+  default-width: 400;
+
+  content: Adw.ToolbarView {
+    top-bar-style: raised;
+
+    [top]
+    Adw.HeaderBar {
+      [end]
+      Box {
+        orientation: horizontal;
+
+        MenuButton button_menu {
+          menu-model: menu {
+            section {
+              item {
+                label: C_("application-window.menu.label", "_Quit");
+                action: "app.quit";
+              }
+            }
+
+            section {
+              item {
+                label: C_("application-window.menu.label", "Configure _global shortcuts");
+                action: "app.configure-global-shortcuts";
+              }
+            }
+
+            section {
+              item {
+                label: C_("application-window.menu.label", "_Shortcuts");
+                action: "app.shortcuts";
+              }
+            }
+
+            section {
+              item {
+                label: C_("application-window.menu.label", "_About Keep me Awake");
+                action: "app.about";
+              }
+            }
+          };
+
+          icon-name: 'menu-large-symbolic';
+          primary: true;
+        }
+
+        Button {
+          icon-name: "up-arrow-in-a-star-symbolic";
+          visible: bind template.show-update-indicator;
+
+          styles [
+            "accent",
+          ]
+        }
+      }
+    }
+
+    Adw.StatusPage {
+      vexpand: true;
+      icon-name: bind $icon_name((template.application as <$KeepMeAwakeApplication>).inhibitors) as <string>;
+
+      child: Adw.Clamp {
+        Gtk.Box {
+          orientation: vertical;
+          homogeneous: true;
+          spacing: 6;
+
+          Gtk.ToggleButton {
+            label: _("Do not inhibit screen lock and suspend");
+            action-name: "app.inhibit";
+            action-target: "'nothing'";
+
+            styles [
+              "pill",
+            ]
+          }
+
+          Gtk.ToggleButton {
+            label: _("Inhibit suspend");
+            action-name: "app.inhibit";
+            action-target: "'suspend'";
+
+            styles [
+              "pill",
+            ]
+          }
+
+          Gtk.ToggleButton {
+            label: _("Inhibit screen lock and suspend");
+            action-name: "app.inhibit";
+            action-target: "'suspend-and-idle'";
+
+            styles [
+              "pill",
+            ]
+          }
+        }
+      };
+    }
+  };
+}
