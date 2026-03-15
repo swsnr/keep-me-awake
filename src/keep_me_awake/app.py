@@ -31,8 +31,6 @@ class KeepMeAwakeApplication(Adw.Application):
 
     __gtype_name__: str = "KeepMeAwakeApplication"
 
-    _inhibit_state: _InhibitState | None
-
     def __init__(self, application_id: str) -> None:
         """Create a new application with the given `application_id`.
 
@@ -42,8 +40,9 @@ class KeepMeAwakeApplication(Adw.Application):
         super().__init__(
             application_id=application_id, resource_base_path="/de/swsnr/keepmeawake"
         )
-        self._inhibit_state = None
-        self.portal = Xdp.Portal.new()
+        self._inhibit_state: _InhibitState | None = None
+        self._background_task: asyncio.Task[None] | None = None
+        self._portal: Xdp.Portal = Xdp.Portal.new()
 
     def _update_notification(self) -> None:
         """Update the notification to indicate current inhibition state."""
@@ -88,6 +87,32 @@ class KeepMeAwakeApplication(Adw.Application):
         if window:
             window.close()
 
+    def _activate_toggle_inhibit(
+        self, _act: Gio.SimpleAction, _parameter: GLib.Variant | None = None
+    ) -> None:
+        self.inhibitors = (
+            Inhibit.SUSPEND_AND_IDLE
+            if self.inhibitors == Inhibit.NOTHING
+            else Inhibit.NOTHING
+        )
+
+    def _setup_actions(self) -> None:
+        # TODO: configure-global-shortcuts
+        # TODO: About
+        quit = Gio.SimpleAction(name="quit")
+        _ = quit.connect("activate", self._activate_quit)
+        toggle_inhibit = Gio.SimpleAction(name="toggle-inhibit")
+
+        actions = [
+            quit,
+            toggle_inhibit,
+            Gio.PropertyAction(name="inhibit", object=self, property_name="inhibitors"),
+        ]
+        for action in actions:
+            self.add_action(action)
+
+        self.set_accels_for_action("app.quit", ["<Control>q"])
+
     def _main_window_close_request(self, _window: Gtk.Window) -> bool:
         """Handle close requests for the main window.
 
@@ -100,7 +125,7 @@ class KeepMeAwakeApplication(Adw.Application):
 
     async def _ask_background(self) -> None:
         # TODO: async not typed correctly: https://github.com/pygobject/pygobject-stubs/issues/220
-        success = await self.portal.request_background(  # pyright: ignore[reportUnknownVariableType, reportGeneralTypeIssues]
+        success = await self._portal.request_background(  # pyright: ignore[reportUnknownVariableType, reportGeneralTypeIssues]
             None,
             C_(
                 "portal.request-background.reason",
@@ -112,21 +137,6 @@ class KeepMeAwakeApplication(Adw.Application):
         if not cast("bool", success):
             # TODO: Log warning!
             pass
-
-    def _setup_actions(self) -> None:
-        # TODO: configure-global-shortcuts
-        # TODO: toggle-inhibit
-        # TODO: About
-        quit = Gio.SimpleAction(name="quit")
-        _ = quit.connect("activate", self._activate_quit)
-        actions = [
-            quit,
-            Gio.PropertyAction(name="inhibit", object=self, property_name="inhibitors"),
-        ]
-        for action in actions:
-            self.add_action(action)
-
-        self.set_accels_for_action("app.quit", ["<Control>q"])
 
     @GObject.Property(type=Inhibit, default=Inhibit.NOTHING)
     def inhibitors(self) -> Inhibit:
@@ -190,7 +200,10 @@ class KeepMeAwakeApplication(Adw.Application):
 
         window.present()
 
-        if self.portal.running_under_sandbox():
+        self.activate_action("inhibit", GLib.Variant.new_string("suspend-and-idle"))
+
+        if self._portal.running_under_sandbox() and not self._background_task:
+            # Request background but only if not already requested
             self._background_task = asyncio.create_task(self._ask_background())
 
     @override
