@@ -44,10 +44,11 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
         root = Path(self.root)
         for package in self.build_config.packages:
-            # TODO: Find an elegant way to propagate build-time app ID to package
+            app_id_file = root / package / "app-id.txt"
+            app_id_file.write_text(self.app_id)
+            build_data["artifacts"].append(str(app_id_file))
 
             resources_directory = root / package / "resources"
-
             blueprints = list(resources_directory.glob("**/*.blp"))
             n_blueprints = len(blueprints)
             self.app.display_info(

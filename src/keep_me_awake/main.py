@@ -44,6 +44,7 @@ def main() -> Never:
 
     from . import log
 
+    app_id = "de.swsnr.keepmeawake.Devel"
     if is_editable_installation():
         log.message("Editable installation, setting up resource overlays")
         overlays = os.environ.get("G_RESOURCE_OVERLAYS", "")
@@ -54,22 +55,21 @@ def main() -> Never:
         )
     else:
         # Read compiled resources
-        with resources.as_file(
-            resources.files("keep_me_awake") / "resources.gresource"
-        ) as resource:
+        our_resources = resources.files("keep_me_awake")
+        with resources.as_file(our_resources / "resources.gresource") as resource:
             log.message(f"Loading compiled resources from {resource}")
             Gio.resources_register(Gio.Resource.load(str(resource)))
+        # Read app ID added to distribution at build time
+        app_id = (our_resources / "app-id.txt").read_text()
 
     # TODO: Setup translations
-
     GLib.set_application_name(C_("application-name", "Keep me Awake"))
 
     # Import app only after we've set up resource overrides, etc. to make
     # sure that templates, translations, etc. are in place.
     from .app import KeepMeAwakeApplication
 
-    # TODO: Read application ID from some file written at installation time
-    app = KeepMeAwakeApplication("de.swsnr.keepmeawake.Devel")
+    app = KeepMeAwakeApplication(application_id=app_id)
     app.set_version(__version__)
     with gi.events.GLibEventLoopPolicy():  # pyright: ignore[reportUnknownMemberType]
         sys.exit(app.run(sys.argv))
