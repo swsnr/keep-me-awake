@@ -7,9 +7,11 @@
 
 """Custom build plugins for hatch."""
 
+import os
+from functools import cached_property
 from pathlib import Path
 from subprocess import run
-from typing import Any, override
+from typing import Any, cast, override
 
 from hatchling.builders.config import BuilderConfig
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
@@ -21,13 +23,31 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
     Handles translations and builds various files required for Gnome apps.
     """
 
+    @cached_property
+    def app_id(self) -> str:
+        """The application to use for data files."""
+        app_id = os.environ.get("KEEP_ME_AWAKE_APP_ID", "de.swsnr.keepmeawake.Devel")
+        if app_id not in ["de.swsnr.keepmeawake.Devel", "de.swsnr.keepmeawake"]:
+            raise ValueError(app_id)
+        return app_id
+
+    def _patch_app_id(self, source: Path, dest: Path | None = None) -> Path:
+        contents = source.read_text()
+        if not dest:
+            dest = Path(self.build_config.directory) / source.name
+        dest.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
+        return dest
+
     @override
     def initialize(self, version: str, build_data: dict[str, Any]) -> None:
         super().initialize(version, build_data)
 
         root = Path(self.root)
         for package in self.build_config.packages:
+            # TODO: Find an elegant way to propagate build-time app ID to package
+
             resources_directory = root / package / "resources"
+
             blueprints = list(resources_directory.glob("**/*.blp"))
             n_blueprints = len(blueprints)
             self.app.display_info(
@@ -44,20 +64,17 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                 check=True,
             )
 
-    @override
-    def finalize(
-        self,
-        version: str,
-        build_data: dict[str, Any],  # pyright: ignore[reportExplicitAny]
-        artifact_path: str,
-    ) -> None:
-        super().finalize(version, build_data, artifact_path)
+            # TODO: Translate metadata file instead of copying it
+            self._patch_app_id(
+                root / "de.swsnr.keepmeawake.metainfo.xml",
+                resources_directory / "de.swsnr.keepmeawake.metainfo.xml",
+            )
 
-        root = Path(self.root)
+        # Generate shared data files
+        self.app.display_info("Generating shared data files")
 
-        # When building a wheel build a binary resource file for Gio, and
-        # exclude all resource source files from the distribution
         if self.target_name == "wheel":
+            # When building a wheel build a binary resource file for Gio
             for package in self.build_config.packages:
                 resources_directory = root / package / "resources"
                 compiled_resources = root / package / "resources.gresource"
@@ -72,3 +89,12 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                     ],
                     check=True,
                 )
+
+            shared_data = cast(dict[str, str], build_data["shared_data"])
+            desktop_file = self._patch_app_id(root / "de.swsnr.keepmeawake.desktop")
+            shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
+            for package in self.build_config.packages:
+                resources_directory = root / package / "resources"
+                shared_data[
+                    str(resources_directory / "de.swsnr.keepmeawake.metainfo.xml")
+                ] = f"share/metainfo/{self.app_id}.metainfo.xml"

@@ -133,7 +133,7 @@ class KeepMeAwakeApplication(Adw.Application):
             None,  # pyright: ignore[reportArgumentType]
             Xdp.BackgroundFlags.NONE,
         )
-        if not cast("bool", success):
+        if not cast(bool, success):
             log.warn("Failed to request background permission!")
             pass
 

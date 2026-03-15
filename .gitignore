@@ -6,4 +6,7 @@ __pycache__/
 
 # UI files compiled from blueprint
 *.ui
+# Compiled GIO resource files
 *.gresource
+# Translated metainfo file in resources
+**/resources/*.metainfo.xml

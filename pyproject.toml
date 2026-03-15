@@ -59,3 +59,4 @@ select = [
     "TC",
     "INT",
 ]
+ignore = ["TC006"]
