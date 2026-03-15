@@ -4,14 +4,22 @@
 #
 # See https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 
-from typing import override
+"""The main Keep me Awake application."""
+
 from dataclasses import dataclass
 from gettext import pgettext as C_
+from typing import override
 
-from .gi import Adw, Gtk, Gio, GLib, GObject
-from .config import APP_ID
-from .window import KeepMeAwakeApplicationWindow
-from .inhibit import Inhibit
+from gi.repository import (
+    Adw,
+    Gio,
+    GLib,
+    GObject,
+    Gtk,
+)
+
+from .enums import Inhibit
+from .widgets import KeepMeAwakeApplicationWindow
 
 
 @dataclass
@@ -21,13 +29,23 @@ class _InhibitState:
 
 
 class KeepMeAwakeApplication(Adw.Application):
+    """Keep me Awake application class.
+
+    The application provides the
+    """
+
     __gtype_name__: str = "KeepMeAwakeApplication"
 
     _inhibit_state: _InhibitState | None
 
-    def __init__(self) -> None:
+    def __init__(self, application_id: str) -> None:
+        """Create a new application with the given `application_id`.
+
+        Set application ID, configure the base path for resources of this
+        application, and disable inhibition initially.
+        """
         super().__init__(
-            application_id=APP_ID, resource_base_path="/de/swsnr/keepmeawake"
+            application_id=application_id, resource_base_path="/de/swsnr/keepmeawake"
         )
         self._inhibit_state = None
 
@@ -58,6 +76,7 @@ class KeepMeAwakeApplication(Adw.Application):
 
     @GObject.Property(type=Inhibit, default=Inhibit.NOTHING)
     def inhibitors(self) -> Inhibit:
+        """Get the current inhibitors."""
         if self._inhibit_state:
             return (
                 Inhibit.SUSPEND_AND_IDLE
@@ -69,6 +88,11 @@ class KeepMeAwakeApplication(Adw.Application):
 
     @inhibitors.setter
     def set_inhibitors(self, inhibit: Inhibit) -> None:
+        """Update inhibitors.
+
+        Disable current inhibitors, if any, then inhibit according to `inhibit`
+        and emit the notify signal for this property.
+        """
         if self._inhibit_state:
             self.uninhibit(self._inhibit_state.cookie)
             self._inhibit_state = None

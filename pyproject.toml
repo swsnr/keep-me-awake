@@ -24,10 +24,10 @@ dev = ["pygobject-stubs>=2.16.0", "hatchling"]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build.hooks.custom]
-
 [tool.hatch.version]
 path = "src/keep_me_awake/__init__.py"
+
+[tool.hatch.build.hooks.custom]
 
 [tool.hatch.build.targets.sdist]
 exclude = ["**/*.ui"]
@@ -35,3 +35,23 @@ exclude = ["**/*.ui"]
 [tool.hatch.build.targets.wheel]
 artifacts = ["**/*.ui"]
 exclude = ["**/*.blp"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+reportMissingModuleSource = false
+
+[tool.ruff.lint]
+select = [
+    "ANN",
+    "ASYNC",
+    "D",
+    "E",
+    "F",
+    "UP",
+    "B",
+    "SIM",
+    "I",
+    "RUF",
+    "TC",
+    "INT",
+]
