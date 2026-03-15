@@ -13,6 +13,7 @@ from typing import cast, override
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp
 
+from . import log
 from .enums import Inhibit
 from .widgets import KeepMeAwakeApplicationWindow
 
@@ -133,7 +134,7 @@ class KeepMeAwakeApplication(Adw.Application):
             Xdp.BackgroundFlags.NONE,
         )
         if not cast("bool", success):
-            # TODO: Log warning!
+            log.warn("Failed to request background permission!")
             pass
 
     @GObject.Property(type=Inhibit, default=Inhibit.NOTHING)

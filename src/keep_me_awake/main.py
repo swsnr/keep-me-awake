@@ -33,31 +33,23 @@ def is_editable_installation() -> bool:
     return False
 
 
-def setup_environment() -> None:
-    """Set up the application environment.
+def main() -> Never:
+    """Start the application, as main entry point.
 
-    Set async event loop policy for the application, to integrate with asyncio.
-
-    If the application is installed in editable mode configure Gio resource
-    overlays to load the application resources directly from source.
+    Setup environment and start the application.
     """
+    from gi.repository import GLib
+
+    from . import log
+
     if is_editable_installation():
+        log.message("Editable installation, setting up resource overlays")
         overlays = os.environ.get("G_RESOURCE_OVERLAYS", "")
         resources_dir = Path(__file__).parent / "resources"
         overlay = f"/de/swsnr/keepmeawake={resources_dir}"
         os.environ["G_RESOURCE_OVERLAYS"] = (
             f"{overlay}:{overlays}" if overlays else overlay
         )
-
-
-def main() -> Never:
-    """Start the application, as main entry point.
-
-    Setup environment and start the application.
-    """
-    setup_environment()
-
-    from gi.repository import GLib
 
     # TODO: Setup translations
     # TODO: Register resources
