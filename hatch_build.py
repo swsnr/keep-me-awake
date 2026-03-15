@@ -55,6 +55,8 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
         root = Path(self.root)
 
+        # When building a wheel build a binary resource file for Gio, and
+        # exclude all resource source files from the distribution
         if self.target_name == "wheel":
             for package in self.build_config.packages:
                 resources_directory = root / package / "resources"

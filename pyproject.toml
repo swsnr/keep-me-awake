@@ -30,11 +30,15 @@ path = "src/keep_me_awake/__init__.py"
 [tool.hatch.build.hooks.custom]
 
 [tool.hatch.build.targets.sdist]
-exclude = ["**/*.ui"]
+# In source distributions do not include UI files compiled from blueprints, and
+# compiled resource files
+exclude = ["*.ui", "*.gresource"]
 
 [tool.hatch.build.targets.wheel]
-artifacts = ["**/*.ui"]
-exclude = ["**/*.blp"]
+# When building a binary wheel include only the binary resource file but not the
+# resource source files
+artifacts = ["*.gresource"]
+exclude = ["**/keep_me_awake/resources/"]
 
 [tool.pyright]
 typeCheckingMode = "strict"
