@@ -11,7 +11,7 @@ from gi.repository import Adw, GObject, Gtk
 from .enums import Inhibit
 
 
-@Gtk.Template(resource_path="/de/swsnr/keepmeawake/ui/application-window.ui")
+@Gtk.Template(resource_path="/de/swsnr/keepmeawake/application-window.ui")
 class KeepMeAwakeApplicationWindow(Adw.ApplicationWindow):
     """The main application window."""
 

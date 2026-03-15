@@ -116,7 +116,6 @@ class KeepMeAwakeApplication(Adw.Application):
     def _setup_actions(self) -> None:
         # TODO: configure-global-shortcuts
         # TODO: toggle-inhibit
-        # TODO: shortcuts
         # TODO: About
         quit = Gio.SimpleAction(name="quit")
         _ = quit.connect("activate", self._activate_quit)

@@ -11,13 +11,9 @@ using Adw 1;
  * Adwaita's main application automatically sets up an action with a shortcut to
  * show this window if shortcuts-dialog.ui exists.
  *
- * see https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1.8/class.Application.html#shortcuts-dialog
+ * See https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1.8/class.Application.html#shortcuts-dialog
  */
 Adw.ShortcutsDialog shortcuts_dialog {
-  Adw.ShortcutsSection global_shortcuts {
-    title: C_("shortcuts section", "Global shortcuts");
-  }
-
   Adw.ShortcutsSection {
     title: C_("shortcuts section", "General");
 

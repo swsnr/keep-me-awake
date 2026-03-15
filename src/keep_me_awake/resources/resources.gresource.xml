@@ -3,8 +3,8 @@
     <!-- Resource definitions for static resources. -->
     <gresource prefix="/de/swsnr/keepmeawake/">
         <!-- UI files compiled with blueprint -->
-        <file compressed="true" preprocess="xml-stripblanks">ui/application-window.ui</file>
-        <file compressed="true" preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">application-window.ui</file>
+        <file compressed="true" preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
         <!-- Icons -->
         <file preprocess="xml-stripblanks">icons/scalable/actions/cup-empty.svg</file>
         <file preprocess="xml-stripblanks">icons/scalable/actions/cup-full-steaming.svg</file>
