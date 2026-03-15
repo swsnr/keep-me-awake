@@ -14,11 +14,13 @@ from pathlib import Path
 from typing import Never
 
 import gi
+import gi.events  # pyright: ignore[reportMissingImports]
 
 from keep_me_awake import __version__
 
 gi.disable_legacy_autoinit()
 gi.require_version("Adw", "1")
+gi.require_version("Xdp", "1.0")
 
 
 def is_editable_installation() -> bool:
@@ -33,6 +35,8 @@ def is_editable_installation() -> bool:
 
 def setup_environment() -> None:
     """Set up the application environment.
+
+    Set async event loop policy for the application, to integrate with asyncio.
 
     If the application is installed in editable mode configure Gio resource
     overlays to load the application resources directly from source.
@@ -67,4 +71,5 @@ def main() -> Never:
     # TODO: Read application ID from some file written at installation time
     app = KeepMeAwakeApplication("de.swsnr.keepmeawake.Devel")
     app.set_version(__version__)
-    sys.exit(app.run(sys.argv))
+    with gi.events.GLibEventLoopPolicy():  # pyright: ignore[reportUnknownMemberType]
+        sys.exit(app.run(sys.argv))
