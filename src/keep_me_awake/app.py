@@ -81,7 +81,6 @@ class KeepMeAwakeApplication(Adw.Application):
     def _activate_quit(
         self, _act: Gio.SimpleAction, _parameter: GLib.Variant | None = None
     ) -> None:
-        # TODO: Clear hold guard for global shortcuts
         self.inhibitors = Inhibit.NOTHING
         window = self.get_active_window()
         if window:
@@ -97,7 +96,6 @@ class KeepMeAwakeApplication(Adw.Application):
         )
 
     def _setup_actions(self) -> None:
-        # TODO: configure-global-shortcuts
         # TODO: About
         quit = Gio.SimpleAction(name="quit")
         _ = quit.connect("activate", self._activate_quit)

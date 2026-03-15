@@ -20,6 +20,7 @@ class KeepMeAwakeApplicationWindow(Adw.ApplicationWindow):
     @GObject.Property(type=bool, default=False)
     def show_update_indicator(self) -> bool:
         """Whether to show an indicator for an available update."""
+        # TODO: Update monitor!
         return False
 
     @Gtk.Template.Callback()  # pyright: ignore[reportAny]
