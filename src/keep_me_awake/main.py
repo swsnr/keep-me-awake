@@ -9,12 +9,14 @@
 import os
 import sys
 from gettext import pgettext as C_
+from importlib import resources
 from importlib.metadata import distribution
 from pathlib import Path
 from typing import Never
 
 import gi
 import gi.events  # pyright: ignore[reportMissingImports]
+from gi.repository import Gio  # pyright: ignore[reportMissingImports]
 
 from keep_me_awake import __version__
 
@@ -50,9 +52,15 @@ def main() -> Never:
         os.environ["G_RESOURCE_OVERLAYS"] = (
             f"{overlay}:{overlays}" if overlays else overlay
         )
+    else:
+        # Read compiled resources
+        with resources.as_file(
+            resources.files("keep_me_awake") / "resources.gresource"
+        ) as resource:
+            log.message(f"Loading compiled resources from {resource}")
+            Gio.resources_register(Gio.Resource.load(str(resource)))
 
     # TODO: Setup translations
-    # TODO: Register resources
 
     GLib.set_application_name(C_("application-name", "Keep me Awake"))
 

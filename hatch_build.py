@@ -52,3 +52,21 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
         artifact_path: str,
     ) -> None:
         super().finalize(version, build_data, artifact_path)
+
+        root = Path(self.root)
+
+        if self.target_name == "wheel":
+            for package in self.build_config.packages:
+                resources_directory = root / package / "resources"
+                compiled_resources = root / package / "resources.gresource"
+
+                self.app.display_info("Compiling GLib resources")
+                run(
+                    [
+                        "glib-compile-resources",
+                        f"--sourcedir={resources_directory}",
+                        f"--target={compiled_resources}",
+                        resources_directory / "resources.gresource.xml",
+                    ],
+                    check=True,
+                )
