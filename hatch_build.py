@@ -76,9 +76,6 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             )
             self._patch_app_id(metainfo_file)
 
-        # Generate shared data files
-        self.app.display_info("Generating shared data files")
-
         if self.target_name == "wheel":
             # When building a wheel build a binary resource file for Gio
             for package in self.build_config.packages:
@@ -98,10 +95,22 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
             shared_data = cast(dict[str, str], build_data["shared_data"])
 
+            self.app.display_info("Compiling translations")
+            mo_dir = Path(self.build_config.directory) / "mo"
+            mo_dir.mkdir(parents=True, exist_ok=True)
+            for po_file in (root / "po").glob("*.po"):
+                lang = po_file.stem
+                mo_file = (mo_dir / lang).with_suffix(".mo")
+                _ = run(["msgfmt", "-o", str(mo_file), str(po_file)], check=True)
+                shared_data[str(mo_file)] = (
+                    f"share/locale/{lang}/LC_MESSAGES/{self.app_id}.mo"
+                )
+
             self.app.display_info("Translating desktop file")
             desktop_file = (
                 Path(self.build_config.directory) / "de.swsnr.keepmeawake.desktop"
             )
+            desktop_file.parent.mkdir(exist_ok=True)
             _ = run(
                 [
                     "msgfmt",
@@ -117,6 +126,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             )
             self._patch_app_id(desktop_file)
             shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
+
             for package in self.build_config.packages:
                 resources_directory = root / package / "resources"
                 shared_data[str(resources_directory / "metainfo.xml")] = (

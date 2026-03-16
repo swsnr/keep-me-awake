@@ -6,6 +6,8 @@
 
 """Entry point for Keep me Awake."""
 
+import gettext
+import locale
 import os
 import sys
 from gettext import pgettext as C_
@@ -30,7 +32,7 @@ def main() -> Never:
 
     Setup environment and start the application.
     """
-    from gi.repository import GLib
+    from gi.repository import GLib, Xdp
 
     from . import log
 
@@ -58,7 +60,21 @@ def main() -> Never:
         else:
             app_id = "de.swsnr.keepmeawake"
 
-    # TODO: Setup translations
+    prefix = Path("/app") if Xdp.Portal.running_under_flatpak() else Path(sys.prefix)
+    locale_dir = prefix / "share" / "locale"
+    log.message(f"Loading translations from {locale_dir}")
+
+    locale.setlocale(locale.LC_ALL, "")
+    # Setup text domain for the C standard library, and by implication for glib,
+    # which exposes translations to Gtk Builder and thus to blueprint.
+    locale.bindtextdomain(app_id, locale_dir)
+    locale.bind_textdomain_codeset(app_id, "UTF-8")
+    locale.textdomain(app_id)
+    # Setup text domain for Python's gettext, so that our messages in Python code
+    # get translated.
+    gettext.bindtextdomain(app_id, locale_dir)
+    gettext.textdomain(app_id)
+
     GLib.set_application_name(C_("application-name", "Keep me Awake"))
 
     # Import app only after we've set up resource overrides, etc. to make
