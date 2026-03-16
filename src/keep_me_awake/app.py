@@ -14,6 +14,8 @@ from typing import cast, override
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp, XdpGtk4
 
+import keep_me_awake
+
 from . import log
 from .enums import Inhibit
 from .widgets import KeepMeAwakeApplicationWindow
@@ -107,7 +109,7 @@ The full English text follows.
                 copyright_name="Sebastian Wiesner",
                 copyright_email="sebastian@swsnr.de",
                 translations="https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
-                license_text="TODO",
+                license_text=keep_me_awake.license_text(),
             )
         )
         dialog.add_link(

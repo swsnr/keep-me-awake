@@ -39,3 +39,13 @@ def resource_files() -> Traversable:
     from importlib.resources import files
 
     return files(__name__)
+
+
+def license_text() -> str:
+    """Get the full text of our license."""
+    from importlib.metadata import files
+
+    our_files = files(__name__) or []
+    license_file = next((f for f in our_files if f.name == "LICENSE"), None)
+    assert license_file is not None
+    return license_file.read_text()
