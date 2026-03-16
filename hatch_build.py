@@ -7,7 +7,6 @@
 
 """Custom build plugins for hatch."""
 
-import os
 from functools import cached_property
 from pathlib import Path
 from subprocess import run
