@@ -8,16 +8,17 @@
 
 import asyncio
 from dataclasses import dataclass
-from gettext import pgettext as C_
 from gettext import gettext as _
+from gettext import pgettext as C_
 from typing import cast, override
 
-from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp
+from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp, XdpGtk4
+
+import keep_me_awake
 
 from . import log
 from .enums import Inhibit
 from .widgets import KeepMeAwakeApplicationWindow
-import keep_me_awake
 
 
 @dataclass
@@ -29,7 +30,7 @@ class _InhibitState:
 class KeepMeAwakeApplication(Adw.Application):
     """Keep me Awake application class.
 
-    The application provides the
+    The application handles inhibit state and provides the main window.
     """
 
     __gtype_name__: str = "KeepMeAwakeApplication"
@@ -202,8 +203,12 @@ The full English text follows.
 
     async def _ask_background(self) -> None:
         # TODO: async not typed correctly: https://github.com/pygobject/pygobject-stubs/issues/220
+        parent = None
+        window = self.get_active_window()
+        if window:
+            parent = XdpGtk4.parent_new_gtk(window)
         success = await self._portal.request_background(  # pyright: ignore[reportUnknownVariableType, reportGeneralTypeIssues]
-            None,
+            parent,
             C_(
                 "portal.request-background.reason",
                 "Inhibit suspend and idle without a main window",
