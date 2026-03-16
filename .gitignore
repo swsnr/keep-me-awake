@@ -10,5 +10,3 @@ __pycache__/
 *.gresource
 # Translated metainfo file in resources
 **/resources/metainfo.xml
-# Generated app ID file
-**/app-id.txt

@@ -15,6 +15,7 @@ from typing import Any, cast, override
 
 from hatchling.builders.config import BuilderConfig
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
+from packaging.version import Version
 
 
 class CustomBuildHook(BuildHookInterface[BuilderConfig]):
@@ -25,11 +26,12 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
     @cached_property
     def app_id(self) -> str:
-        """The application to use for data files."""
-        app_id = os.environ.get("KEEP_ME_AWAKE_APP_ID", "de.swsnr.keepmeawake.Devel")
-        if app_id not in ["de.swsnr.keepmeawake.Devel", "de.swsnr.keepmeawake"]:
-            raise ValueError(app_id)
-        return app_id
+        """Derive the application ID from the package version."""
+        version = Version(self.metadata.version)  # pyright: ignore[reportUnknownMemberType]
+        if version.is_devrelease:
+            return "de.swsnr.keepmeawake.Devel"
+        else:
+            return "de.swsnr.keepmeawake"
 
     def _patch_app_id(self, source: Path, dest: Path | None = None) -> Path:
         contents = source.read_text()
@@ -44,10 +46,6 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
         root = Path(self.root)
         for package in self.build_config.packages:
-            app_id_file = root / package / "app-id.txt"
-            app_id_file.write_text(self.app_id)
-            build_data["artifacts"].append(str(app_id_file))
-
             resources_directory = root / package / "resources"
             blueprints = list(resources_directory.glob("**/*.blp"))
             n_blueprints = len(blueprints)

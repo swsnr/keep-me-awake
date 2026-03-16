@@ -17,8 +17,9 @@ from typing import Never
 import gi
 import gi.events  # pyright: ignore[reportMissingImports]
 from gi.repository import Gio  # pyright: ignore[reportMissingImports]
+from packaging.version import Version
 
-from keep_me_awake import __version__
+import keep_me_awake
 
 gi.disable_legacy_autoinit()
 gi.require_version("Adw", "1")
@@ -44,7 +45,8 @@ def main() -> Never:
 
     from . import log
 
-    app_id = "de.swsnr.keepmeawake.Devel"
+    # Default to a devel build
+    app_id: str
     if is_editable_installation():
         log.message("Editable installation, setting up resource overlays")
         overlays = os.environ.get("G_RESOURCE_OVERLAYS", "")
@@ -53,14 +55,18 @@ def main() -> Never:
         os.environ["G_RESOURCE_OVERLAYS"] = (
             f"{overlay}:{overlays}" if overlays else overlay
         )
+        app_id = "de.swsnr.keepmeawake.Devel"
     else:
         # Read compiled resources
         our_resources = resources.files("keep_me_awake")
         with resources.as_file(our_resources / "resources.gresource") as resource:
             log.message(f"Loading compiled resources from {resource}")
             Gio.resources_register(Gio.Resource.load(str(resource)))
-        # Read app ID added to distribution at build time
-        app_id = (our_resources / "app-id.txt").read_text()
+        version = Version(keep_me_awake.__version__)
+        if version.is_devrelease:
+            app_id = "de.swsnr.keepmeawake.Devel"
+        else:
+            app_id = "de.swsnr.keepmeawake"
 
     # TODO: Setup translations
     GLib.set_application_name(C_("application-name", "Keep me Awake"))
@@ -70,6 +76,6 @@ def main() -> Never:
     from .app import KeepMeAwakeApplication
 
     app = KeepMeAwakeApplication(application_id=app_id)
-    app.set_version(__version__)
+    app.set_version(keep_me_awake.__version__)
     with gi.events.GLibEventLoopPolicy():  # pyright: ignore[reportUnknownMemberType]
         sys.exit(app.run(sys.argv))

@@ -7,7 +7,7 @@ authors = [{ name = "Sebastian Wiesner", email = "sebastian@swsnr.de" }]
 readme = "README.md"
 license = "EUPL-1.2"
 classifiers = ["Private :: Do Not Upload"]
-dependencies = ["pygobject>=3.56.0"]
+dependencies = ["pygobject>=3.56.0", "packaging"]
 
 [project.urls]
 homepage = "https://codeberg.org/swsnr/keep-me-awake"

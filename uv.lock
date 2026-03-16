@@ -21,6 +21,7 @@ wheels = [
 name = "keep-me-awake"
 source = { editable = "." }
 dependencies = [
+    { name = "packaging" },
     { name = "pygobject" },
 ]
 
@@ -31,7 +32,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pygobject", specifier = ">=3.56.0" }]
+requires-dist = [
+    { name = "packaging" },
+    { name = "pygobject", specifier = ">=3.56.0" },
+]
 
 [package.metadata.requires-dev]
 dev = [
