@@ -184,6 +184,7 @@ The full English text follows.
 
         actions = [
             quit,
+            about,
             toggle_inhibit,
             Gio.PropertyAction(name="inhibit", object=self, property_name="inhibitors"),
         ]
