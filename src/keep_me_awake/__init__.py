@@ -9,4 +9,33 @@
 Gnome desktop application to inhibit idle and suspend.
 """
 
-__version__ = "2.0.0-dev"
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from importlib.resources.abc import Traversable
+
+
+def version() -> str:
+    """Get our version, from distribution metadata."""
+    from importlib.metadata import version
+
+    return version(__name__)
+
+
+def is_installed_editable() -> bool:
+    """Whether the application is installed in editable mode for development."""
+    from importlib.metadata import distribution
+
+    dist = distribution("keep_me_awake")
+
+    if dist.origin and hasattr(dist.origin, "dir_info"):
+        return getattr(dist.origin.dir_info, "editable", False)  # pyright: ignore[reportAny]
+
+    return False
+
+
+def resource_files() -> Traversable:
+    """Get our resource files."""
+    from importlib.resources import files
+
+    return files(__name__)

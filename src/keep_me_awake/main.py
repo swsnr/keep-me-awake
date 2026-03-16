@@ -10,7 +10,6 @@ import os
 import sys
 from gettext import pgettext as C_
 from importlib import resources
-from importlib.metadata import distribution
 from pathlib import Path
 from typing import Never
 
@@ -26,16 +25,6 @@ gi.require_version("Adw", "1")
 gi.require_version("Xdp", "1.0")
 
 
-def is_editable_installation() -> bool:
-    """Whether the application is installed in editable mode for development."""
-    dist = distribution("keep_me_awake")
-
-    if dist.origin and hasattr(dist.origin, "dir_info"):
-        return getattr(dist.origin.dir_info, "editable", False)  # pyright: ignore[reportAny]
-
-    return False
-
-
 def main() -> Never:
     """Start the application, as main entry point.
 
@@ -47,7 +36,7 @@ def main() -> Never:
 
     # Default to a devel build
     app_id: str
-    if is_editable_installation():
+    if keep_me_awake.is_installed_editable():
         log.message("Editable installation, setting up resource overlays")
         overlays = os.environ.get("G_RESOURCE_OVERLAYS", "")
         resources_dir = Path(__file__).parent / "resources"
@@ -58,11 +47,12 @@ def main() -> Never:
         app_id = "de.swsnr.keepmeawake.Devel"
     else:
         # Read compiled resources
-        our_resources = resources.files("keep_me_awake")
-        with resources.as_file(our_resources / "resources.gresource") as resource:
+        with resources.as_file(
+            keep_me_awake.resource_files() / "resources.gresource"
+        ) as resource:
             log.message(f"Loading compiled resources from {resource}")
             Gio.resources_register(Gio.Resource.load(str(resource)))
-        version = Version(keep_me_awake.__version__)
+        version = Version(keep_me_awake.version())
         if version.is_devrelease:
             app_id = "de.swsnr.keepmeawake.Devel"
         else:
@@ -76,6 +66,6 @@ def main() -> Never:
     from .app import KeepMeAwakeApplication
 
     app = KeepMeAwakeApplication(application_id=app_id)
-    app.set_version(keep_me_awake.__version__)
+    app.set_version(keep_me_awake.version())
     with gi.events.GLibEventLoopPolicy():  # pyright: ignore[reportUnknownMemberType]
         sys.exit(app.run(sys.argv))

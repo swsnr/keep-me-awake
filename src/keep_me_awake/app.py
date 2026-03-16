@@ -14,8 +14,6 @@ from typing import cast, override
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp, XdpGtk4
 
-import keep_me_awake
-
 from . import log
 from .enums import Inhibit
 from .widgets import KeepMeAwakeApplicationWindow
@@ -85,12 +83,13 @@ class KeepMeAwakeApplication(Adw.Application):
     def _activate_about(
         self, _act: Gio.SimpleAction, _parameter: GLib.Variant | None = None
     ) -> None:
-        version = keep_me_awake.__version__
+        version = self.get_version()
+        assert version is not None
         (major, minor) = version.split(".")[:2]
         dialog = Adw.AboutDialog.new_from_appdata(
             "/de/swsnr/keepmeawake/metainfo.xml", f"{major}.{minor}.0"
         )
-        dialog.set_version(keep_me_awake.__version__)
+        dialog.set_version(version)
         dialog.set_license_type(Gtk.License.CUSTOM)
         dialog.set_license(
             C_(
