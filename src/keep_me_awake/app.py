@@ -178,6 +178,7 @@ The full English text follows.
         about = Gio.SimpleAction(name="about")
         _ = about.connect("activate", self._activate_about)
         toggle_inhibit = Gio.SimpleAction(name="toggle-inhibit")
+        toggle_inhibit.connect("activate", self._activate_toggle_inhibit)
 
         actions = [
             quit,
