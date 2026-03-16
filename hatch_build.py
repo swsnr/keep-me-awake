@@ -68,7 +68,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             # TODO: Translate metadata file instead of copying it
             self._patch_app_id(
                 root / "de.swsnr.keepmeawake.metainfo.xml",
-                resources_directory / "de.swsnr.keepmeawake.metainfo.xml",
+                resources_directory / "metainfo.xml",
             )
 
         # Generate shared data files
@@ -96,6 +96,6 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
             for package in self.build_config.packages:
                 resources_directory = root / package / "resources"
-                shared_data[
-                    str(resources_directory / "de.swsnr.keepmeawake.metainfo.xml")
-                ] = f"share/metainfo/{self.app_id}.metainfo.xml"
+                shared_data[str(resources_directory / "metainfo.xml")] = (
+                    f"share/metainfo/{self.app_id}.metainfo.xml"
+                )

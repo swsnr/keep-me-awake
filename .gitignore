@@ -9,6 +9,6 @@ __pycache__/
 # Compiled GIO resource files
 *.gresource
 # Translated metainfo file in resources
-**/resources/*.metainfo.xml
+**/resources/metainfo.xml
 # Generated app ID file
 **/app-id.txt

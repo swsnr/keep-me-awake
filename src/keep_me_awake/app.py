@@ -9,6 +9,7 @@
 import asyncio
 from dataclasses import dataclass
 from gettext import pgettext as C_
+from gettext import gettext as _
 from typing import cast, override
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp
@@ -16,6 +17,7 @@ from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp
 from . import log
 from .enums import Inhibit
 from .widgets import KeepMeAwakeApplicationWindow
+import keep_me_awake
 
 
 @dataclass
@@ -79,6 +81,80 @@ class KeepMeAwakeApplication(Adw.Application):
         else:
             self.withdraw_notification(notification_id)
 
+    def _activate_about(
+        self, _act: Gio.SimpleAction, _parameter: GLib.Variant | None = None
+    ) -> None:
+        version = keep_me_awake.__version__
+        (major, minor) = version.split(".")[:2]
+        dialog = Adw.AboutDialog.new_from_appdata(
+            "/de/swsnr/keepmeawake/metainfo.xml", f"{major}.{minor}.0"
+        )
+        dialog.set_version(keep_me_awake.__version__)
+        dialog.set_license_type(Gtk.License.CUSTOM)
+        dialog.set_license(
+            C_(
+                "about-dialog.license-text",
+                # Translators: This is Pango markup, be sure to escape appropriately
+                """Copyright {copyright_name} &lt;{copyright_email}&gt;
+
+Licensed under the terms of the EUPL 1.2. You can find official translations
+of the license text at <a href=\"{translations}\">{translations}</a>.
+
+The full English text follows.
+
+{license_text}""",
+            ).format(
+                copyright_name="Sebastian Wiesner",
+                copyright_email="sebastian@swsnr.de",
+                translations="https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
+                license_text="TODO",
+            )
+        )
+        dialog.add_link(
+            C_("about-dialog.link.label", "Translations"),
+            "https://translate.codeberg.org/engage/de-swsnr-keepmeawake/",
+        )
+
+        dialog.set_developers(["Sebastian Wiesner https://swsnr.de"])
+        dialog.set_designers(["Sebastian Wiesner https://swsnr.de"])
+        # Credits for the translator to the current language.
+        # Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
+        # "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
+        # Separate multiple translators with a newline, i.e. \n
+        dialog.set_translator_credits(_("translator-credits"))
+        dialog.add_acknowledgement_section(
+            C_(
+                "about-dialog.acknowledgment-section",
+                "Helpful services",
+            ),
+            [
+                "Codeberg https://codeberg.org",
+                "Flathub https://flathub.org/",
+                "Open Build Service https://build.opensuse.org/",
+            ],
+        )
+        dialog.add_other_app(
+            "de.swsnr.pictureoftheday",
+            # Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
+            C_("about-dialog.other-app.name", "Picture Of The Day"),
+            C_(
+                "about-dialog.other-app.summary",
+                # Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
+                "Your daily wallpaper",
+            ),
+        )
+        dialog.add_other_app(
+            "de.swsnr.turnon",
+            # Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
+            C_("about-dialog.other-app.name", "Turn On"),
+            C_(
+                "about-dialog.other-app.summary",
+                # Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
+                "Turn on devices in your network",
+            ),
+        )
+        dialog.present(self.get_active_window())
+
     def _activate_quit(
         self, _act: Gio.SimpleAction, _parameter: GLib.Variant | None = None
     ) -> None:
@@ -97,9 +173,10 @@ class KeepMeAwakeApplication(Adw.Application):
         )
 
     def _setup_actions(self) -> None:
-        # TODO: About
         quit = Gio.SimpleAction(name="quit")
         _ = quit.connect("activate", self._activate_quit)
+        about = Gio.SimpleAction(name="about")
+        _ = about.connect("activate", self._activate_about)
         toggle_inhibit = Gio.SimpleAction(name="toggle-inhibit")
 
         actions = [
