@@ -32,12 +32,9 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
         else:
             return "de.swsnr.keepmeawake"
 
-    def _patch_app_id(self, source: Path, dest: Path | None = None) -> Path:
+    def _patch_app_id(self, source: Path) -> None:
         contents = source.read_text()
-        if not dest:
-            dest = Path(self.build_config.directory) / source.name
-        dest.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
-        return dest
+        source.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
 
     @override
     def initialize(self, version: str, build_data: dict[str, Any]) -> None:
@@ -62,11 +59,22 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                 check=True,
             )
 
-            # TODO: Translate metadata file instead of copying it
-            self._patch_app_id(
-                root / "de.swsnr.keepmeawake.metainfo.xml",
-                resources_directory / "metainfo.xml",
+            metainfo_file = resources_directory / "metainfo.xml"
+            self.app.display_info("Translating metainfo file")
+            _ = run(
+                [
+                    "msgfmt",
+                    "--xml",
+                    "--template",
+                    str(root / "de.swsnr.keepmeawake.metainfo.xml"),
+                    "-d",
+                    str(root / "po"),
+                    "--output",
+                    str(metainfo_file),
+                ],
+                check=True,
             )
+            self._patch_app_id(metainfo_file)
 
         # Generate shared data files
         self.app.display_info("Generating shared data files")
@@ -89,7 +97,25 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                 )
 
             shared_data = cast(dict[str, str], build_data["shared_data"])
-            desktop_file = self._patch_app_id(root / "de.swsnr.keepmeawake.desktop")
+
+            self.app.display_info("Translating desktop file")
+            desktop_file = (
+                Path(self.build_config.directory) / "de.swsnr.keepmeawake.desktop"
+            )
+            _ = run(
+                [
+                    "msgfmt",
+                    "--desktop",
+                    "--template",
+                    str(root / "de.swsnr.keepmeawake.desktop"),
+                    "-d",
+                    str(root / "po"),
+                    "--output",
+                    str(desktop_file),
+                ],
+                check=True,
+            )
+            self._patch_app_id(desktop_file)
             shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
             for package in self.build_config.packages:
                 resources_directory = root / package / "resources"
