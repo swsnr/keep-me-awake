@@ -56,4 +56,9 @@ select = [
     "TC",
     "INT",
 ]
-ignore = ["TC006"]
+ignore = [
+    "TC006",
+    # These rules are incompatible with other D rules
+    "D203",
+    "D213",
+]
