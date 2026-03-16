@@ -18,7 +18,7 @@ issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
 "de.swsnr.keepmeawake" = "keep_me_awake.main:main"
 
 [dependency-groups]
-dev = ["pygobject-stubs>=2.16.0", "hatchling"]
+dev = ["pygobject-stubs>=2.16.0", "hatchling", "poethepoet>=0.42.1"]
 
 [build-system]
 requires = ["hatchling"]
@@ -36,6 +36,14 @@ exclude = ["*.ui", "*.gresource"]
 # resource source files
 artifacts = ["*.gresource"]
 exclude = ["**/keep_me_awake/resources/"]
+
+[tool.poe.tasks]
+"lint:python" = "uvx ruff check ."
+lint = ["lint:python", "lint:blueprint"]
+
+[tool.poe.tasks."lint:blueprint"]
+cmd = "blueprint-compiler format src/**/*.blp"
+empty_glob = "fail"
 
 [tool.pyright]
 typeCheckingMode = "strict"
