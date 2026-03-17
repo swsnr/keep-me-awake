@@ -41,7 +41,8 @@ exclude = ["**/keep_me_awake/resources/"]
 xgettext = "./po/xgettext.py"
 # Linting tasks
 "lint:python" = "uvx ruff check ."
-lint = ["lint:python", "lint:blueprint"]
+"lint:data" = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
+lint = ["lint:python", "lint:blueprint", "lint:data"]
 
 [tool.poe.tasks."lint:blueprint"]
 cmd = "blueprint-compiler format src/**/*.blp"
