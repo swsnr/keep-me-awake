@@ -41,6 +41,8 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
         super().initialize(version, build_data)
 
         root = Path(self.root)
+        shared_data = cast(dict[str, str], build_data["shared_data"])
+
         for package in self.build_config.packages:
             resources_directory = root / package / "resources"
             blueprints = list(resources_directory.glob("**/*.blp"))
@@ -93,9 +95,34 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                     check=True,
                 )
 
-            shared_data = cast(dict[str, str], build_data["shared_data"])
+                self.app.display_info("Copying translated metadata file")
+                shared_data[str(resources_directory / "metainfo.xml")] = (
+                    f"share/metainfo/{self.app_id}.metainfo.xml"
+                )
 
-            self.app.display_info("Compiling translations")
+                self.app.display_info("Copying icons")
+                app_icon = (
+                    resources_directory
+                    / "icons"
+                    / "scalable"
+                    / "apps"
+                    / f"{self.app_id}.svg"
+                )
+                shared_data[str(app_icon)] = (
+                    f"share/icons/hicolor/scalable/apps/{self.app_id}.svg"
+                )
+                symbolic_icon = (
+                    resources_directory
+                    / "icons"
+                    / "symbolic"
+                    / "apps"
+                    / "de.swsnr.keepmeawake-symbolic.svg"
+                )
+                shared_data[str(symbolic_icon)] = (
+                    f"share/icons/hicolor/symbolic/apps/{self.app_id}-symbolic.svg"
+                )
+
+            self.app.display_info("Compiling message catalogs")
             mo_dir = Path(self.build_config.directory) / "mo"
             mo_dir.mkdir(parents=True, exist_ok=True)
             for po_file in (root / "po").glob("*.po"):
@@ -110,7 +137,6 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             desktop_file = (
                 Path(self.build_config.directory) / "de.swsnr.keepmeawake.desktop"
             )
-            desktop_file.parent.mkdir(exist_ok=True)
             _ = run(
                 [
                     "msgfmt",
@@ -127,8 +153,8 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             self._patch_app_id(desktop_file)
             shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
 
-            for package in self.build_config.packages:
-                resources_directory = root / package / "resources"
-                shared_data[str(resources_directory / "metainfo.xml")] = (
-                    f"share/metainfo/{self.app_id}.metainfo.xml"
-                )
+            self.app.display_info("Copying D-Bus service")
+            service = root / "dbus-1" / "de.swsnr.keepmeawake.service"
+            dest = service.copy(Path(self.build_config.directory) / service.name)
+            self._patch_app_id(dest)
+            shared_data[str(dest)] = f"share/dbus-1/services/{self.app_id}.service"
