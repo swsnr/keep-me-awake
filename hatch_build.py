@@ -34,10 +34,10 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
     def _patch_app_id(self, source: Path) -> None:
         contents = source.read_text()
-        source.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
+        _ = source.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
 
     @override
-    def initialize(self, version: str, build_data: dict[str, Any]) -> None:
+    def initialize(self, version: str, build_data: dict[str, Any]) -> None:  # pyright: ignore[reportExplicitAny]
         super().initialize(version, build_data)
 
         root = Path(self.root)
@@ -83,7 +83,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                 compiled_resources = root / package / "resources.gresource"
 
                 self.app.display_info("Compiling GLib resources")
-                run(
+                _ = run(
                     [
                         "glib-compile-resources",
                         f"--sourcedir={resources_directory}",
