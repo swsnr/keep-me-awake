@@ -38,6 +38,8 @@ artifacts = ["*.gresource"]
 exclude = ["**/keep_me_awake/resources/"]
 
 [tool.poe.tasks]
+xgettext = "./po/xgettext.py"
+# Linting tasks
 "lint:python" = "uvx ruff check ."
 lint = ["lint:python", "lint:blueprint"]
 
