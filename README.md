@@ -4,7 +4,7 @@
 
 Inhibit lock screen and suspend.
 
-![The main window with no inhibitors on the left side, and with inhibiting suspend and screen lock on the right side](./social-image.png)
+![The main window with no inhibitors on the left side, and with inhibiting suspend and screen lock on the right side](./media/social-image.png)
 
 A small GNOME utility application to inhibit lock screen and suspend.
 
