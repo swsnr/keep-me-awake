@@ -112,11 +112,11 @@
     </developer>
     <screenshots>
         <screenshot type="default">
-            <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/screenshots/inhibit-nothing.png</image>
+            <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/media/screenshots/inhibit-nothing.png</image>
             <caption>Inhibit nothing</caption>
         </screenshot>
         <screenshot>
-            <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/screenshots/inhibit-suspend-and-idle.png</image>
+            <image>https://codeberg.org/swsnr/keep-me-awake/raw/branch/main/media/screenshots/inhibit-suspend-and-idle.png</image>
             <caption>Inhibit suspend and screen locking</caption>
         </screenshot>
     </screenshots>
