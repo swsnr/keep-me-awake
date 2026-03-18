@@ -71,6 +71,14 @@ montage -geometry 602x602+19+19 \
 """
 executor = "simple"
 
+[tool.poe.tasks."flatpak:devel-install"]
+cmd = """
+flatpak run org.flatpak.Builder --force-clean --user --install
+    --install-deps-from=flathub --repo=.flatpak-repo
+    .flatpak-builddir flatpak/de.swsnr.keepmeawake.Devel.yaml
+"""
+executor = "simple"
+
 [tool.pyright]
 typeCheckingMode = "strict"
 reportMissingModuleSource = false
