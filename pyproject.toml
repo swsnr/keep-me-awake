@@ -81,6 +81,7 @@ flatpak run org.flatpak.Builder --force-clean --user --install
 executor = "simple"
 
 [tool.pyright]
+include = ["src/", "po/*.py", "hatch_build.py"]
 typeCheckingMode = "strict"
 reportMissingModuleSource = false
 
