@@ -38,21 +38,38 @@ artifacts = ["*.gresource"]
 exclude = ["**/keep_me_awake/resources/"]
 
 [tool.poe.tasks]
-xgettext = "./po/xgettext.py"
-# Linting tasks
-"lint:python" = "ruff check ."
-"lint:data" = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
 lint = ["lint:python", "lint:blueprint", "lint:data"]
-"format:python" = "ruff format ."
 format = ["format:python", "format:blueprint"]
+xgettext = "./po/xgettext.py"
+"format:python" = "ruff format ."
+"lint:python" = "ruff check ."
 
 [tool.poe.tasks."lint:blueprint"]
 cmd = "blueprint-compiler lint src/**/*.blp"
 empty_glob = "fail"
+executor = "simple"
 
 [tool.poe.tasks."format:blueprint"]
 cmd = "blueprint-compiler format src/**/*.blp"
 empty_glob = "fail"
+executor = "simple"
+
+[tool.poe.tasks."lint:data"]
+cmd = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
+executor = "simple"
+
+[tool.poe.tasks."optimize-pngs"]
+cmd = "oxipng media/**/*.png"
+empty_glob = "fail"
+executor = "simple"
+
+[tool.poe.tasks."build-social-image"]
+cmd = """
+montage -geometry 602x602+19+19 \
+    media/screenshots/inhibit-nothing.png media/screenshots/inhibit-suspend-and-idle.png \
+    media/social-image.png
+"""
+executor = "simple"
 
 [tool.pyright]
 typeCheckingMode = "strict"
