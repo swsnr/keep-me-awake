@@ -9,10 +9,7 @@
 Gnome desktop application to inhibit idle and suspend.
 """
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from importlib.resources.abc import Traversable
+from importlib.resources.abc import Traversable
 
 
 def version() -> str:

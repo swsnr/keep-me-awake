@@ -6,6 +6,8 @@
 
 """Widgets used by the application."""
 
+from typing import Any
+
 from gi.repository import Adw, GObject, Gtk
 
 from .enums import Inhibit
@@ -25,7 +27,7 @@ class KeepMeAwakeApplicationWindow(Adw.ApplicationWindow):
 
     @Gtk.Template.Callback()  # pyright: ignore[reportAny]
     @staticmethod
-    def icon_name(_window: KeepMeAwakeApplicationWindow, inhibit: Inhibit) -> str:
+    def icon_name(_window: Any, inhibit: Inhibit) -> str:  # noqa: ANN401
         """Determine the name of the icon to use for `inhibit`."""
         match inhibit:
             case Inhibit.NOTHING:

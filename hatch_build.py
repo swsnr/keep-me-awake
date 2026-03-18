@@ -9,6 +9,7 @@
 
 from functools import cached_property
 from pathlib import Path
+from shutil import copy
 from subprocess import run
 from typing import Any, cast, override
 
@@ -197,6 +198,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
             self.app.display_info("Copying D-Bus service")
             service = root / "dbus-1" / "de.swsnr.keepmeawake.service"
-            dest = service.copy(Path(self.build_config.directory) / service.name)
-            self._patch_app_id(dest)
+            # TODO: Python 3.14: Use Path.copy instead
+            dest = copy(service, Path(self.build_config.directory) / service.name)
+            self._patch_app_id(Path(dest))
             shared_data[str(dest)] = f"share/dbus-1/services/{self.app_id}.service"
