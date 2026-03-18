@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v7
-      - run: uv run --only-dev poe format:python --check
-      - run: uv run --only-dev poe lint:python
+      - run: uv run --only-dev poe --executor simple format:python --check
+      - run: uv run --only-dev poe --executor simple lint:python
