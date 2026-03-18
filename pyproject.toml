@@ -43,6 +43,7 @@ xgettext = "./po/xgettext.py"
 "lint:python" = "uvx ruff check ."
 "lint:data" = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
 lint = ["lint:python", "lint:blueprint", "lint:data"]
+"format:python" = "uvx ruff format ."
 
 [tool.poe.tasks."lint:blueprint"]
 cmd = "blueprint-compiler format src/**/*.blp"
