@@ -84,6 +84,8 @@ executor = "simple"
 include = ["src/", "po/*.py", "hatch_build.py"]
 typeCheckingMode = "strict"
 reportMissingModuleSource = false
+reportUninitializedInstanceVariable = true
+reportMissingSuperCall = true
 
 [tool.ruff.lint]
 select = [
