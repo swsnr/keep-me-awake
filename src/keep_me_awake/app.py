@@ -27,6 +27,44 @@ class _InhibitState:
     cookie: int
 
 
+class FlatpakAppUpdatedMonitor(GObject.Object):
+    """Monitor for updates of the installed flatpak app."""
+
+    def __init__(self) -> None:
+        """Create a new monitor for app updates."""
+        super().__init__()
+        self._was_updated: bool = False
+        app_dir = Gio.File.new_for_path("/app")
+        self._monitor: Gio.FileMonitor | None = None
+        if app_dir.query_exists():
+            self._monitor = app_dir.get_child(".updated").monitor(
+                Gio.FileMonitorFlags.NONE, None
+            )
+            self._monitor.connect("changed", self._handle_change)
+
+    def _handle_change(
+        self,
+        _monitor: Gio.FileMonitor,
+        _file: Gio.File,
+        _other_file: Gio.File | None,
+        event_type: Gio.FileMonitorEvent,
+    ) -> None:
+        match event_type:
+            case Gio.FileMonitorEvent.CREATED:
+                self._was_updated = True
+                self.notify("was-updated")
+            case Gio.FileMonitorEvent.DELETED:
+                self._was_updated = False
+                self.notify("was-updated")
+            case _:
+                pass
+
+    @GObject.Property(type=bool, default=False)
+    def was_updated(self) -> bool:
+        """Whether the app was updated and needs to be restarted."""
+        return self._was_updated
+
+
 class KeepMeAwakeApplication(Adw.Application):
     """Keep me Awake application class.
 
@@ -47,6 +85,8 @@ class KeepMeAwakeApplication(Adw.Application):
         self._inhibit_state: _InhibitState | None = None
         self._background_task: asyncio.Task[None] | None = None
         self._portal: Xdp.Portal = Xdp.Portal.new()
+        if self._portal.running_under_flatpak():
+            self._app_updated_monitor = FlatpakAppUpdatedMonitor()
 
     def _update_notification(self) -> None:
         """Update the notification to indicate current inhibition state."""
@@ -280,6 +320,14 @@ The full English text follows.
             app_id = self.get_application_id()
             if app_id and app_id.endswith(".Devel"):
                 window.add_css_class("devel")
+
+            if self._app_updated_monitor:
+                self._app_updated_monitor.bind_property(
+                    "was-updated",
+                    window,
+                    "show-update-indicator",
+                    GObject.BindingFlags.SYNC_CREATE,
+                )
 
         window.present()
 

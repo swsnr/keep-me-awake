@@ -19,11 +19,20 @@ class KeepMeAwakeApplicationWindow(Adw.ApplicationWindow):
 
     __gtype_name__: str = "KeepMeAwakeApplicationWindow"
 
+    def __init__(self, application: Adw.Application) -> None:
+        """Create a new main window instance."""
+        super().__init__(application=application)
+        self._show_update_indicator: bool = False
+
     @GObject.Property(type=bool, default=False)
     def show_update_indicator(self) -> bool:
         """Whether to show an indicator for an available update."""
-        # TODO: Update monitor!
-        return False
+        return self._show_update_indicator
+
+    @show_update_indicator.setter
+    def set_show_update_indicator(self, value: bool) -> None:
+        """Change update indicator visibility."""
+        self._show_update_indicator = value
 
     @Gtk.Template.Callback()  # pyright: ignore[reportAny]
     @staticmethod
