@@ -1,0 +1,52 @@
+id: de.swsnr.keepmeawake.Devel
+runtime: org.gnome.Platform
+runtime-version: "49"
+sdk: org.gnome.Sdk
+command: de.swsnr.keepmeawake.Devel
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /man
+  - /share/doc
+  - /share/gtk-doc
+  - /share/man
+  - /share/pkgconfig
+  - '*.la'
+  - '*.a'
+modules:
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - -Dbackend-gtk3=disabled
+      - -Dbackend-gtk4=enabled
+      - -Dportal-tests=false
+      - -Dvapi=false
+      - -Ddocs=false
+    sources:
+      - type: git
+        url: https://github.com/flatpak/libportal
+        tag: 0.9.1
+        commit: 8f5dc8d192f6e31dafe69e35219e3b707bde71ce
+        x-checker-data:
+          type: git
+          is-important: true
+          tag-pattern: ^([\d.]+)$
+  - name: keepmeawake
+    buildsystem: simple
+    sources:
+      - type: dir
+        path: ".."
+    build-options:
+      build-args:
+        - --share=network
+    build-commands:
+      - python --version
+      # Crudely assert that we're on a -dev version
+      - grep version pyproject.toml | grep -q -- '-dev'
+      - pip3 install --prefix=/app .
+      - mv /app/bin/de.swsnr.keepmeawake /app/bin/de.swsnr.keepmeawake.Devel
