@@ -4,6 +4,9 @@
 
 __pycache__/
 
+# Built distributions and other built artifacts
+/dist/
+
 # UI files compiled from blueprint
 *.ui
 # Compiled GIO resource files
@@ -11,4 +14,5 @@ __pycache__/
 # Translated metainfo file in resources
 **/resources/metainfo.xml
 
+# Flatpak repo for use by poe tasks in pyproject.toml
 /.flatpak-repo
