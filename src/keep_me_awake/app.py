@@ -117,7 +117,6 @@ class KeepMeAwakeApplication(Adw.Application):
         assert app_id is not None
         notification_id = f"{app_id}.persistent-inhibitor-notification"
         if notification:
-            # TODO: Debug notification not appearing? Prob. missing desktop file?
             self.send_notification(notification_id, notification)
         else:
             self.withdraw_notification(notification_id)
