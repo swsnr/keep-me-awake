@@ -266,7 +266,6 @@ The full English text follows.
                     inhibit_idle=Gtk.ApplicationInhibitFlags.IDLE in flags,
                     cookie=cookie,
                 )
-        self.notify("inhibitors")
         self._update_notification()
 
     @override
