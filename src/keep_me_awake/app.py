@@ -40,7 +40,7 @@ class FlatpakAppUpdatedMonitor(GObject.Object):
             self._monitor = app_dir.get_child(".updated").monitor(
                 Gio.FileMonitorFlags.NONE, None
             )
-            self._monitor.connect("changed", self._handle_change)
+            _ = self._monitor.connect("changed", self._handle_change)
 
     def _handle_change(
         self,
@@ -85,6 +85,7 @@ class KeepMeAwakeApplication(Adw.Application):
         self._inhibit_state: _InhibitState | None = None
         self._background_task: asyncio.Task[None] | None = None
         self._portal: Xdp.Portal = Xdp.Portal.new()
+        self._app_updated_monitor: FlatpakAppUpdatedMonitor | None = None
         if self._portal.running_under_flatpak():
             self._app_updated_monitor = FlatpakAppUpdatedMonitor()
 
