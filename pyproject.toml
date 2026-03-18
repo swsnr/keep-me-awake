@@ -18,7 +18,7 @@ issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
 "de.swsnr.keepmeawake" = "keep_me_awake.main:main"
 
 [dependency-groups]
-dev = ["pygobject-stubs>=2.16.0", "hatchling", "poethepoet>=0.42.1"]
+dev = ["pygobject-stubs>=2.16.0", "hatchling", "poethepoet>=0.42.1", "ruff"]
 
 [build-system]
 requires = ["hatchling"]
@@ -40,10 +40,10 @@ exclude = ["**/keep_me_awake/resources/"]
 [tool.poe.tasks]
 xgettext = "./po/xgettext.py"
 # Linting tasks
-"lint:python" = "uvx ruff check ."
+"lint:python" = "ruff check ."
 "lint:data" = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
 lint = ["lint:python", "lint:blueprint", "lint:data"]
-"format:python" = "uvx ruff format ."
+"format:python" = "ruff format ."
 format = ["format:python", "format:blueprint"]
 
 [tool.poe.tasks."lint:blueprint"]
