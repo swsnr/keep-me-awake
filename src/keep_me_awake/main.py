@@ -86,7 +86,7 @@ def main() -> Never:
     app.set_version(keep_me_awake.version())
 
     # Use GLib event policy as a context manager instead of setting the policy
-    # explicitly as recommended in
+    # explicitly as recommended in https://pygobject.gnome.org/guide/asynchronous.html
     #
     # This maintains forward compatibility with https://gitlab.gnome.org/GNOME/pygobject/-/merge_requests/503
     # in PyGObject 3.56, and the upcoming deprecation of event loop policies in
