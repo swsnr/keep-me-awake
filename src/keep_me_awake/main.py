@@ -89,7 +89,8 @@ def main() -> Never:
     # explicitly as recommended in
     #
     # This maintains forward compatibility with https://gitlab.gnome.org/GNOME/pygobject/-/merge_requests/503
-    # in PyGObject 3.56, and the upcoming deprecation of event loop policies in Python 3.14
+    # in PyGObject 3.56, and the upcoming deprecation of event loop policies in
+    # Python 3.14
     #
     # We also have to ignore typing here because for some reason pyright doesn't find
     # the gi.events module.
