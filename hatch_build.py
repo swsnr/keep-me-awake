@@ -36,7 +36,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
         contents = source.read_text()
         _ = source.write_text(contents.replace("de.swsnr.keepmeawake", self.app_id))
 
-    def _build_blueprint(self, package: str) -> None:
+    def _build_blueprint(self, package: str) -> bool:
         resources_directory = Path(self.root) / package / "resources"
         blueprints = list(resources_directory.glob("**/*.blp"))
         n_blueprints = len(blueprints)
@@ -56,6 +56,9 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             )
         except FileNotFoundError as error:
             self.app.display_error(f"blueprint-compiler missing: {error}")
+            return False
+        else:
+            return True
 
     def _translate_metainfo(self, package: str) -> None:
         root = Path(self.root)
@@ -149,21 +152,23 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
         shared_data = cast(dict[str, str], build_data["shared_data"])
 
         for package in self.build_config.packages:
-            self._build_blueprint(package)
+            have_blueprint = self._build_blueprint(package)
             self._translate_metainfo(package)
 
-        if self.target_name == "wheel":
-            # When building a wheel build a binary resource file for Gio
-            for package in self.build_config.packages:
-                self._compile_resources(package)
+            if self.target_name == "wheel":
+                # When building a wheel build a binary resource file for Gio
+                if have_blueprint:
+                    self._compile_resources(package)
+                else:
+                    self.app.display_warning(
+                        "Blueprints not compiled, skipping Gio resource"
+                    )
 
                 resources_directory = root / package / "resources"
-
                 self.app.display_info("Copying translated metadata file")
                 shared_data[str(resources_directory / "metainfo.xml")] = (
                     f"share/metainfo/{self.app_id}.metainfo.xml"
                 )
-
                 self.app.display_info("Copying icons")
                 app_icon = (
                     resources_directory
@@ -186,6 +191,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                     f"share/icons/hicolor/symbolic/apps/{self.app_id}-symbolic.svg"
                 )
 
+        if self.target_name == "wheel":
             self._compile_message_catalogs(shared_data)
             self._translate_desktop_file(shared_data)
 
