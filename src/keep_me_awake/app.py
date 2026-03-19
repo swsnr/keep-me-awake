@@ -149,7 +149,7 @@ The full English text follows.
                 copyright_name="Sebastian Wiesner",
                 copyright_email="sebastian@swsnr.de",
                 translations="https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
-                license_text=keep_me_awake.license_text(),
+                license_text=GLib.markup_escape_text(keep_me_awake.license_text()),
             )
         )
         dialog.add_link(
