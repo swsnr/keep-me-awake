@@ -47,6 +47,6 @@ modules:
     build-commands:
       - python --version
       # Crudely assert that we're on a -dev version
-      - grep version pyproject.toml | grep -q -- '-dev'
+      - grep version pyproject.toml | grep -q -- '[.-]dev'
       - pip3 install --prefix=/app .
       - mv /app/bin/de.swsnr.keepmeawake /app/bin/de.swsnr.keepmeawake.Devel
