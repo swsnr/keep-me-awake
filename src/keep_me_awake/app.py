@@ -284,10 +284,10 @@ The full English text follows.
         if self._inhibit_state:
             self.uninhibit(self._inhibit_state.cookie)
             self._inhibit_state = None
+            self.release()
         match inhibit:
             case Inhibit.NOTHING:
-                # Release hold when we have nothing to inhibit
-                self.release()
+                pass
             case other:
                 flags: Gtk.ApplicationInhibitFlags = Gtk.ApplicationInhibitFlags.SUSPEND
                 if other == Inhibit.SUSPEND_AND_IDLE:
