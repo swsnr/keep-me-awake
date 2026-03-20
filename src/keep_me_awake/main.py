@@ -53,7 +53,7 @@ def main() -> Never:
         with resources.as_file(
             keep_me_awake.resource_files() / "resources.gresource"
         ) as resource:
-            log.message(f"Loading compiled resources from {resource}")
+            log.info(f"Loading compiled resources from {resource}")
             Gio.resources_register(Gio.Resource.load(str(resource)))
         version = Version(keep_me_awake.version())
         if version.is_devrelease:
@@ -63,7 +63,7 @@ def main() -> Never:
 
     prefix = Path("/app") if Xdp.Portal.running_under_flatpak() else Path(sys.prefix)
     locale_dir = prefix / "share" / "locale"
-    log.message(f"Loading translations from {locale_dir}")
+    log.info(f"Loading translations from {locale_dir}")
 
     locale.setlocale(locale.LC_ALL, "")
     # Setup text domain for the C standard library, and by implication for glib,

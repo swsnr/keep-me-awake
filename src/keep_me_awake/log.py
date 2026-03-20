@@ -24,5 +24,10 @@ def warn(message: str) -> None:
 
 
 def message(message: str) -> None:
-    """Log a info message."""
+    """Log a normal message."""
     log(GLib.LogLevelFlags.LEVEL_MESSAGE, message)
+
+
+def info(message: str) -> None:
+    """Log an info message."""
+    log(GLib.LogLevelFlags.LEVEL_INFO, message)
