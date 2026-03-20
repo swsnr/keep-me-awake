@@ -80,7 +80,9 @@ class KeepMeAwakeApplication(Adw.Application):
         application, and disable inhibition initially.
         """
         super().__init__(
-            application_id=application_id, resource_base_path="/de/swsnr/keepmeawake"
+            application_id=application_id,
+            resource_base_path="/de/swsnr/keepmeawake",
+            flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
         )
         self._inhibit_state: _InhibitState | None = None
         self._background_task: asyncio.Task[None] | None = None
@@ -88,6 +90,14 @@ class KeepMeAwakeApplication(Adw.Application):
         self._app_updated_monitor: FlatpakAppUpdatedMonitor | None = None
         if self._portal.running_under_flatpak():
             self._app_updated_monitor = FlatpakAppUpdatedMonitor()
+
+        self.add_main_option(
+            "toggle-inhibit",
+            ord("T"),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            C_("option description", "Toggle inhibition"),
+        )
 
     def _update_notification(self) -> None:
         """Update the notification to indicate current inhibition state."""
@@ -307,6 +317,17 @@ The full English text follows.
                     cookie=cookie,
                 )
         self._update_notification()
+
+    @override
+    def do_command_line(self, command_line: Gio.ApplicationCommandLine) -> int:
+        Adw.Application.do_command_line(self, command_line)
+        if command_line.get_options_dict().lookup_value("toggle-inhibit"):
+            self.activate_action("toggle-inhibit")
+        else:
+            self.activate()
+        command_line.set_exit_status(0)
+        command_line.done()
+        return 0
 
     @override
     def do_activate(self) -> None:

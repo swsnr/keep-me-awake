@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-18 22:13+0100\n"
+"POT-Creation-Date: 2026-03-20 22:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,98 +62,107 @@ msgstr ""
 msgid "Drop support for global shortcuts."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:40
-msgid "Add global Super+W shortcut to toggle inhibiting sleep."
-msgstr ""
-
-#: de.swsnr.keepmeawake.metainfo.xml:41
-msgid "Once started keep running in background to react to global shortcuts."
+#: de.swsnr.keepmeawake.metainfo.xml:32
+msgid "Add command line flag to inhibit."
 msgstr ""
 
 #: de.swsnr.keepmeawake.metainfo.xml:42
+msgid "Add global Super+W shortcut to toggle inhibiting sleep."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:43
+msgid "Once started keep running in background to react to global shortcuts."
+msgstr ""
+
+#: de.swsnr.keepmeawake.metainfo.xml:44
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:45
 msgid "Inhibit suspend and session lock on startup."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:44 de.swsnr.keepmeawake.metainfo.xml:64
-#: de.swsnr.keepmeawake.metainfo.xml:70
+#: de.swsnr.keepmeawake.metainfo.xml:46 de.swsnr.keepmeawake.metainfo.xml:66
+#: de.swsnr.keepmeawake.metainfo.xml:72
 msgid "Update translations."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:57
+#: de.swsnr.keepmeawake.metainfo.xml:59
 msgid "Update to GNOME 49."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:58 de.swsnr.keepmeawake.metainfo.xml:78
-#: de.swsnr.keepmeawake.metainfo.xml:85 de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:60 de.swsnr.keepmeawake.metainfo.xml:80
+#: de.swsnr.keepmeawake.metainfo.xml:87 de.swsnr.keepmeawake.metainfo.xml:95
 msgid "Global shortcuts are not yet supported."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:76
+#: de.swsnr.keepmeawake.metainfo.xml:78
 msgid "Do not show redundant notification when quitting."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:77
+#: de.swsnr.keepmeawake.metainfo.xml:79
 msgid "Show indicator if app was updated in background."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:84
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:91
+#: de.swsnr.keepmeawake.metainfo.xml:93
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:92
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Correctly quit the app."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:103
+#: de.swsnr.keepmeawake.metainfo.xml:105
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:104
+#: de.swsnr.keepmeawake.metainfo.xml:106
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:116
+#: de.swsnr.keepmeawake.metainfo.xml:118
 msgid "Inhibit nothing"
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:120
+#: de.swsnr.keepmeawake.metainfo.xml:122
 msgid "Inhibit suspend and screen locking"
 msgstr ""
 
 #: src/keep_me_awake/app.py:99
+msgctxt "option description"
+msgid "Toggle inhibition"
+msgstr ""
+
+#: src/keep_me_awake/app.py:109
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr ""
 
-#: src/keep_me_awake/app.py:103
+#: src/keep_me_awake/app.py:113
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 
-#: src/keep_me_awake/app.py:108
+#: src/keep_me_awake/app.py:118
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr ""
 
-#: src/keep_me_awake/app.py:112
+#: src/keep_me_awake/app.py:122
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr ""
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/keep_me_awake/app.py:140
+#: src/keep_me_awake/app.py:150
 #, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
@@ -168,7 +177,7 @@ msgid ""
 "{license_text}"
 msgstr ""
 
-#: src/keep_me_awake/app.py:156
+#: src/keep_me_awake/app.py:166
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr ""
@@ -177,45 +186,45 @@ msgstr ""
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
 #. "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
 #. Separate multiple translators with a newline, i.e. \n
-#: src/keep_me_awake/app.py:166
+#: src/keep_me_awake/app.py:176
 msgid "translator-credits"
 msgstr ""
 
-#: src/keep_me_awake/app.py:170
+#: src/keep_me_awake/app.py:180
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr ""
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:181
+#: src/keep_me_awake/app.py:191
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr ""
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:185
+#: src/keep_me_awake/app.py:195
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr ""
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:191
+#: src/keep_me_awake/app.py:201
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr ""
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:195
+#: src/keep_me_awake/app.py:205
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr ""
 
-#: src/keep_me_awake/app.py:256
+#: src/keep_me_awake/app.py:266
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
 msgstr ""
 
-#: src/keep_me_awake/app.py:302
+#: src/keep_me_awake/app.py:312
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr ""
