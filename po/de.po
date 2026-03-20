@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-20 22:27+0100\n"
-"PO-Revision-Date: 2025-10-02 17:13+0000\n"
+"PO-Revision-Date: 2026-03-20 21:35+0000\n"
 "Last-Translator: Sebastian Wiesner <sebastian@swsnr.de>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/de-swsnr-"
 "keepmeawake/de-swsnr-keepmeawake/de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
@@ -60,18 +60,15 @@ msgstr "Idle"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Rewrite in Python."
-msgstr ""
+msgstr "Neu-Implementierung in Python."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "Configure _global shortcuts"
 msgid "Drop support for global shortcuts."
-msgstr "_Globale Tastenkürzel konfigurieren"
+msgstr "Globale Tastenkürzel entfernt."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid "Add command line flag to inhibit."
-msgstr ""
+msgstr "Kommandozeilen-Option zum Verhindern des Ruhezustands hinzugefügt."
 
 #: de.swsnr.keepmeawake.metainfo.xml:42
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
@@ -163,7 +160,7 @@ msgstr "Ruhezustand und Bildschirmsperre verhindern"
 #: src/keep_me_awake/app.py:99
 msgctxt "option description"
 msgid "Toggle inhibition"
-msgstr ""
+msgstr "Verhindern des Ruhezustands umschalten"
 
 #: src/keep_me_awake/app.py:109
 msgctxt "notification.title"
@@ -189,18 +186,7 @@ msgstr "Keep me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/keep_me_awake/app.py:150
-#, fuzzy, python-brace-format
-#| msgctxt "about-dialog.license-text"
-#| msgid ""
-#| "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
-#| "\n"
-#| "Licensed under the terms of the EUPL 1.2. You can find official "
-#| "translations of the license text at <a href=\"{translations}"
-#| "\">{translations}</a>.\n"
-#| "\n"
-#| "The full English text follows.\n"
-#| "\n"
-#| "{license_text}"
+#, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
 "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
