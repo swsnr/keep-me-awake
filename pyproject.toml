@@ -20,6 +20,7 @@ issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
 
 [dependency-groups]
 dev = ["pygobject-stubs>=2.16.0", "hatchling", "poethepoet>=0.42.1", "ruff"]
+flatpak-build = ["hatchling"]
 
 [build-system]
 requires = ["hatchling"]
@@ -39,7 +40,13 @@ artifacts = ["*.gresource"]
 exclude = ["**/keep_me_awake/resources/"]
 
 [tool.poe.tasks]
-lint = ["lint:python", "lint:blueprint", "lint:data"]
+lint = [
+    "lint:python",
+    "lint:blueprint",
+    "lint:data",
+    "lint:flatpak",
+    "lint:flatpak-devel",
+]
 format = ["format:python", "format:blueprint"]
 xgettext = "./po/xgettext.py"
 "format:python" = "ruff format ."
@@ -57,6 +64,14 @@ executor = "simple"
 
 [tool.poe.tasks."lint:data"]
 cmd = "appstreamcli validate --strict --pedantic --explain de.swsnr.keepmeawake.metainfo.xml"
+executor = "simple"
+
+[tool.poe.tasks."lint:flatpak"]
+cmd = "flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.yaml"
+executor = "simple"
+
+[tool.poe.tasks."lint:flatpak-devel"]
+cmd = "flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest flatpak/de.swsnr.keepmeawake.Devel.yaml"
 executor = "simple"
 
 [tool.poe.tasks."optimize-pngs"]
@@ -77,6 +92,24 @@ cmd = """
 flatpak run org.flatpak.Builder --force-clean --user --install
     --install-deps-from=flathub --repo=.flatpak-repo
     .flatpak-builddir flatpak/de.swsnr.keepmeawake.Devel.yaml
+"""
+executor = "simple"
+
+[tool.poe.tasks."flatpak:build"]
+cmd = """
+flatpak run org.flatpak.Builder --force-clean --user
+    --install-deps-from=flathub --repo=.flatpak-repo
+    .flatpak-builddir flatpak/de.swsnr.keepmeawake.yaml
+"""
+executor = "simple"
+
+[tool.poe.tasks."flatpak:update-pip"]
+shell = """
+set -euo pipefail
+uv export --quiet --only-group flatpak-build --output-file flatpak/requirements.flatpak-build.txt
+flatpak run --command=flatpak-pip-generator org.flatpak.Builder \
+    -r flatpak/requirements.flatpak-build.txt --build-only --output flatpak/pip-build.json
+rm flatpak/requirements.*.txt
 """
 executor = "simple"
 

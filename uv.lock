@@ -33,6 +33,9 @@ dev = [
     { name = "pygobject-stubs" },
     { name = "ruff" },
 ]
+flatpak-build = [
+    { name = "hatchling" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -47,6 +50,7 @@ dev = [
     { name = "pygobject-stubs", specifier = ">=2.16.0" },
     { name = "ruff" },
 ]
+flatpak-build = [{ name = "hatchling" }]
 
 [[package]]
 name = "packaging"
