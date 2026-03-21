@@ -25,7 +25,7 @@
         <!-- Add release notes for the next release to a release with
         version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/keep-me-awake/releases/tag/next'.
         -->
-        <release version="next" date="9999-01-01">
+        <release version="2.0.0" date="2026-03-21">
             <description>
                 <p>Rewrite in Python.</p>
                 <p>Drop support for global shortcuts.</p>
@@ -35,7 +35,7 @@
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/18">CB-18</issue>
                 <issue url="https://codeberg.org/swsnr/keep-me-awake/issues/49">CB-49</issue>
             </issues>
-            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/next</url>
+            <url>https://codeberg.org/swsnr/keep-me-awake/releases/tag/v2.0.0</url>
         </release>
         <release version="1.0.0" date="2025-10-02">
             <description>
