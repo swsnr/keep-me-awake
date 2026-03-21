@@ -113,6 +113,28 @@ rm flatpak/requirements.*.txt
 """
 executor = "simple"
 
+[tool.poe.tasks.release]
+shell = """
+set -euo pipefail
+uv version --bump stable
+version="$(uv version --short)"
+tag="v${version}"
+sed -i \
+    -e "s/version=\\"next\\"/version=\\"${version}\\"/" \
+    -e "s/date=\\"9999-01-01\\"/date=\\"$(date -Idate -u)\\"/" \
+    -e "s_tag/next</url>_tag/${tag}</url>_" \
+    de.swsnr.keepmeawake.metainfo.xml
+git add .
+git commit -m "Release ${version}"
+git tag -m "Keep me Awake ${version}" "${tag}"
+commit="$(git rev-parse "${tag}")"
+sed -i -e "/name: *keepmeawake/,\\${ s/tag: .*/tag: ${tag}/;s/commit: .*/commit: ${commit}/ }" \
+    flatpak/de.swsnr.keepmeawake.yaml
+git add flatpak/de.swsnr.keepmeawake.yaml
+git commit -m "Update flatpak manifest for version ${version}"
+"""
+executor = "simple"
+
 [tool.pyright]
 include = ["src/", "po/*.py", "hatch_build.py"]
 typeCheckingMode = "strict"
