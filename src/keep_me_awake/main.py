@@ -17,7 +17,6 @@ from typing import Never
 
 import gi
 import gi.events  # pyright: ignore[reportMissingImports]
-from gi.repository import Gio  # pyright: ignore[reportMissingImports]
 from packaging.version import Version
 
 import keep_me_awake
@@ -33,7 +32,7 @@ def main() -> Never:
 
     Setup environment and start the application.
     """
-    from gi.repository import GLib, Xdp
+    from gi.repository import Gio, GLib, Xdp
 
     from . import log
 
