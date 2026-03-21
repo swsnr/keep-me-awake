@@ -132,6 +132,9 @@ sed -i -e "/name: *keepmeawake/,\\${ s/tag: .*/tag: ${tag}/;s/commit: .*/commit:
     flatpak/de.swsnr.keepmeawake.yaml
 git add flatpak/de.swsnr.keepmeawake.yaml
 git commit -m "Update flatpak manifest for version ${version}"
+uv version --bump minor --bump dev
+git add .
+git commit -m "Bump to next development version"
 """
 executor = "simple"
 
