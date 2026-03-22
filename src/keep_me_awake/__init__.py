@@ -23,7 +23,7 @@ def is_installed_editable() -> bool:
     """Whether the application is installed in editable mode for development."""
     from importlib.metadata import distribution
 
-    dist = distribution("keep_me_awake")
+    dist = distribution(__name__)
 
     if dist.origin and hasattr(dist.origin, "dir_info"):
         return getattr(dist.origin.dir_info, "editable", False)  # pyright: ignore[reportAny]
