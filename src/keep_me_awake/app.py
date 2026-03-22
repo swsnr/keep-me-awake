@@ -7,10 +7,11 @@
 """The main Keep me Awake application."""
 
 import asyncio
+import weakref
 from dataclasses import dataclass
 from gettext import gettext as _
 from gettext import pgettext as C_
-from typing import cast, override
+from typing import Self, cast, override
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Xdp, XdpGtk4
 
@@ -22,9 +23,48 @@ from .widgets import KeepMeAwakeApplicationWindow
 
 
 @dataclass
-class _InhibitState:
+class InhibitionLock:
+    """A lock for inhibition."""
+
     inhibit_idle: bool
     cookie: int
+    app: weakref.ReferenceType[Gtk.Application]
+
+    @classmethod
+    def acquire(cls, *, app: Gtk.Application, inhibit_idle: bool, reason: str) -> Self:
+        """Acquire an inhibition on the given `app`.
+
+        If `inhibit_idle` is `True` inhibit idle in addition to inhibiting suspend.
+
+        `reason` is a translated human-readable string explaining why suspend
+        is inhibited.
+        """
+        flags: Gtk.ApplicationInhibitFlags = Gtk.ApplicationInhibitFlags.SUSPEND
+        if inhibit_idle:
+            flags |= Gtk.ApplicationInhibitFlags.IDLE
+        cookie = app.inhibit(app.get_active_window(), flags, reason)
+        app.hold()
+        return cls(inhibit_idle=inhibit_idle, cookie=cookie, app=weakref.ref(app))
+
+    def release(self) -> None:
+        """Release the inhibition."""
+        app = self.app()
+        if app:
+            app.uninhibit(self.cookie)
+            app.release()
+
+    @property
+    def inhibit(self) -> Inhibit:
+        """What's being inhibited."""
+        app = self.app()
+        if app:
+            if self.inhibit_idle:
+                return Inhibit.SUSPEND_AND_IDLE
+            else:
+                return Inhibit.SUSPEND
+        else:
+            # If the app's gone we're definitely not inhibiting anything anymore
+            return Inhibit.NOTHING
 
 
 class FlatpakAppUpdatedMonitor(GObject.Object):
@@ -84,7 +124,7 @@ class KeepMeAwakeApplication(Adw.Application):
             resource_base_path="/de/swsnr/keepmeawake",
             flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
         )
-        self._inhibit_state: _InhibitState | None = None
+        self._inhibition_lock: InhibitionLock | None = None
         self._background_task: asyncio.Task[None] | None = None
         self._portal: Xdp.Portal = Xdp.Portal.new()
         self._app_updated_monitor: FlatpakAppUpdatedMonitor | None = None
@@ -102,8 +142,8 @@ class KeepMeAwakeApplication(Adw.Application):
     def _update_notification(self) -> None:
         """Update the notification to indicate current inhibition state."""
         notification = None
-        if self._inhibit_state:
-            if self._inhibit_state.inhibit_idle:
+        if self._inhibition_lock:
+            if self._inhibition_lock.inhibit_idle:
                 title = C_(
                     "notification.title",
                     "Suspend and screen lock inhibited",
@@ -275,12 +315,8 @@ The full English text follows.
     @GObject.Property(type=Inhibit, default=Inhibit.NOTHING)
     def inhibitors(self) -> Inhibit:
         """Get the current inhibitors."""
-        if self._inhibit_state:
-            return (
-                Inhibit.SUSPEND_AND_IDLE
-                if self._inhibit_state.inhibit_idle
-                else Inhibit.SUSPEND
-            )
+        if self._inhibition_lock:
+            return self._inhibition_lock.inhibit
         else:
             return Inhibit.NOTHING
 
@@ -291,30 +327,19 @@ The full English text follows.
         Disable current inhibitors, if any, then inhibit according to `inhibit`
         and emit the notify signal for this property.
         """
-        if self._inhibit_state:
-            self.uninhibit(self._inhibit_state.cookie)
-            self._inhibit_state = None
-            self.release()
+        if self._inhibition_lock:
+            self._inhibition_lock = self._inhibition_lock.release()
         match inhibit:
             case Inhibit.NOTHING:
                 pass
             case other:
-                flags: Gtk.ApplicationInhibitFlags = Gtk.ApplicationInhibitFlags.SUSPEND
-                if other == Inhibit.SUSPEND_AND_IDLE:
-                    flags |= Gtk.ApplicationInhibitFlags.IDLE
-                # Keep app alive while inhibiting
-                self.hold()
-                cookie = self.inhibit(
-                    None,
-                    flags,
-                    C_(
+                self._inhibition_lock = InhibitionLock.acquire(
+                    app=self,
+                    inhibit_idle=other == Inhibit.SUSPEND_AND_IDLE,
+                    reason=C_(
                         "inhibit-reason",
                         "Keep me Awake inhibits suspend at your request.",
                     ),
-                )
-                self._inhibit_state = _InhibitState(
-                    inhibit_idle=Gtk.ApplicationInhibitFlags.IDLE in flags,
-                    cookie=cookie,
                 )
         self._update_notification()
 
