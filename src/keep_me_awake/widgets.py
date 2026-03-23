@@ -34,7 +34,7 @@ class KeepMeAwakeApplicationWindow(Adw.ApplicationWindow):
         """Change update indicator visibility."""
         self._show_update_indicator = value
 
-    @Gtk.Template.Callback()  # pyright: ignore[reportAny]
+    @Gtk.Template.Callback()
     @staticmethod
     def icon_name(_window: Any, inhibit: Inhibit) -> str:  # noqa: ANN401
         """Determine the name of the icon to use for `inhibit`."""

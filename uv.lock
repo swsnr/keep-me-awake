@@ -39,8 +39,8 @@ flatpak-build = [
 
 [package.metadata]
 requires-dist = [
-    { name = "packaging", specifier = "~=25.0" },
-    { name = "pygobject", specifier = "~=3.54.0" },
+    { name = "packaging", specifier = "~=26.0" },
+    { name = "pygobject", specifier = "~=3.56.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -54,11 +54,11 @@ flatpak-build = [{ name = "hatchling" }]
 
 [[package]]
 name = "packaging"
-version = "25.0"
+version = "26.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f", size = 165727, upload-time = "2025-04-19T11:48:59.673Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz", hash = "sha256:00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4", size = 143416, upload-time = "2026-01-21T20:50:39.064Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484", size = 66469, upload-time = "2025-04-19T11:48:57.875Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/b9/c538f279a4e237a006a2c98387d081e9eb060d203d8ed34467cc0f0b9b53/packaging-26.0-py3-none-any.whl", hash = "sha256:b36f1fef9334a5588b4166f8bcd26a14e521f2b55e6b9de3aaa80d3ff7a37529", size = 74366, upload-time = "2026-01-21T20:50:37.788Z" },
 ]
 
 [[package]]
@@ -114,12 +114,12 @@ wheels = [
 
 [[package]]
 name = "pygobject"
-version = "3.54.5"
+version = "3.56.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pycairo" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d3/a5/68f883df1d8442e3b267cb92105a4b2f0de819bd64ac9981c2d680d3f49f/pygobject-3.54.5.tar.gz", hash = "sha256:b6656f6348f5245606cf15ea48c384c7f05156c75ead206c1b246c80a22fb585", size = 1274658, upload-time = "2025-10-18T13:45:03.121Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/f6/46e5d170c46a9fcf44c740bad5f919fccb3e822d7578bd24b9d8d5918312/pygobject-3.56.1.tar.gz", hash = "sha256:2ec1cc8c55c7ffeebb97e58a9bba7aa1e74611f1173628084685446804a8881a", size = 1408136, upload-time = "2026-03-11T09:26:11.017Z" }
 
 [[package]]
 name = "pygobject-stubs"
