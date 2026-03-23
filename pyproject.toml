@@ -29,15 +29,12 @@ build-backend = "hatchling.build"
 [tool.hatch.build.hooks.custom]
 
 [tool.hatch.build.targets.sdist]
-# In source distributions do not include UI files compiled from blueprints, and
-# compiled resource files
-exclude = ["*.ui", "*.gresource"]
+include = ["resources/"]
 
 [tool.hatch.build.targets.wheel]
 # When building a binary wheel include only the binary resource file but not the
 # resource source files
 artifacts = ["*.gresource"]
-exclude = ["**/keep_me_awake/resources/"]
 
 [tool.poe]
 include = "tasks.toml"

@@ -40,12 +40,15 @@ def main() -> Never:
     app_id: str
     if keep_me_awake.is_installed_editable():
         log.message("Editable installation, setting up resource overlays")
-        overlays = os.environ.get("G_RESOURCE_OVERLAYS", "")
-        resources_dir = Path(__file__).parent / "resources"
-        overlay = f"/de/swsnr/keepmeawake={resources_dir}"
-        os.environ["G_RESOURCE_OVERLAYS"] = (
-            f"{overlay}:{overlays}" if overlays else overlay
-        )
+        repo_dir = Path(__file__).parents[2]
+        resources_dir = repo_dir / "resources"
+        generated_resources_dir = repo_dir / "dist" / "resources"
+        overlays = [
+            os.environ.get("G_RESOURCE_OVERLAYS"),
+            f"/de/swsnr/keepmeawake={resources_dir}",
+            f"/de/swsnr/keepmeawake={generated_resources_dir}",
+        ]
+        os.environ["G_RESOURCE_OVERLAYS"] = os.pathsep.join(filter(None, overlays))
         app_id = "de.swsnr.keepmeawake.Devel"
     else:
         # Read compiled resources
