@@ -25,7 +25,7 @@
         <!-- Add release notes for the next release to a release with
         version 'next', date '9999-01-01' and URL 'https://codeberg.org/swsnr/keep-me-awake/releases/tag/next'.
         -->
-        <release version="next" date="9999-01-01">
+        <release version="2.1.0" date="2026-03-24">
             <description>
                 <p>Update to GNOME 50.</p>
             </description>
