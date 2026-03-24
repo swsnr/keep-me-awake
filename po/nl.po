@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-20 22:27+0100\n"
-"PO-Revision-Date: 2025-10-04 09:09+0000\n"
+"PO-Revision-Date: 2026-03-22 05:29+0000\n"
 "Last-Translator: Vistaus <vistaus@noreply.codeberg.org>\n"
 "Language-Team: Dutch <https://translate.codeberg.org/projects/de-swsnr-"
 "keepmeawake/de-swsnr-keepmeawake/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
@@ -60,18 +60,15 @@ msgstr "Inactief"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Rewrite in Python."
-msgstr ""
+msgstr "Nieuw: herschreven in Python."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "Configure _global shortcuts"
 msgid "Drop support for global shortcuts."
-msgstr "_Sneltoetsen instellen"
+msgstr "Nieuw: ondersteuning voor globale sneltoetsen geschrapt."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid "Add command line flag to inhibit."
-msgstr ""
+msgstr "Nieuw: opdrachtregeloptie om slaapstand te voorkomen."
 
 #: de.swsnr.keepmeawake.metainfo.xml:42
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
@@ -155,7 +152,7 @@ msgstr "Schermvergrendeling en slaapstand onderdrukken"
 #: src/keep_me_awake/app.py:99
 msgctxt "option description"
 msgid "Toggle inhibition"
-msgstr ""
+msgstr "Slaapstand aan/uit"
 
 #: src/keep_me_awake/app.py:109
 msgctxt "notification.title"
@@ -181,18 +178,7 @@ msgstr "Niet in slaap vallen zal de slaapstand op verzoek onderdrukken."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/keep_me_awake/app.py:150
-#, fuzzy, python-brace-format
-#| msgctxt "about-dialog.license-text"
-#| msgid ""
-#| "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
-#| "\n"
-#| "Licensed under the terms of the EUPL 1.2. You can find official "
-#| "translations of the license text at <a href=\"{translations}"
-#| "\">{translations}</a>.\n"
-#| "\n"
-#| "The full English text follows.\n"
-#| "\n"
-#| "{license_text}"
+#, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
 "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
@@ -208,8 +194,8 @@ msgstr ""
 "Auteursrecht {copyright_name} &lt;{copyright_email}&gt;\n"
 "\n"
 "Uitgebracht onder de voorwaarden van de EUPL 1.2-licentie. Officiële "
-"vertalingen van de licentietekst zijn beschikbaar op <a href=\"{translations}"
-"\">{translations}</a>.\n"
+"vertalingen van de licentietekst\n"
+"zijn beschikbaar op <a href=\"{translations}\">{translations}</a>.\n"
 "\n"
 "Hieronder vindt u de Engelstalige tekst.\n"
 "\n"
