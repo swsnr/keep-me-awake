@@ -47,7 +47,7 @@ requires-dist = [
 dev = [
     { name = "hatchling" },
     { name = "poethepoet", specifier = ">=0.42.1" },
-    { name = "pygobject-stubs", specifier = ">=2.16.0" },
+    { name = "pygobject-stubs", specifier = ">=2.17.0" },
     { name = "ruff" },
 ]
 flatpak-build = [{ name = "hatchling" }]
@@ -123,12 +123,13 @@ sdist = { url = "https://files.pythonhosted.org/packages/c9/f6/46e5d170c46a9fcf4
 
 [[package]]
 name = "pygobject-stubs"
-version = "2.16.0"
+version = "2.17.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
+    { name = "pygobject" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2d/1c/317ccaaa6a3ddce270652781cf09d3b1d5d343b1a1dabca304fe5c218474/pygobject_stubs-2.16.0.tar.gz", hash = "sha256:a97574616e92ef458605f9520d8d9db4c2a131affcd12fdd51db0b42395291e9", size = 934833, upload-time = "2025-12-08T20:33:33.876Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8c/be/bf49399ad2e788121f595903a56447d4b778d67acbb01ecfc1c6d5cf91f6/pygobject_stubs-2.17.0.tar.gz", hash = "sha256:66884d26974dd7fb99a8bc5972b5bdeb4b7399ecc7ac53913a6cafa6ab21491f", size = 1010510, upload-time = "2026-03-20T17:08:59.656Z" }
 
 [[package]]
 name = "pyyaml"
