@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-20 22:27+0100\n"
+"POT-Creation-Date: 2026-03-23 19:43+0100\n"
 "PO-Revision-Date: 2026-03-20 21:35+0000\n"
 "Last-Translator: Sebastian Wiesner <sebastian@swsnr.de>\n"
 "Language-Team: German <https://translate.codeberg.org/projects/de-swsnr-"
@@ -21,7 +21,7 @@ msgstr ""
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
-#: src/keep_me_awake/resources/application-window.blp:10
+#: resources/application-window.blp:10
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
 
@@ -59,30 +59,36 @@ msgid "Idle"
 msgstr "Idle"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgid "Update to GNOME 49."
+msgid "Update to GNOME 50."
+msgstr "Update auf GNOME 49."
+
+#: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Rewrite in Python."
 msgstr "Neu-Implementierung in Python."
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:39
 msgid "Drop support for global shortcuts."
 msgstr "Globale Tastenkürzel entfernt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:32
+#: de.swsnr.keepmeawake.metainfo.xml:40
 msgid "Add command line flag to inhibit."
 msgstr "Kommandozeilen-Option zum Verhindern des Ruhezustands hinzugefügt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:42
+#: de.swsnr.keepmeawake.metainfo.xml:50
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr ""
 "Ein globales Super+W Tastenkürzel wurde hinzugefügt, welches den Ruhezustand "
 "verhindert."
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
 "Nachdem die Anwendung gestartet wurde, läuft sie im Hintergrund weiter, um "
 "auf das globale Tastenkürzel zu reagieren."
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
@@ -91,52 +97,52 @@ msgstr ""
 "anzuzeigen, und, in unterstützten Desktop-Umgebungen, die globalen "
 "Tastenkürzel zu konfigurieren."
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Inhibit suspend and session lock on startup."
 msgstr ""
 "Nach dem Start werden Ruhezustand und Bildschirmsperre direkt unterbunden."
 
-#: de.swsnr.keepmeawake.metainfo.xml:46 de.swsnr.keepmeawake.metainfo.xml:66
-#: de.swsnr.keepmeawake.metainfo.xml:72
+#: de.swsnr.keepmeawake.metainfo.xml:54 de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Update translations."
 msgstr "Übersetzungen wurden aktualisiert."
 
-#: de.swsnr.keepmeawake.metainfo.xml:59
+#: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Update to GNOME 49."
 msgstr "Update auf GNOME 49."
 
-#: de.swsnr.keepmeawake.metainfo.xml:60 de.swsnr.keepmeawake.metainfo.xml:80
-#: de.swsnr.keepmeawake.metainfo.xml:87 de.swsnr.keepmeawake.metainfo.xml:95
+#: de.swsnr.keepmeawake.metainfo.xml:68 de.swsnr.keepmeawake.metainfo.xml:88
+#: de.swsnr.keepmeawake.metainfo.xml:95 de.swsnr.keepmeawake.metainfo.xml:103
 msgid "Global shortcuts are not yet supported."
 msgstr "Globale Tastenkürzel werden noch nicht unterstützt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:78
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Do not show redundant notification when quitting."
 msgstr "Beim Beenden wird keine unnötige Benachrichtigung mehr angezeigt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:79
+#: de.swsnr.keepmeawake.metainfo.xml:87
 msgid "Show indicator if app was updated in background."
 msgstr ""
 "Ein Hinweis wird angezeigt, wenn die Anwendung im Hintergrund aktualisiert "
 "wurde."
 
-#: de.swsnr.keepmeawake.metainfo.xml:86
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr ""
 "Die Bildschirmsperre wird weiterhin verhindert, nachdem das Hauptfenster "
 "geschlossen wurde."
 
-#: de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:101
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 "Eine dauerhafte Benachrichtigung wird angezeigt während Ruhezustand oder "
 "Bildschirmsperre verhindert werden."
 
-#: de.swsnr.keepmeawake.metainfo.xml:94
+#: de.swsnr.keepmeawake.metainfo.xml:102
 msgid "Correctly quit the app."
 msgstr "Die Anwendung wird korrekt beendet."
 
-#: de.swsnr.keepmeawake.metainfo.xml:105
+#: de.swsnr.keepmeawake.metainfo.xml:113
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -144,48 +150,90 @@ msgstr ""
 "Ein Hauptfenster wurde hinzugefügt mit Schaltflächen zum Verhindern des "
 "Ruhezustands, oder des Ruhezustands inklusive der Bildschirmsperre."
 
-#: de.swsnr.keepmeawake.metainfo.xml:106
+#: de.swsnr.keepmeawake.metainfo.xml:114
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr ""
 "Globale Tastenkürzel und Benachrichtigungen werden noch nicht unterstützt."
 
-#: de.swsnr.keepmeawake.metainfo.xml:118
+#: de.swsnr.keepmeawake.metainfo.xml:126
 msgid "Inhibit nothing"
 msgstr "Nichts verhindern"
 
-#: de.swsnr.keepmeawake.metainfo.xml:122
+#: de.swsnr.keepmeawake.metainfo.xml:130
 msgid "Inhibit suspend and screen locking"
 msgstr "Ruhezustand und Bildschirmsperre verhindern"
 
-#: src/keep_me_awake/app.py:99
+#: resources/application-window.blp:27
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr "_Beenden"
+
+#: resources/application-window.blp:34
+msgctxt "application-window.menu.label"
+msgid "_Shortcuts"
+msgstr "_Tastenkürzel"
+
+#: resources/application-window.blp:41
+msgctxt "application-window.menu.label"
+msgid "_About Keep me Awake"
+msgstr "_Info zu Keep me Awake"
+
+#: resources/application-window.blp:73
+msgid "Do not inhibit screen lock and suspend"
+msgstr "Bildschirmsperre und Ruhezustand erlauben"
+
+#: resources/application-window.blp:83
+msgid "Inhibit suspend"
+msgstr "Ruhezustand verhindern"
+
+#: resources/application-window.blp:93
+msgid "Inhibit screen lock and suspend"
+msgstr "Bildschirmsperre und Ruhezustand verhindern"
+
+#: resources/shortcuts-dialog.blp:18
+msgctxt "shortcuts section"
+msgid "General"
+msgstr "Allgemein"
+
+#: resources/shortcuts-dialog.blp:21
+msgctxt "shortcut item title"
+msgid "Show shortcuts"
+msgstr "Tastenkürzel anzeigen"
+
+#: resources/shortcuts-dialog.blp:26
+msgctxt "shortcut item title"
+msgid "Quit"
+msgstr "Beenden"
+
+#: src/keep_me_awake/app.py:139
 msgctxt "option description"
 msgid "Toggle inhibition"
 msgstr "Verhindern des Ruhezustands umschalten"
 
-#: src/keep_me_awake/app.py:109
+#: src/keep_me_awake/app.py:149
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "Ruhezustand und Bildschirmsperre werden verhindert"
 
-#: src/keep_me_awake/app.py:113
+#: src/keep_me_awake/app.py:153
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 "Keep me Awake verhindert den Ruhezustand und die Bildschirmsperre auf Deinen "
 "Wunsch."
 
-#: src/keep_me_awake/app.py:118
+#: src/keep_me_awake/app.py:158
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "Ruhezustand wird verhindert"
 
-#: src/keep_me_awake/app.py:122
+#: src/keep_me_awake/app.py:162
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Keep me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/keep_me_awake/app.py:150
+#: src/keep_me_awake/app.py:190
 #, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
@@ -209,7 +257,7 @@ msgstr ""
 "\n"
 "{license_text}"
 
-#: src/keep_me_awake/app.py:166
+#: src/keep_me_awake/app.py:206
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr "Übersetzungen"
@@ -218,95 +266,53 @@ msgstr "Übersetzungen"
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
 #. "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
 #. Separate multiple translators with a newline, i.e. \n
-#: src/keep_me_awake/app.py:176
+#: src/keep_me_awake/app.py:216
 msgid "translator-credits"
 msgstr "Sebastian Wiesner <sebastian@swsnr.de>"
 
-#: src/keep_me_awake/app.py:180
+#: src/keep_me_awake/app.py:220
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "Hilfreiche Dienste"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:191
+#: src/keep_me_awake/app.py:231
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "Bild des Tages"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:195
+#: src/keep_me_awake/app.py:235
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "Dein täglicher Bildschirmhintergrund"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:201
+#: src/keep_me_awake/app.py:241
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Anschalten"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:205
+#: src/keep_me_awake/app.py:245
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "Geräte in Deinem Netzwerk anschalten"
 
-#: src/keep_me_awake/app.py:266
+#: src/keep_me_awake/app.py:306
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
 msgstr "Ruhezustand und Bildschirmsperre ohne Hauptfenster verhindern"
 
-#: src/keep_me_awake/app.py:312
+#: src/keep_me_awake/app.py:341
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Keep me Awake verhindert den Ruhezustand auf Deinen Wunsch."
 
-#: src/keep_me_awake/main.py:79
+#: src/keep_me_awake/main.py:81
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
-
-#: src/keep_me_awake/resources/application-window.blp:27
-msgctxt "application-window.menu.label"
-msgid "_Quit"
-msgstr "_Beenden"
-
-#: src/keep_me_awake/resources/application-window.blp:34
-msgctxt "application-window.menu.label"
-msgid "_Shortcuts"
-msgstr "_Tastenkürzel"
-
-#: src/keep_me_awake/resources/application-window.blp:41
-msgctxt "application-window.menu.label"
-msgid "_About Keep me Awake"
-msgstr "_Info zu Keep me Awake"
-
-#: src/keep_me_awake/resources/application-window.blp:73
-msgid "Do not inhibit screen lock and suspend"
-msgstr "Bildschirmsperre und Ruhezustand erlauben"
-
-#: src/keep_me_awake/resources/application-window.blp:83
-msgid "Inhibit suspend"
-msgstr "Ruhezustand verhindern"
-
-#: src/keep_me_awake/resources/application-window.blp:93
-msgid "Inhibit screen lock and suspend"
-msgstr "Bildschirmsperre und Ruhezustand verhindern"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:18
-msgctxt "shortcuts section"
-msgid "General"
-msgstr "Allgemein"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:21
-msgctxt "shortcut item title"
-msgid "Show shortcuts"
-msgstr "Tastenkürzel anzeigen"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:26
-msgctxt "shortcut item title"
-msgid "Quit"
-msgstr "Beenden"
 
 #~ msgctxt "shortcuts section"
 #~ msgid "Global shortcuts"

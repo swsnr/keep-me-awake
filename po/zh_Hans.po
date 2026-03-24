@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-20 22:27+0100\n"
+"POT-Creation-Date: 2026-03-23 19:43+0100\n"
 "PO-Revision-Date: 2026-03-22 05:29+0000\n"
 "Last-Translator: Outbreak2096 <outbreak2096@noreply.codeberg.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -22,7 +22,7 @@ msgstr ""
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
-#: src/keep_me_awake/resources/application-window.blp:10
+#: resources/application-window.blp:10
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
 
@@ -58,114 +58,162 @@ msgid "Idle"
 msgstr "空闲"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgid "Update to GNOME 49."
+msgid "Update to GNOME 50."
+msgstr "更新到 GNOME 49。"
+
+#: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Rewrite in Python."
 msgstr "用 Python 重写。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:39
 msgid "Drop support for global shortcuts."
 msgstr "不再支持全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:32
+#: de.swsnr.keepmeawake.metainfo.xml:40
 msgid "Add command line flag to inhibit."
 msgstr "添加了阻止的命令行标志。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:42
+#: de.swsnr.keepmeawake.metainfo.xml:50
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr "添加全局 Super+W 快捷键以切换阻止睡眠状态。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr "启动后在后台持续运行以响应全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
 msgstr "添加菜单项以显示应用程序快捷键，并在支持的桌面环境中配置全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Inhibit suspend and session lock on startup."
 msgstr "在启动时阻止挂起和会话锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:46 de.swsnr.keepmeawake.metainfo.xml:66
-#: de.swsnr.keepmeawake.metainfo.xml:72
+#: de.swsnr.keepmeawake.metainfo.xml:54 de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Update translations."
 msgstr "更新翻译。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:59
+#: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Update to GNOME 49."
 msgstr "更新到 GNOME 49。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:60 de.swsnr.keepmeawake.metainfo.xml:80
-#: de.swsnr.keepmeawake.metainfo.xml:87 de.swsnr.keepmeawake.metainfo.xml:95
+#: de.swsnr.keepmeawake.metainfo.xml:68 de.swsnr.keepmeawake.metainfo.xml:88
+#: de.swsnr.keepmeawake.metainfo.xml:95 de.swsnr.keepmeawake.metainfo.xml:103
 msgid "Global shortcuts are not yet supported."
 msgstr "暂不支持全局快捷键。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:78
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Do not show redundant notification when quitting."
 msgstr "退出时不要显示多余的通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:79
+#: de.swsnr.keepmeawake.metainfo.xml:87
 msgid "Show indicator if app was updated in background."
 msgstr "如果应用在后台更新，则显示指示器。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:86
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr "即使在主窗口关闭后，也要保持阻止屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:101
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr "添加睡眠或屏幕锁定被阻止时的持久通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:94
+#: de.swsnr.keepmeawake.metainfo.xml:102
 msgid "Correctly quit the app."
 msgstr "正确退出应用。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:105
+#: de.swsnr.keepmeawake.metainfo.xml:113
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
 msgstr "添加带有开关的主窗口，以阻止挂起、或同时阻止挂起和屏幕锁定。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:106
+#: de.swsnr.keepmeawake.metainfo.xml:114
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "暂不支持全局快捷键和通知。"
 
-#: de.swsnr.keepmeawake.metainfo.xml:118
+#: de.swsnr.keepmeawake.metainfo.xml:126
 msgid "Inhibit nothing"
 msgstr "不进行任何阻止"
 
-#: de.swsnr.keepmeawake.metainfo.xml:122
+#: de.swsnr.keepmeawake.metainfo.xml:130
 msgid "Inhibit suspend and screen locking"
 msgstr "阻止挂起和屏幕锁定"
 
-#: src/keep_me_awake/app.py:99
+#: resources/application-window.blp:27
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr "退出(_Q)"
+
+#: resources/application-window.blp:34
+msgctxt "application-window.menu.label"
+msgid "_Shortcuts"
+msgstr "快捷键(_S)"
+
+#: resources/application-window.blp:41
+msgctxt "application-window.menu.label"
+msgid "_About Keep me Awake"
+msgstr "关于 Keep me Awake(_A)"
+
+#: resources/application-window.blp:73
+msgid "Do not inhibit screen lock and suspend"
+msgstr "不要阻止屏幕锁定和挂起"
+
+#: resources/application-window.blp:83
+msgid "Inhibit suspend"
+msgstr "阻止挂起"
+
+#: resources/application-window.blp:93
+msgid "Inhibit screen lock and suspend"
+msgstr "阻止屏幕锁定和挂起"
+
+#: resources/shortcuts-dialog.blp:18
+msgctxt "shortcuts section"
+msgid "General"
+msgstr "常规"
+
+#: resources/shortcuts-dialog.blp:21
+msgctxt "shortcut item title"
+msgid "Show shortcuts"
+msgstr "显示快捷键"
+
+#: resources/shortcuts-dialog.blp:26
+msgctxt "shortcut item title"
+msgid "Quit"
+msgstr "退出"
+
+#: src/keep_me_awake/app.py:139
 msgctxt "option description"
 msgid "Toggle inhibition"
 msgstr "切换阻止"
 
-#: src/keep_me_awake/app.py:109
+#: src/keep_me_awake/app.py:149
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "挂起和屏幕锁定被阻止"
 
-#: src/keep_me_awake/app.py:113
+#: src/keep_me_awake/app.py:153
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr "Keep me Awake 根据您的要求阻止挂起和屏幕锁定。"
 
-#: src/keep_me_awake/app.py:118
+#: src/keep_me_awake/app.py:158
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "挂起被阻止"
 
-#: src/keep_me_awake/app.py:122
+#: src/keep_me_awake/app.py:162
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Keep me Awake 根据您的要求阻止挂起。"
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/keep_me_awake/app.py:150
+#: src/keep_me_awake/app.py:190
 #, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
@@ -189,7 +237,7 @@ msgstr ""
 "\n"
 "{license_text}"
 
-#: src/keep_me_awake/app.py:166
+#: src/keep_me_awake/app.py:206
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr "翻译"
@@ -198,95 +246,53 @@ msgstr "翻译"
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
 #. "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
 #. Separate multiple translators with a newline, i.e. \n
-#: src/keep_me_awake/app.py:176
+#: src/keep_me_awake/app.py:216
 msgid "translator-credits"
 msgstr "Outbreak2096"
 
-#: src/keep_me_awake/app.py:180
+#: src/keep_me_awake/app.py:220
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "辅助服务"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:191
+#: src/keep_me_awake/app.py:231
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "今日图片"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:195
+#: src/keep_me_awake/app.py:235
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "您的每日壁纸"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:201
+#: src/keep_me_awake/app.py:241
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Turn On"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:205
+#: src/keep_me_awake/app.py:245
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "打开网络中的设备"
 
-#: src/keep_me_awake/app.py:266
+#: src/keep_me_awake/app.py:306
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
 msgstr "无主窗口时阻止挂起和空闲"
 
-#: src/keep_me_awake/app.py:312
+#: src/keep_me_awake/app.py:341
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Keep me Awake 根据您的要求阻止挂起。"
 
-#: src/keep_me_awake/main.py:79
+#: src/keep_me_awake/main.py:81
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
-
-#: src/keep_me_awake/resources/application-window.blp:27
-msgctxt "application-window.menu.label"
-msgid "_Quit"
-msgstr "退出(_Q)"
-
-#: src/keep_me_awake/resources/application-window.blp:34
-msgctxt "application-window.menu.label"
-msgid "_Shortcuts"
-msgstr "快捷键(_S)"
-
-#: src/keep_me_awake/resources/application-window.blp:41
-msgctxt "application-window.menu.label"
-msgid "_About Keep me Awake"
-msgstr "关于 Keep me Awake(_A)"
-
-#: src/keep_me_awake/resources/application-window.blp:73
-msgid "Do not inhibit screen lock and suspend"
-msgstr "不要阻止屏幕锁定和挂起"
-
-#: src/keep_me_awake/resources/application-window.blp:83
-msgid "Inhibit suspend"
-msgstr "阻止挂起"
-
-#: src/keep_me_awake/resources/application-window.blp:93
-msgid "Inhibit screen lock and suspend"
-msgstr "阻止屏幕锁定和挂起"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:18
-msgctxt "shortcuts section"
-msgid "General"
-msgstr "常规"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:21
-msgctxt "shortcut item title"
-msgid "Show shortcuts"
-msgstr "显示快捷键"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:26
-msgctxt "shortcut item title"
-msgid "Quit"
-msgstr "退出"
 
 #~ msgctxt "shortcuts section"
 #~ msgid "Global shortcuts"

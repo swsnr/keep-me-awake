@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-20 22:27+0100\n"
+"POT-Creation-Date: 2026-03-23 19:43+0100\n"
 "PO-Revision-Date: 2026-03-24 19:24+0000\n"
 "Last-Translator: Ricky-Tigg <ricky-tigg@noreply.codeberg.org>\n"
 "Language-Team: Finnish <https://translate.codeberg.org/projects/de-swsnr-"
@@ -21,7 +21,7 @@ msgstr ""
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
-#: src/keep_me_awake/resources/application-window.blp:10
+#: resources/application-window.blp:10
 msgid "Keep me Awake"
 msgstr "Pidä minut hereillä"
 
@@ -59,28 +59,34 @@ msgid "Idle"
 msgstr "Jouten"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgid "Update to GNOME 49."
+msgid "Update to GNOME 50."
+msgstr "Päivitä GNOME 49:ään."
+
+#: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Rewrite in Python."
 msgstr "Uudelleenkirjoitus Pythonissa."
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:39
 msgid "Drop support for global shortcuts."
 msgstr "Lopeta globaalien pikanäppäinten tuki."
 
-#: de.swsnr.keepmeawake.metainfo.xml:32
+#: de.swsnr.keepmeawake.metainfo.xml:40
 msgid "Add command line flag to inhibit."
 msgstr "Lisää komentorivilippu estämiseksi."
 
-#: de.swsnr.keepmeawake.metainfo.xml:42
+#: de.swsnr.keepmeawake.metainfo.xml:50
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr "Lisää yleisesti pätevä Super+W-pikanäppäin unen estämiseksi."
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
 "Käynnistyksen jälkeen, pysy käynnissä taustalla reagoidakseen yleisesti "
 "päteviin pikanäppäimiin."
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
@@ -88,45 +94,45 @@ msgstr ""
 "Lisää valikkokohtia sovellusten pikanäppäinten näyttämiseksi ja tuetuissa "
 "työpöytäympäristöissä, määritä yleisesti päteviä pikanäppäimiä."
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Inhibit suspend and session lock on startup."
 msgstr "Estä keskeytys ja istunnon lukitus käynnistyksen yhteydessä."
 
-#: de.swsnr.keepmeawake.metainfo.xml:46 de.swsnr.keepmeawake.metainfo.xml:66
-#: de.swsnr.keepmeawake.metainfo.xml:72
+#: de.swsnr.keepmeawake.metainfo.xml:54 de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Update translations."
 msgstr "Päivitä käännökset."
 
-#: de.swsnr.keepmeawake.metainfo.xml:59
+#: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Update to GNOME 49."
 msgstr "Päivitä GNOME 49:ään."
 
-#: de.swsnr.keepmeawake.metainfo.xml:60 de.swsnr.keepmeawake.metainfo.xml:80
-#: de.swsnr.keepmeawake.metainfo.xml:87 de.swsnr.keepmeawake.metainfo.xml:95
+#: de.swsnr.keepmeawake.metainfo.xml:68 de.swsnr.keepmeawake.metainfo.xml:88
+#: de.swsnr.keepmeawake.metainfo.xml:95 de.swsnr.keepmeawake.metainfo.xml:103
 msgid "Global shortcuts are not yet supported."
 msgstr "Yleisesti päteviä pikanäppäimiä ei vielä tueta."
 
-#: de.swsnr.keepmeawake.metainfo.xml:78
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Do not show redundant notification when quitting."
 msgstr "Älä näytä ylimääräistä ilmoitusta lopettaessasi."
 
-#: de.swsnr.keepmeawake.metainfo.xml:79
+#: de.swsnr.keepmeawake.metainfo.xml:87
 msgid "Show indicator if app was updated in background."
 msgstr "Näytä ilmaisin, jos sovellus päivitettiin taustalla."
 
-#: de.swsnr.keepmeawake.metainfo.xml:86
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr "Pidä näytön lukituksen esto päällä, vaikka pääikkuna olisi suljettu."
 
-#: de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:101
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr "Lisää pysyvä ilmoitus, kun valmiustila tai näytön lukitus on estetty."
 
-#: de.swsnr.keepmeawake.metainfo.xml:94
+#: de.swsnr.keepmeawake.metainfo.xml:102
 msgid "Correctly quit the app."
 msgstr "Sulje sovellus oikein."
 
-#: de.swsnr.keepmeawake.metainfo.xml:105
+#: de.swsnr.keepmeawake.metainfo.xml:113
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -134,47 +140,89 @@ msgstr ""
 "Lisää pääikkuna, jossa on kytkimet joko keskeytyksen tai keskeytyksen ja "
 "näytön lukituksen estämiseksi."
 
-#: de.swsnr.keepmeawake.metainfo.xml:106
+#: de.swsnr.keepmeawake.metainfo.xml:114
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "Yleisesti päteviä pikanäppäimiä ja ilmoituksia ei vielä tueta."
 
-#: de.swsnr.keepmeawake.metainfo.xml:118
+#: de.swsnr.keepmeawake.metainfo.xml:126
 msgid "Inhibit nothing"
 msgstr "Älä estä mitään"
 
-#: de.swsnr.keepmeawake.metainfo.xml:122
+#: de.swsnr.keepmeawake.metainfo.xml:130
 msgid "Inhibit suspend and screen locking"
 msgstr "Estä valmiustila ja näytön lukitus"
 
-#: src/keep_me_awake/app.py:99
+#: resources/application-window.blp:27
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr "_Lopeta"
+
+#: resources/application-window.blp:34
+msgctxt "application-window.menu.label"
+msgid "_Shortcuts"
+msgstr "_Pikanäppäimet"
+
+#: resources/application-window.blp:41
+msgctxt "application-window.menu.label"
+msgid "_About Keep me Awake"
+msgstr "_Tietoja - Pidä minut hereillä"
+
+#: resources/application-window.blp:73
+msgid "Do not inhibit screen lock and suspend"
+msgstr "Älä estä näytön lukitusta ja valmiustilaa"
+
+#: resources/application-window.blp:83
+msgid "Inhibit suspend"
+msgstr "Estä valmiustila"
+
+#: resources/application-window.blp:93
+msgid "Inhibit screen lock and suspend"
+msgstr "Estä näytön lukitus ja valmiustila"
+
+#: resources/shortcuts-dialog.blp:18
+msgctxt "shortcuts section"
+msgid "General"
+msgstr "Yleiset"
+
+#: resources/shortcuts-dialog.blp:21
+msgctxt "shortcut item title"
+msgid "Show shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: resources/shortcuts-dialog.blp:26
+msgctxt "shortcut item title"
+msgid "Quit"
+msgstr "Lopeta"
+
+#: src/keep_me_awake/app.py:139
 msgctxt "option description"
 msgid "Toggle inhibition"
 msgstr "Vaihda estoa"
 
-#: src/keep_me_awake/app.py:109
+#: src/keep_me_awake/app.py:149
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr "Valmiustila ja näytön lukitus estetty"
 
-#: src/keep_me_awake/app.py:113
+#: src/keep_me_awake/app.py:153
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 "Pidä minut hereillä estää pyynnöstäsi valmiustilan ja näytön lukituksen "
 "aktivoitumisen."
 
-#: src/keep_me_awake/app.py:118
+#: src/keep_me_awake/app.py:158
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr "Valmiustila estetty"
 
-#: src/keep_me_awake/app.py:122
+#: src/keep_me_awake/app.py:162
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Pidä minut hereillä estää pyynnöstäsi valmiustilan aktivoitumisen."
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/keep_me_awake/app.py:150
+#: src/keep_me_awake/app.py:190
 #, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
@@ -198,7 +246,7 @@ msgstr ""
 "\n"
 "{license_text}"
 
-#: src/keep_me_awake/app.py:166
+#: src/keep_me_awake/app.py:206
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr "Käännökset"
@@ -207,95 +255,53 @@ msgstr "Käännökset"
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
 #. "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
 #. Separate multiple translators with a newline, i.e. \n
-#: src/keep_me_awake/app.py:176
+#: src/keep_me_awake/app.py:216
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: src/keep_me_awake/app.py:180
+#: src/keep_me_awake/app.py:220
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr "Hyödylliset palvelut"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:191
+#: src/keep_me_awake/app.py:231
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr "Päivän kuva"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:195
+#: src/keep_me_awake/app.py:235
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr "Päivittäinen taustakuva"
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:201
+#: src/keep_me_awake/app.py:241
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr "Kytke päälle"
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:205
+#: src/keep_me_awake/app.py:245
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr "Kytke verkossasi olevat laitteet päälle"
 
-#: src/keep_me_awake/app.py:266
+#: src/keep_me_awake/app.py:306
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
 msgstr "Estä valmiustila ja joutenolo ilman pääikkunaa"
 
-#: src/keep_me_awake/app.py:312
+#: src/keep_me_awake/app.py:341
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr "Pidä minut hereillä estää pyynnöstäsi valmiustilan aktivoitumisen."
 
-#: src/keep_me_awake/main.py:79
+#: src/keep_me_awake/main.py:81
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Pidä minut hereillä"
-
-#: src/keep_me_awake/resources/application-window.blp:27
-msgctxt "application-window.menu.label"
-msgid "_Quit"
-msgstr "_Lopeta"
-
-#: src/keep_me_awake/resources/application-window.blp:34
-msgctxt "application-window.menu.label"
-msgid "_Shortcuts"
-msgstr "_Pikanäppäimet"
-
-#: src/keep_me_awake/resources/application-window.blp:41
-msgctxt "application-window.menu.label"
-msgid "_About Keep me Awake"
-msgstr "_Tietoja - Pidä minut hereillä"
-
-#: src/keep_me_awake/resources/application-window.blp:73
-msgid "Do not inhibit screen lock and suspend"
-msgstr "Älä estä näytön lukitusta ja valmiustilaa"
-
-#: src/keep_me_awake/resources/application-window.blp:83
-msgid "Inhibit suspend"
-msgstr "Estä valmiustila"
-
-#: src/keep_me_awake/resources/application-window.blp:93
-msgid "Inhibit screen lock and suspend"
-msgstr "Estä näytön lukitus ja valmiustila"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:18
-msgctxt "shortcuts section"
-msgid "General"
-msgstr "Yleiset"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:21
-msgctxt "shortcut item title"
-msgid "Show shortcuts"
-msgstr "Näytä pikanäppäimet"
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:26
-msgctxt "shortcut item title"
-msgid "Quit"
-msgstr "Lopeta"
 
 #~ msgctxt "shortcuts section"
 #~ msgid "Global shortcuts"

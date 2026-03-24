@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake.Devel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-20 22:27+0100\n"
+"POT-Creation-Date: 2026-03-23 19:43+0100\n"
 "PO-Revision-Date: 2025-11-07 21:09+0000\n"
 "Last-Translator: Ilya Mevshiy <milia20@noreply.codeberg.org>\n"
 "Language-Team: Russian <https://translate.codeberg.org/projects/de-swsnr-"
@@ -22,7 +22,7 @@ msgstr ""
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
-#: src/keep_me_awake/resources/application-window.blp:10
+#: resources/application-window.blp:10
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
 
@@ -60,33 +60,39 @@ msgid "Idle"
 msgstr "Ожидание"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
+#, fuzzy
+#| msgid "Update to GNOME 49."
+msgid "Update to GNOME 50."
+msgstr "Обновление до GNOME 49."
+
+#: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Rewrite in Python."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:31
+#: de.swsnr.keepmeawake.metainfo.xml:39
 #, fuzzy
 #| msgctxt "application-window.menu.label"
 #| msgid "Configure _global shortcuts"
 msgid "Drop support for global shortcuts."
 msgstr "Настройка _глобальных клавиш"
 
-#: de.swsnr.keepmeawake.metainfo.xml:32
+#: de.swsnr.keepmeawake.metainfo.xml:40
 msgid "Add command line flag to inhibit."
 msgstr ""
 
-#: de.swsnr.keepmeawake.metainfo.xml:42
+#: de.swsnr.keepmeawake.metainfo.xml:50
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
 msgstr ""
 "Добавлено глобальное сочетание клавиш Super+W для включения/выключения "
 "блокировки сна."
 
-#: de.swsnr.keepmeawake.metainfo.xml:43
+#: de.swsnr.keepmeawake.metainfo.xml:51
 msgid "Once started keep running in background to react to global shortcuts."
 msgstr ""
 "Будучи запущенным продолжает работать в фоне, чтобы реагировать на "
 "глобальные горячие клавиши."
 
-#: de.swsnr.keepmeawake.metainfo.xml:44
+#: de.swsnr.keepmeawake.metainfo.xml:52
 msgid ""
 "Add menu items to show application shortcuts and, in supported desktop "
 "environments, configure global shortcuts."
@@ -94,48 +100,48 @@ msgstr ""
 "Добавлены пункты в меню для отображения сочетаний клавиш приложения и, в "
 "поддерживаемых средах, настройки глобальных сочетаний клавиш."
 
-#: de.swsnr.keepmeawake.metainfo.xml:45
+#: de.swsnr.keepmeawake.metainfo.xml:53
 msgid "Inhibit suspend and session lock on startup."
 msgstr ""
 "Запрещено приостанавливать и блокировать сеанс по умолчанию при запуске."
 
-#: de.swsnr.keepmeawake.metainfo.xml:46 de.swsnr.keepmeawake.metainfo.xml:66
-#: de.swsnr.keepmeawake.metainfo.xml:72
+#: de.swsnr.keepmeawake.metainfo.xml:54 de.swsnr.keepmeawake.metainfo.xml:74
+#: de.swsnr.keepmeawake.metainfo.xml:80
 msgid "Update translations."
 msgstr "Обновлены переводы."
 
-#: de.swsnr.keepmeawake.metainfo.xml:59
+#: de.swsnr.keepmeawake.metainfo.xml:67
 msgid "Update to GNOME 49."
 msgstr "Обновление до GNOME 49."
 
-#: de.swsnr.keepmeawake.metainfo.xml:60 de.swsnr.keepmeawake.metainfo.xml:80
-#: de.swsnr.keepmeawake.metainfo.xml:87 de.swsnr.keepmeawake.metainfo.xml:95
+#: de.swsnr.keepmeawake.metainfo.xml:68 de.swsnr.keepmeawake.metainfo.xml:88
+#: de.swsnr.keepmeawake.metainfo.xml:95 de.swsnr.keepmeawake.metainfo.xml:103
 msgid "Global shortcuts are not yet supported."
 msgstr "Глобальные горячие клавиши пока не поддерживаются."
 
-#: de.swsnr.keepmeawake.metainfo.xml:78
+#: de.swsnr.keepmeawake.metainfo.xml:86
 msgid "Do not show redundant notification when quitting."
 msgstr "При выходе больше не будет появляться ненужное уведомление."
 
-#: de.swsnr.keepmeawake.metainfo.xml:79
+#: de.swsnr.keepmeawake.metainfo.xml:87
 msgid "Show indicator if app was updated in background."
 msgstr "Показывает индикатор, если приложение обновилось в фоновом режиме."
 
-#: de.swsnr.keepmeawake.metainfo.xml:86
+#: de.swsnr.keepmeawake.metainfo.xml:94
 msgid "Keep inhibiting screen lock even after the main window is closed."
 msgstr "Предотвращает блокировку экрана даже после закрытия главного окна."
 
-#: de.swsnr.keepmeawake.metainfo.xml:93
+#: de.swsnr.keepmeawake.metainfo.xml:101
 msgid "Add persistent notification when sleep or screen lock are inhibited."
 msgstr ""
 "Добавлено постоянное уведомление, когда отключены режим сна или блокировка "
 "экрана."
 
-#: de.swsnr.keepmeawake.metainfo.xml:94
+#: de.swsnr.keepmeawake.metainfo.xml:102
 msgid "Correctly quit the app."
 msgstr "Корректный выход из приложения."
 
-#: de.swsnr.keepmeawake.metainfo.xml:105
+#: de.swsnr.keepmeawake.metainfo.xml:113
 msgid ""
 "Add main window with toggles to inhibit either suspend, or suspend and "
 "screen lock."
@@ -143,45 +149,87 @@ msgstr ""
 "Добавлено главное окно с переключателями для запрета засыпания или засыпания "
 "и блокировки экрана."
 
-#: de.swsnr.keepmeawake.metainfo.xml:106
+#: de.swsnr.keepmeawake.metainfo.xml:114
 msgid "Global shortcuts and notifications are not yet supported."
 msgstr "Глобальные клавиши и уведомления пока не поддерживаются."
 
-#: de.swsnr.keepmeawake.metainfo.xml:118
+#: de.swsnr.keepmeawake.metainfo.xml:126
 msgid "Inhibit nothing"
 msgstr "Ничего не запрещает"
 
-#: de.swsnr.keepmeawake.metainfo.xml:122
+#: de.swsnr.keepmeawake.metainfo.xml:130
 msgid "Inhibit suspend and screen locking"
 msgstr "Запретить приостановку и блокировку экрана"
 
-#: src/keep_me_awake/app.py:99
+#: resources/application-window.blp:27
+msgctxt "application-window.menu.label"
+msgid "_Quit"
+msgstr "_Выход"
+
+#: resources/application-window.blp:34
+msgctxt "application-window.menu.label"
+msgid "_Shortcuts"
+msgstr "_Сочетания клавиш"
+
+#: resources/application-window.blp:41
+msgctxt "application-window.menu.label"
+msgid "_About Keep me Awake"
+msgstr "_О Keep me Awake"
+
+#: resources/application-window.blp:73
+msgid "Do not inhibit screen lock and suspend"
+msgstr ""
+
+#: resources/application-window.blp:83
+msgid "Inhibit suspend"
+msgstr ""
+
+#: resources/application-window.blp:93
+msgid "Inhibit screen lock and suspend"
+msgstr ""
+
+#: resources/shortcuts-dialog.blp:18
+msgctxt "shortcuts section"
+msgid "General"
+msgstr ""
+
+#: resources/shortcuts-dialog.blp:21
+msgctxt "shortcut item title"
+msgid "Show shortcuts"
+msgstr ""
+
+#: resources/shortcuts-dialog.blp:26
+msgctxt "shortcut item title"
+msgid "Quit"
+msgstr ""
+
+#: src/keep_me_awake/app.py:139
 msgctxt "option description"
 msgid "Toggle inhibition"
 msgstr ""
 
-#: src/keep_me_awake/app.py:109
+#: src/keep_me_awake/app.py:149
 msgctxt "notification.title"
 msgid "Suspend and screen lock inhibited"
 msgstr ""
 
-#: src/keep_me_awake/app.py:113
+#: src/keep_me_awake/app.py:153
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend and screen lock at your request."
 msgstr ""
 
-#: src/keep_me_awake/app.py:118
+#: src/keep_me_awake/app.py:158
 msgctxt "notification.title"
 msgid "Suspend inhibited"
 msgstr ""
 
-#: src/keep_me_awake/app.py:122
+#: src/keep_me_awake/app.py:162
 msgctxt "notification.body"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr ""
 
 #. Translators: This is Pango markup, be sure to escape appropriately
-#: src/keep_me_awake/app.py:150
+#: src/keep_me_awake/app.py:190
 #, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
@@ -196,7 +244,7 @@ msgid ""
 "{license_text}"
 msgstr ""
 
-#: src/keep_me_awake/app.py:166
+#: src/keep_me_awake/app.py:206
 msgctxt "about-dialog.link.label"
 msgid "Translations"
 msgstr "Переводы"
@@ -205,92 +253,50 @@ msgstr "Переводы"
 #. Translators: Add your name here, as "Jane Doe <jdoe@example.com>" or
 #. "Jane Doe https://jdoe.example.com". Mail address or URL are optional.
 #. Separate multiple translators with a newline, i.e. \n
-#: src/keep_me_awake/app.py:176
+#: src/keep_me_awake/app.py:216
 msgid "translator-credits"
 msgstr ""
 
-#: src/keep_me_awake/app.py:180
+#: src/keep_me_awake/app.py:220
 msgctxt "about-dialog.acknowledgment-section"
 msgid "Helpful services"
 msgstr ""
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:191
+#: src/keep_me_awake/app.py:231
 msgctxt "about-dialog.other-app.name"
 msgid "Picture Of The Day"
 msgstr ""
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.pictureoftheday
-#: src/keep_me_awake/app.py:195
+#: src/keep_me_awake/app.py:235
 msgctxt "about-dialog.other-app.summary"
 msgid "Your daily wallpaper"
 msgstr ""
 
 #. Translators: Use app name from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:201
+#: src/keep_me_awake/app.py:241
 msgctxt "about-dialog.other-app.name"
 msgid "Turn On"
 msgstr ""
 
 #. Translators: Use summary from https://flathub.org/apps/de.swsnr.turnon
-#: src/keep_me_awake/app.py:205
+#: src/keep_me_awake/app.py:245
 msgctxt "about-dialog.other-app.summary"
 msgid "Turn on devices in your network"
 msgstr ""
 
-#: src/keep_me_awake/app.py:266
+#: src/keep_me_awake/app.py:306
 msgctxt "portal.request-background.reason"
 msgid "Inhibit suspend and idle without a main window"
 msgstr ""
 
-#: src/keep_me_awake/app.py:312
+#: src/keep_me_awake/app.py:341
 msgctxt "inhibit-reason"
 msgid "Keep me Awake inhibits suspend at your request."
 msgstr ""
 
-#: src/keep_me_awake/main.py:79
+#: src/keep_me_awake/main.py:81
 msgctxt "application-name"
 msgid "Keep me Awake"
 msgstr "Keep me Awake"
-
-#: src/keep_me_awake/resources/application-window.blp:27
-msgctxt "application-window.menu.label"
-msgid "_Quit"
-msgstr "_Выход"
-
-#: src/keep_me_awake/resources/application-window.blp:34
-msgctxt "application-window.menu.label"
-msgid "_Shortcuts"
-msgstr "_Сочетания клавиш"
-
-#: src/keep_me_awake/resources/application-window.blp:41
-msgctxt "application-window.menu.label"
-msgid "_About Keep me Awake"
-msgstr "_О Keep me Awake"
-
-#: src/keep_me_awake/resources/application-window.blp:73
-msgid "Do not inhibit screen lock and suspend"
-msgstr ""
-
-#: src/keep_me_awake/resources/application-window.blp:83
-msgid "Inhibit suspend"
-msgstr ""
-
-#: src/keep_me_awake/resources/application-window.blp:93
-msgid "Inhibit screen lock and suspend"
-msgstr ""
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:18
-msgctxt "shortcuts section"
-msgid "General"
-msgstr ""
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:21
-msgctxt "shortcut item title"
-msgid "Show shortcuts"
-msgstr ""
-
-#: src/keep_me_awake/resources/shortcuts-dialog.blp:26
-msgctxt "shortcut item title"
-msgid "Quit"
-msgstr ""
