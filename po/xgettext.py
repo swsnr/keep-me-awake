@@ -26,7 +26,7 @@ XGETTEXT_CMD = [
 def main() -> None:
     """Run xgettext over our sources."""
     root = Path(__file__).parents[1]
-    blueprints = list((root / "src").glob("**/*.blp"))
+    blueprints = list((root / "resources").glob("**/*.blp"))
     try:
         _ = run(
             [
