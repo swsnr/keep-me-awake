@@ -77,6 +77,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
         output_directory = Path(self.build_config.directory)
         resources_out_directory = output_directory / "resources"
+        resources_out_directory.mkdir(parents=True)
 
         if os.environ.get("SKIP_BLUEPRINT") != "1":
             blueprints = list(resources_directory.glob("**/*.blp"))
