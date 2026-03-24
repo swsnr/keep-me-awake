@@ -98,8 +98,8 @@ executor = "simple"
 [tool.poe.tasks.release]
 shell = """
 set -euo pipefail
-uv version --bump stable
-version="$(uv version --short)"
+uv version --no-sync --bump stable
+version="$(uv version --no-sync --short)"
 tag="v${version}"
 sed -i \
     -e "s/version=\\"next\\"/version=\\"${version}\\"/" \
@@ -114,7 +114,7 @@ sed -i -e "/name: *keepmeawake/,\\${ s/tag: .*/tag: ${tag}/;s/commit: .*/commit:
     flatpak/de.swsnr.keepmeawake.yaml
 git add flatpak/de.swsnr.keepmeawake.yaml
 git commit -m "Update flatpak manifest for version ${version}"
-uv version --bump minor --bump dev
+env SKIP_BLUEPRINT=1 SKIP_MSGFMT=1 uv version --bump minor --bump dev
 git add .
 git commit -m "Bump to next development version"
 """
