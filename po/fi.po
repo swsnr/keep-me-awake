@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-20 22:27+0100\n"
-"PO-Revision-Date: 2025-10-16 15:09+0000\n"
+"PO-Revision-Date: 2026-03-24 19:24+0000\n"
 "Last-Translator: Ricky-Tigg <ricky-tigg@noreply.codeberg.org>\n"
 "Language-Team: Finnish <https://translate.codeberg.org/projects/de-swsnr-"
 "keepmeawake/de-swsnr-keepmeawake/fi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.3\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. Translators: Do feel free to translate the application name
 #: de.swsnr.keepmeawake.desktop:3 de.swsnr.keepmeawake.metainfo.xml:5
@@ -60,18 +60,15 @@ msgstr "Jouten"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
 msgid "Rewrite in Python."
-msgstr ""
+msgstr "Uudelleenkirjoitus Pythonissa."
 
 #: de.swsnr.keepmeawake.metainfo.xml:31
-#, fuzzy
-#| msgctxt "application-window.menu.label"
-#| msgid "Configure _global shortcuts"
 msgid "Drop support for global shortcuts."
-msgstr "Määritä _yleisesti pätevät pikanäppäimet"
+msgstr "Lopeta globaalien pikanäppäinten tuki."
 
 #: de.swsnr.keepmeawake.metainfo.xml:32
 msgid "Add command line flag to inhibit."
-msgstr ""
+msgstr "Lisää komentorivilippu estämiseksi."
 
 #: de.swsnr.keepmeawake.metainfo.xml:42
 msgid "Add global Super+W shortcut to toggle inhibiting sleep."
@@ -152,7 +149,7 @@ msgstr "Estä valmiustila ja näytön lukitus"
 #: src/keep_me_awake/app.py:99
 msgctxt "option description"
 msgid "Toggle inhibition"
-msgstr ""
+msgstr "Vaihda estoa"
 
 #: src/keep_me_awake/app.py:109
 msgctxt "notification.title"
@@ -178,18 +175,7 @@ msgstr "Pidä minut hereillä estää pyynnöstäsi valmiustilan aktivoitumisen.
 
 #. Translators: This is Pango markup, be sure to escape appropriately
 #: src/keep_me_awake/app.py:150
-#, fuzzy, python-brace-format
-#| msgctxt "about-dialog.license-text"
-#| msgid ""
-#| "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
-#| "\n"
-#| "Licensed under the terms of the EUPL 1.2. You can find official "
-#| "translations of the license text at <a href=\"{translations}"
-#| "\">{translations}</a>.\n"
-#| "\n"
-#| "The full English text follows.\n"
-#| "\n"
-#| "{license_text}"
+#, python-brace-format
 msgctxt "about-dialog.license-text"
 msgid ""
 "Copyright {copyright_name} &lt;{copyright_email}&gt;\n"
@@ -204,8 +190,9 @@ msgid ""
 msgstr ""
 "Tekijänoikeus {copyright_name} &lt;{copyright_email}&gt;\n"
 "\n"
-"Lisensoitu EUPL 1.2 :n ehtojen mukaisesti. Löydät lisenssitekstin viralliset "
-"käännökset osoitteesta <a href=\"{translations}\">{translations</a>.\n"
+"Lisensoitu EUPL 1.2 :n ehtojen mukaisesti. Löydät lisenssitekstin "
+"viralliset\n"
+"käännökset osoitteesta <a href=\"{translations}\">{translations}</a>.\n"
 "\n"
 "Koko englanninkielinen teksti on seuraavassa.\n"
 "\n"
