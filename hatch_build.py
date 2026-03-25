@@ -116,27 +116,6 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             copy(root / "de.swsnr.keepmeawake.metainfo.xml", metainfo_file)
         self._patch_app_id(metainfo_file)
 
-        # TODO: Skip editable installation!
-
-        if os.environ.get("SKIP_BLUEPRINT") != "1":
-            # No blueprints, no resources
-            self.app.display_info("Compiling Gio resources")
-            compiled_resources = output_directory / "resources.gresource"
-            _ = run(
-                [
-                    "glib-compile-resources",
-                    f"--sourcedir={resources_directory}",
-                    f"--sourcedir={resources_out_directory}",
-                    f"--target={compiled_resources}",
-                    resources_directory / "resources.gresource.xml",
-                ],
-                check=True,
-            )
-            for package in self.build_config.packages:
-                build_data["force_include"][str(compiled_resources)] = (
-                    f"{package}/{compiled_resources.name}"
-                )
-
         if os.environ.get("SKIP_MSGFMT") != "1":
             self.app.display_info("Compiling message catalogs to share/locale")
             locale_dir = Path(self.build_config.directory) / "locale"
@@ -149,6 +128,12 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
                     f"share/locale/{lang}/LC_MESSAGES/{self.app_id}.mo"
                 )
 
+        # When installing an editable version do not compile gresources and
+        # skip most of the shared data, as we don't need it in editable installs.
+        if version == "editable":
+            return
+
+        if os.environ.get("SKIP_MSGFMT") != "1":
             self.app.display_info(
                 "Copying translated desktop file to share/applications"
             )
@@ -170,6 +155,25 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             )
             self._patch_app_id(desktop_file)
             shared_data[str(desktop_file)] = f"share/applications/{self.app_id}.desktop"
+
+        if os.environ.get("SKIP_BLUEPRINT") != "1":
+            # No blueprints, no resources
+            self.app.display_info("Compiling Gio resources")
+            compiled_resources = output_directory / "resources.gresource"
+            _ = run(
+                [
+                    "glib-compile-resources",
+                    f"--sourcedir={resources_directory}",
+                    f"--sourcedir={resources_out_directory}",
+                    f"--target={compiled_resources}",
+                    resources_directory / "resources.gresource.xml",
+                ],
+                check=True,
+            )
+            for package in self.build_config.packages:
+                build_data["force_include"][str(compiled_resources)] = (
+                    f"{package}/{compiled_resources.name}"
+                )
 
         self.app.display_info("Copying metainfo to share/metainfo")
         shared_data[str(resources_out_directory / "metainfo.xml")] = (
