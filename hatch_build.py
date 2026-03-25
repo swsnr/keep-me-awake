@@ -139,11 +139,11 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
 
         if os.environ.get("SKIP_MSGFMT") != "1":
             self.app.display_info("Compiling message catalogs to share/locale")
-            mo_dir = Path(self.build_config.directory) / "mo"
-            mo_dir.mkdir(parents=True, exist_ok=True)
+            locale_dir = Path(self.build_config.directory) / "locale"
             for po_file in (Path(self.root) / "po").glob("*.po"):
                 lang = po_file.stem
-                mo_file = (mo_dir / lang).with_suffix(".mo")
+                mo_file = locale_dir / lang / "LC_MESSAGES" / f"{self.app_id}.mo"
+                mo_file.parent.mkdir(parents=True, exist_ok=True)
                 _ = run(["msgfmt", "-o", str(mo_file), str(po_file)], check=True)
                 shared_data[str(mo_file)] = (
                     f"share/locale/{lang}/LC_MESSAGES/{self.app_id}.mo"

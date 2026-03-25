@@ -36,13 +36,14 @@ def main() -> Never:
 
     from . import log
 
-    # Default to a devel build
     app_id: str
+    locale_dir: Path
     if keep_me_awake.is_installed_editable():
         log.message("Editable installation, setting up resource overlays")
         repo_dir = Path(__file__).parents[2]
         resources_dir = repo_dir / "resources"
-        generated_resources_dir = repo_dir / "dist" / "resources"
+        dist_dir = repo_dir / "dist"
+        generated_resources_dir = dist_dir / "resources"
         overlays = [
             os.environ.get("G_RESOURCE_OVERLAYS"),
             f"/de/swsnr/keepmeawake={resources_dir}",
@@ -50,6 +51,7 @@ def main() -> Never:
         ]
         os.environ["G_RESOURCE_OVERLAYS"] = os.pathsep.join(filter(None, overlays))
         app_id = "de.swsnr.keepmeawake.Devel"
+        locale_dir = dist_dir / "locale"
     else:
         # Read compiled resources
         with resources.as_file(
@@ -62,9 +64,11 @@ def main() -> Never:
             app_id = "de.swsnr.keepmeawake.Devel"
         else:
             app_id = "de.swsnr.keepmeawake"
+        prefix = (
+            Path("/app") if Xdp.Portal.running_under_flatpak() else Path(sys.prefix)
+        )
+        locale_dir = prefix / "share" / "locale"
 
-    prefix = Path("/app") if Xdp.Portal.running_under_flatpak() else Path(sys.prefix)
-    locale_dir = prefix / "share" / "locale"
     log.info(f"Loading translations from {locale_dir}")
 
     locale.setlocale(locale.LC_ALL, "")
