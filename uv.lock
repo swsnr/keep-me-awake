@@ -19,7 +19,7 @@ wheels = [
 
 [[package]]
 name = "keep-me-awake"
-version = "2.2.0.dev1"
+version = "2.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "packaging" },
