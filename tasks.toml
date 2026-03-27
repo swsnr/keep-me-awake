@@ -120,3 +120,9 @@ git commit -m "Bump to next development version"
 """
 help = "Do a release: Update version, tag, update flatpak manifest, and bump post-release"
 executor = "simple"
+
+[tool.poe.tasks.run-for-screenshot]
+cmd = "uv run --isolated --no-editable --no-dev de.swsnr.keepmeawake"
+executor = "simple"
+env = { ADW_DISABLE_PORTAL = "1", GSETTINGS_BACKEND = "memory", LC_ALL = "en_GB.UTF-8" }
+help = "Run in isolated venv with standard settings to make proper screenshots"
