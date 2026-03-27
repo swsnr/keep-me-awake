@@ -98,7 +98,7 @@ executor = "simple"
 [tool.poe.tasks.release]
 shell = """
 set -euo pipefail
-uv version --no-sync --bump stable
+uv version --no-sync --bump stable || true
 version="$(uv version --no-sync --short)"
 tag="v${version}"
 sed -i \
