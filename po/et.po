@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: de.swsnr.keepmeawake\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-23 19:43+0100\n"
-"PO-Revision-Date: 2026-03-24 09:37+0000\n"
+"PO-Revision-Date: 2026-03-27 10:57+0000\n"
 "Last-Translator: Priit Jõerüüt <jrtcdbrg@noreply.codeberg.org>\n"
 "Language-Team: Estonian <https://translate.codeberg.org/projects/de-swsnr-"
 "keepmeawake/de-swsnr-keepmeawake/et/>\n"
@@ -59,10 +59,8 @@ msgid "Idle"
 msgstr "Jõude"
 
 #: de.swsnr.keepmeawake.metainfo.xml:30
-#, fuzzy
-#| msgid "Update to GNOME 49."
 msgid "Update to GNOME 50."
-msgstr "Uuendus kasutab nüüd GNOME 49 teeke."
+msgstr "Uuendus kasutab nüüd GNOME 50 teeke."
 
 #: de.swsnr.keepmeawake.metainfo.xml:38
 msgid "Rewrite in Python."
