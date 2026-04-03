@@ -8,6 +8,7 @@
 
 import asyncio
 import weakref
+from collections.abc import Awaitable
 from dataclasses import dataclass
 from gettext import gettext as _
 from gettext import pgettext as C_
@@ -294,21 +295,24 @@ The full English text follows.
         return False
 
     async def _ask_background(self) -> None:
-        # TODO: async not typed correctly: https://github.com/pygobject/pygobject-stubs/issues/220
         parent = None
         window = self.get_active_window()
         if window:
             parent = XdpGtk4.parent_new_gtk(window)
-        success = await self._portal.request_background(  # pyright: ignore[reportUnknownVariableType, reportGeneralTypeIssues]
-            parent,
-            C_(
-                "portal.request-background.reason",
-                "Inhibit suspend and idle without a main window",
+        # TODO: async not typed correctly: https://github.com/pygobject/pygobject-stubs/issues/220
+        success = await cast(
+            Awaitable[bool],
+            self._portal.request_background(
+                parent,
+                C_(
+                    "portal.request-background.reason",
+                    "Inhibit suspend and idle without a main window",
+                ),
+                [],
+                Xdp.BackgroundFlags.NONE,
             ),
-            None,  # pyright: ignore[reportArgumentType]
-            Xdp.BackgroundFlags.NONE,
         )
-        if not cast(bool, success):
+        if success:
             log.warn("Failed to request background permission!")
             pass
 

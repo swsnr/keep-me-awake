@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Never
 
 import gi
-import gi.events  # pyright: ignore[reportMissingImports]
+import gi.events
 from packaging.version import Version
 
 import keep_me_awake
@@ -100,5 +100,5 @@ def main() -> Never:
     #
     # We also have to ignore typing here because for some reason pyright doesn't find
     # the gi.events module.
-    with gi.events.GLibEventLoopPolicy():  # pyright: ignore[reportUnknownMemberType]
+    with gi.events.GLibEventLoopPolicy():
         sys.exit(app.run(sys.argv))
