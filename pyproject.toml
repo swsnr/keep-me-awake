@@ -19,7 +19,13 @@ issues = "https://codeberg.org/swsnr/keep-me-awake/issues"
 "de.swsnr.keepmeawake" = "keep_me_awake.main:main"
 
 [dependency-groups]
-dev = ["pygobject-stubs>=2.17.0", "hatchling", "poethepoet>=0.42.1", "ruff"]
+dev = [
+    "pygobject-stubs>=2.17.0",
+    "hatchling",
+    "poethepoet>=0.42.1",
+    "ruff",
+    "pyrefly>=0.59.1",
+]
 flatpak-build = ["hatchling"]
 
 [build-system]
@@ -31,12 +37,22 @@ build-backend = "hatchling.build"
 [tool.poe]
 include = "tasks.toml"
 
-[tool.pyright]
-include = ["src/", "po/*.py", "hatch_build.py"]
-typeCheckingMode = "strict"
-reportMissingModuleSource = false
-reportUninitializedInstanceVariable = true
-reportMissingSuperCall = true
+[tool.pyrefly]
+project-includes = ["src/", "po/*.py", "hatch_build.py"]
+
+[tool.pyrefly.errors]
+missing-override-decorator = "error"
+implicitly-defined-attribute = "error"
+implicit-any = "error"
+unannotated-attribute = "error"
+unannotated-parameter = "error"
+unannotated-return = "error"
+non-exhaustive-match = "error"
+redundant-condition = "error"
+unreachable = "error"
+unresolvable-dunder-all = "error"
+untyped-import = "error"
+unused-ignore = "error"
 
 [tool.ruff.lint]
 select = [

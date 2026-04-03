@@ -61,7 +61,7 @@ class CustomBuildHook(BuildHookInterface[BuilderConfig]):
             return
 
         app_id = "de.swsnr.keepmeawake.Devel"
-        if version != "editable" and not Version(self.metadata.version).is_devrelease:  # pyright: ignore[reportUnknownMemberType]
+        if version != "editable" and not Version(self.metadata.version).is_devrelease:
             app_id = "de.swsnr.keepmeawake"
 
         root = Path(self.root)
