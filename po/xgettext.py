@@ -10,7 +10,7 @@
 from pathlib import Path
 from subprocess import run
 
-APPID = "{APPID}"
+APPID = "de.swsnr.keepmeawake"
 
 XGETTEXT_CMD = [
     "xgettext",
