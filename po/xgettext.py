@@ -10,9 +10,11 @@
 from pathlib import Path
 from subprocess import run
 
+APPID = "{APPID}"
+
 XGETTEXT_CMD = [
     "xgettext",
-    "--package-name=de.swsnr.keepmeawake",
+    f"--package-name={APPID}",
     "--foreign-user",
     "--copyright-holder=Sebastian Wiesner <sebastian@swsnr.de>",
     "--sort-by-file",
@@ -41,11 +43,11 @@ def main() -> None:
         _ = run(
             [
                 *XGETTEXT_CMD,
-                "--output=po/de.swsnr.keepmeawake.pot",
+                f"--output=po/{APPID}.pot",
                 "--generated=po/.blp.pot",
                 *(f"--reference={p}" for p in blueprints),
-                "de.swsnr.keepmeawake.metainfo.xml",
-                "de.swsnr.keepmeawake.desktop",
+                f"{APPID}.metainfo.xml",
+                f"{APPID}.desktop",
                 "po/.blp.pot",
                 *(str(p.relative_to(root)) for p in (root / "src").glob("**/*.py")),
             ],
